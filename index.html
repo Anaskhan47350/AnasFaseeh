@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to NEET Prep Notes by Anas Faseeh</title>
+  <style>
+    body {
+      background-color: #f4f4f4;
+      font-family: Arial, sans-serif;
+      color: #333;
+      text-align: center;
+      padding: 30px;
+      position: relative;
+    }
+
+    h1 {
+      color: #2c3e50;
+      font-size: 40px;
+    }
+
+    p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    #datetime {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    #clock {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 100px;
+      height: 100px;
+      border: 6px solid #2c3e50;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .hand {
+      position: absolute;
+      width: 50%;
+      height: 2px;
+      background: #2c3e50;
+      top: 50%;
+      transform-origin: 100%;
+      transform: rotate(90deg);
+    }
+
+    #visitor-box {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #2c3e50;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .hamburger div {
+      width: 30px;
+      height: 3px;
+      background-color: #2c3e50;
+      margin: 6px 0;
+    }
+
+    .menu {
+      display: none;
+      position: fixed;
+      top: 60px;
+      left: 20px;
+      background-color: #2c3e50;
+      color: white;
+      padding: 10px;
+      border-radius: 6px;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .menu a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Real-time Date and Time -->
+  <div id="datetime"></div>
+
+  <!-- Analog Clock -->
+  <div id="clock">
+    <div id="hour" class="hand" style="height: 3px;"></div>
+    <div id="minute" class="hand" style="height: 2px;"></div>
+    <div id="second" class="hand" style="background: red;"></div>
+  </div>
+
+  <!-- Hamburger Menu -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <div class="menu" id="menu">
+    <p><strong>Contact Me</strong></p>
+    <p>📷 Instagram: <a href="https://instagram.com/anas.khan_alig" target="_blank">@anas.khan_alig</a></p>
+    <p>📧 GMail: <a href="mailto:anaskhankhan47350@gmail.com">anaskhankhan47350@gmail.com</a></p>
+  </div>
+
+  <h1>Welcome to NEET Prep Notes</h1>
+  <h2>by Anas Faseeh</h2>
+
+  <p>
+    Preparing for NEET can be challenging — but the right guidance and study materials can make all the difference.
+    This website is created by <strong>Anas Faseeh</strong> with the goal of providing concise, high-quality, and easy-to-understand notes
+    for all NEET aspirants. Whether you're focusing on Physics, Chemistry, or Biology, you'll find resources here designed
+    to help you revise smart and perform your best.
+  </p>
+
+  <p>
+    All notes are carefully organized chapter-wise, based on the latest NCERT syllabus and NEET trends.
+    Download, revise, and excel — completely free.
+  </p>
+
+  <p>
+    <a href="notes.html">Start Exploring Notes &rarr;</a>
+  </p>
+
+  <!-- Visitor Box -->
+  <div id="visitor-box">
+    You are visitor #<span id="visitor-count">1</span>
+  </div>
+
+  <script>
+    // Real-time Date and Time
+    function updateDateTime() {
+      const now = new Date();
+      document.getElementById("datetime").textContent = "Current Date & Time: " + now.toLocaleString();
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+    // Analog Clock
+    function updateClock() {
+      const now = new Date();
+      const sec = now.getSeconds();
+      const min = now.getMinutes();
+      const hr = now.getHours();
+      document.getElementById("second").style.transform = `rotate(${sec * 6}deg)`;
+      document.getElementById("minute").style.transform = `rotate(${min * 6}deg)`;
+      document.getElementById("hour").style.transform = `rotate(${hr * 30 + min / 2}deg)`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Visitor Counter (local simulation)
+    let count = localStorage.getItem("visitorCount") || 1;
+    document.getElementById("visitor-count").textContent = count;
+    localStorage.setItem("visitorCount", parseInt(count) + 1);
+
+    // Hamburger Menu Toggle
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+  </script>
+
+</body>
+</html>

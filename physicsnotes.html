@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Physics Notes</title>
+  <style>
+    body {
+      background-color: #995566;
+      font-family: Arial, sans-serif;
+      color: #ffffff;
+      text-align: center;
+      padding-bottom: 80px;
+    }
+
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    #datetime {
+      font-size: 16px;
+      margin: 20px 0;
+    }
+
+    hr {
+      width: 60%;
+      margin: 10px auto;
+      border: 0.5px solid #ffffff55;
+    }
+
+    .back-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ffffff;
+      color: #995566;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .back-button:hover {
+      background-color: #ffdada;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="datetime"></div>
+
+  <p>Click here for <a href="ElectromagneticInductionBy_Gopendra_Sir.html">EMI by Gopendra Sir</a></p><hr>
+  <p>Click here for <a href="ElectromagneticWaves_By_Gopendra_Sir.html">EMW by Gopendra Sir</a></p><hr>
+  <p>Click here for <a href="Electrostatics&GaussLawBy_Gopendra_Sir.html">Electrostatics and Gauss Law by Gopendra Sir</a></p><hr>
+  <p>Click here for <a href="GraphBy_Jha_Sir.html">Graphs by Jha Sir</a></p><hr>
+  <p>Click here for <a href="NuclearPhysicsBy_BIMAL_ANAND_SIR.html">Nuclear Physics by Bimal Anand Sir</a></p><hr>
+  <p>Click here for <a href="ProjectileMotionBy_Bimal_Anand_Sir.html">Projectile Motion by Bimal Anand Sir</a></p><hr>
+  <p>Click here for <a href="RotationalMotionBy_Bimal_Anand_Sir.html">Rotational Motion by Bimal Anand Sir</a></p><hr>
+  <p>Click here for <a href="SemiconductorBy_Bimal_Anand_Sir.html">Semiconductor by Bimal Anand Sir</a></p><hr>
+  <p>Click here for <a href="ThermophysicsBy_Bimal_Anand_Sir.html">Thermophysics by Bimal Anand Sir</a></p><hr>
+  <p>Click here for <a href="UnitDimension&MeasurementBy_Gopendra_Sir.html">Unit, Dimensions and Measurement by Gopendra Sir</a></p><hr>
+  <p>Click here for <a href="WavesBy_Gopendra_Sir.html">Waves by Gopendra Sir</a></p><hr>
+  <p>Click here for <a href="AlternatingCurrentBy_Gopendra_Sir.html">Alternating Current by Gopendra Sir</a></p><hr>
+  <p>Click here for <a href="CentreOfMassBy_Bimal_Anand_Sir.html">Center of Mass by Bimal Anand Sir</a></p><hr>
+  <p>Click here for <a href="CapacitorBy_Gopendra_Sir.html">Capacitor by Gopendra Sir</a></p><hr>
+  <p>Click here for <a href="MagnetismBy_Gopendra_Sir.html">Magnetism by Gopendra Sir</a></p><hr>
+
+  <a href="notes.html" class="back-button">⬅ Back</a>
+
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      document.getElementById("datetime").textContent = "Current Date & Time: " + now.toLocaleString();
+    }
+
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+  </script>
+
+</body>
+</html>

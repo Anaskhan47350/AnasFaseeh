@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Biology Notes</title>
+  <style>
+    body {
+      background-color: #995566;
+      font-family: Arial, sans-serif;
+      color: #ffffff;
+      text-align: center;
+      padding-bottom: 80px;
+    }
+
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    #datetime {
+      font-size: 16px;
+      margin: 20px 0;
+      color: #ffffff;
+    }
+
+    hr {
+      width: 60%;
+      margin: 10px auto;
+      border: 0.5px solid #ffffff44;
+    }
+
+    .back-button {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #ffffff;
+      color: #995566;
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+
+    .back-button:hover {
+      background-color: #ffdada;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="datetime"></div>
+
+  <p>Click here for <a href="BodyFluids&CirculationBy_Pandey_Sir.html">Body Fluids & Circulation by Pandey Sir</a></p><hr>
+  <p>Click here for <a href="Breathing&GaseousExchangeBy_Pandey_Sir.html">Breathing & Gaseous Exchange by Pandey Sir</a></p><hr>
+  <p>Click here for <a href="ChemicalControl&CoordinationBy_PANDEY_SIR.html">Chemical Control & Coordination by Pandey Sir</a></p><hr>
+  <p>Click here for <a href="EvolutionBy_Pandey_Sir.html">Evolution by Pandey Sir</a></p><hr>
+  <p>Click here for <a href="HumanHealth&DieseaseBy_PandeySir.html">Human Health & Disease by Pandey Sir</a></p><hr>
+  <p>Click here for <a href="Locomotion&MovementBy_Pandey_Sir.html">Locomotion & Movement by Pandey Sir</a></p><hr>
+  <p>Click here for <a href="NeuralControl&CoordinationBy_Pandey_Sir.html">Neural Control & Coordination by Pandey Sir</a></p><hr>
+  <p>Click here for <a href="NutritionDigestion&AbsorptionBy_Pandey_Sir.html">Nutrition & Digestion by Pandey Sir</a></p><hr>
+  <p>Click here for <a href="Osmoregulation&ExcretionBy_Pandey_Sir.html">Osmoregulation & Excretion by Pandey Sir</a></p><hr>
+  <p>Click here for <a href="ReproductionBy_Pandey_Sir.html">Reproduction by Pandey Sir</a></p><hr>
+  <p>Click here for <a href="ReproductiveHealthBy_Pandey_Sir.html">Reproductive Health by Pandey Sir</a></p><hr>
+  <p>Click here for <a href="StructuralOrganisationOfAnimalsCockroach&FrogBy_Pandey_Sir.html">Structural Organisation of Animals, Cockroach & Frog by Pandey Sir</a></p><hr>
+
+  <a href="notes.html" class="back-button">⬅ Back</a>
+
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      document.getElementById("datetime").textContent = "Current Date & Time: " + now.toLocaleString();
+    }
+
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+  </script>
+
+</body>
+</html>
