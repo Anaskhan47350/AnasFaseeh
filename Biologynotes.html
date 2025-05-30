@@ -11,26 +11,29 @@
       padding-bottom: 80px;
     }
 
-    a {
-      color: rgb(9, 9, 9);
-      text-decoration: none;
-      font-size: 18px;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
     #datetime {
       font-size: 16px;
       margin: 20px 0;
       color: #ffffff;
     }
 
-    hr {
-      width: 60%;
-      margin: 10px auto;
-      border: 0.5px solid #ffffff44;
+    select, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    button {
+      background-color: #ffffff;
+      color: #995566;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ffdada;
     }
 
     .back-button {
@@ -55,18 +58,25 @@
 
   <div id="datetime"></div>
 
-  <p>Click here for <a href="BodyFluids&CirculationBy_Pandey_Sir.html">Body Fluids & Circulation by Pandey Sir</a></p><hr>
-  <p>Click here for <a href="Breathing&GaseousExchangeBy_Pandey_Sir.html">Breathing & Gaseous Exchange by Pandey Sir</a></p><hr>
-  <p>Click here for <a href="ChemicalControl&CoordinationBy_PANDEY_SIR.html">Chemical Control & Coordination by Pandey Sir</a></p><hr>
-  <p>Click here for <a href="EvolutionBy_Pandey_Sir.html">Evolution by Pandey Sir</a></p><hr>
-  <p>Click here for <a href="HumanHealth&DieseaseBy_PandeySir.html">Human Health & Disease by Pandey Sir</a></p><hr>
-  <p>Click here for <a href="Locomotion&MovementBy_Pandey_Sir.html">Locomotion & Movement by Pandey Sir</a></p><hr>
-  <p>Click here for <a href="NeuralControl&CoordinationBy_Pandey_Sir.html">Neural Control & Coordination by Pandey Sir</a></p><hr>
-  <p>Click here for <a href="NutritionDigestion&AbsorptionBy_Pandey_Sir.html">Nutrition & Digestion by Pandey Sir</a></p><hr>
-  <p>Click here for <a href="Osmoregulation&ExcretionBy_Pandey_Sir.html">Osmoregulation & Excretion by Pandey Sir</a></p><hr>
-  <p>Click here for <a href="ReproductionBy_Pandey_Sir.html">Reproduction by Pandey Sir</a></p><hr>
-  <p>Click here for <a href="ReproductiveHealthBy_Pandey_Sir.html">Reproductive Health by Pandey Sir</a></p><hr>
-  <p>Click here for <a href="StructuralOrganisationOfAnimalsCockroach&FrogBy_Pandey_Sir.html">Structural Organisation of Animals, Cockroach & Frog by Pandey Sir</a></p><hr>
+  <h2>Select a Biology Topic:</h2>
+
+  <select id="topic-select">
+    <option value="">-- Select a topic --</option>
+    <option value="BodyFluids&CirculationBy_Pandey_Sir.html">Body Fluids & Circulation</option>
+    <option value="Breathing&GaseousExchangeBy_Pandey_Sir.html">Breathing & Gaseous Exchange</option>
+    <option value="ChemicalControl&CoordinationBy_PANDEY_SIR.html">Chemical Control & Coordination</option>
+    <option value="EvolutionBy_Pandey_Sir.html">Evolution</option>
+    <option value="HumanHealth&DieseaseBy_PandeySir.html">Human Health & Disease</option>
+    <option value="Locomotion&MovementBy_Pandey_Sir.html">Locomotion & Movement</option>
+    <option value="NeuralControl&CoordinationBy_Pandey_Sir.html">Neural Control & Coordination</option>
+    <option value="NutritionDigestion&AbsorptionBy_Pandey_Sir.html">Nutrition & Digestion</option>
+    <option value="Osmoregulation&ExcretionBy_Pandey_Sir.html">Osmoregulation & Excretion</option>
+    <option value="ReproductionBy_Pandey_Sir.html">Reproduction</option>
+    <option value="ReproductiveHealthBy_Pandey_Sir.html">Reproductive Health</option>
+    <option value="StructuralOrganisationOfAnimalsCockroach&FrogBy_Pandey_Sir.html">Structural Organisation of Animals (Cockroach & Frog)</option>
+  </select>
+  <br>
+  <button onclick="goToTopic()">Go to Topic</button>
 
   <a href="notes.html" class="back-button">⬅ Back</a>
 
@@ -74,6 +84,16 @@
     function updateDateTime() {
       const now = new Date();
       document.getElementById("datetime").textContent = "Current Date & Time: " + now.toLocaleString();
+    }
+
+    function goToTopic() {
+      const select = document.getElementById("topic-select");
+      const selectedValue = select.value;
+      if (selectedValue) {
+        window.location.href = selectedValue;
+      } else {
+        alert("Please select a topic first.");
+      }
     }
 
     updateDateTime();
