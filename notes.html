@@ -1,44 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Combined Notes - Physics, Chemistry, PYP</title>
+  <title>Notes</title>
   <style>
     body {
       background-color: #995566;
       font-family: Arial, sans-serif;
       color: #ffffff;
       text-align: center;
-      padding-top: 60px;
-      padding-bottom: 80px;
     }
-
     #datetime {
-      position: fixed;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
       font-size: 16px;
+      margin: 20px 0;
     }
-
     select, button {
       padding: 10px;
       font-size: 16px;
       margin: 10px;
-      border-radius: 6px;
+      border-radius: 5px;
       border: none;
     }
-
     button {
       background-color: #ffffff;
       color: #995566;
       font-weight: bold;
       cursor: pointer;
     }
-
     button:hover {
-      background-color: #ffdada;
+      background-color: #ffdddd;
     }
-
     .back-button {
       position: fixed;
       bottom: 20px;
@@ -47,13 +37,11 @@
       color: #995566;
       padding: 10px 15px;
       border-radius: 5px;
-      text-decoration: none;
       font-weight: bold;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      text-decoration: none;
     }
-
     .back-button:hover {
-      background-color: #ffdada;
+      background-color: #ffdddd;
     }
   </style>
 </head>
@@ -61,76 +49,18 @@
 
   <div id="datetime"></div>
 
-  <h2>Choose a Category</h2>
-
-  <select id="notes-select">
-    <option value="">-- Select a note --</option>
-
-    <!-- Physics Notes -->
-    <optgroup label="Physics Notes">
-      <option value="ElectromagneticInductionBy_Gopendra_Sir.html">EMI by Gopendra Sir</option>
-      <option value="ElectromagneticWaves_By_Gopendra_Sir.html">EMW by Gopendra Sir</option>
-      <option value="Electrostatics&GaussLawBy_Gopendra_Sir.html">Electrostatics and Gauss Law by Gopendra Sir</option>
-      <option value="GraphBy_Jha_Sir.html">Graphs by Jha Sir</option>
-      <option value="NuclearPhysicsBy_BIMAL_ANAND_SIR.html">Nuclear Physics by Bimal Anand Sir</option>
-      <option value="ProjectileMotionBy_Bimal_Anand_Sir.html">Projectile Motion by Bimal Anand Sir</option>
-      <option value="RotationalMotionBy_Bimal_Anand_Sir.html">Rotational Motion by Bimal Anand Sir</option>
-      <option value="SemiconductorBy_Bimal_Anand_Sir.html">Semiconductor by Bimal Anand Sir</option>
-      <option value="ThermophysicsBy_Bimal_Anand_Sir.html">Thermophysics by Bimal Anand Sir</option>
-      <option value="UnitDimension&MeasurementBy_Gopendra_Sir.html">Unit, Dimensions and Measurement by Gopendra Sir</option>
-      <option value="WavesBy_Gopendra_Sir.html">Waves by Gopendra Sir</option>
-      <option value="AlternatingCurrentBy_Gopendra_Sir.html">Alternating Current by Gopendra Sir</option>
-      <option value="CentreOfMassBy_Bimal_Anand_Sir.html">Center of Mass by Bimal Anand Sir</option>
-      <option value="CapacitorBy_Gopendra_Sir.html">Capacitor by Gopendra Sir</option>
-      <option value="MagnetismBy_Gopendra_Sir.html">Magnetism by Gopendra Sir</option>
-    </optgroup>
-
-    <!-- Chemistry Notes -->
-    <optgroup label="Chemistry Notes">
-      <option value="AlcoholsPhenols&EthersBy_Tiwari_Sir.html">Alcohols, Phenols & Ethers by Tiwari Sir</option>
-      <option value="AldehydesKetones&CarboxylicAcidsBy_Tiwari_Sir.html">Aldehydes, Ketones & Carboxylic Acids by Tiwari Sir</option>
-      <option value="Amines&PurificationOfOrganicCompoundsBy_Tiwari_Sir.html">Amines & Purification of Organic Compounds by Tiwari Sir</option>
-      <option value="ChemicalBondingBy_Rajeev_Sir.html">Chemical Bonding by Rajeev Sir</option>
-      <option value="ChemicalKineticsBy_Pathak_Sir.html">Chemical Kinetics by Pathak Sir</option>
-      <option value="CoordinationCompoundBy_RAJEEV_SIR.html">Coordination Compounds by Rajeev Sir</option>
-      <option value="GOCBy_OP_Sir.html">General Organic Chemistry by OP Sir</option>
-      <option value="HaloalkaneHaloarenesBy_Tiwari_Sir.html">Haloalkane & Haloarenes by Tiwari Sir</option>
-      <option value="HydrocarbonsBy_Tiwari_Sir.html">Hydrocarbons by Tiwari Sir</option>
-      <option value="InorganicReactionsBy_Sandeep_Dan_Sir.html">Inorganic Reactions by Sandeep Dan Sir</option>
-      <option value="IsomerismBy_OP_Sir.html">Isomerism by OP Sir</option>
-      <option value="PeriodicPropertiesBy_Rajeev_Sir.html">Periodic Properties by Rajeev Sir</option>
-      <option value="SaltAnalysisBy_RAJEEV_SIR.html">Salt Analysis by Rajeev Sir</option>
-      <option value="SolutionBy_OP_Sir.html">Solution by OP Sir</option>
-    </optgroup>
-
-    <!-- NEET PYP -->
-    <optgroup label="NEET Previous Year Papers">
-      <option value="NEET 2015.html">NEET 2015 Question paper</option>
-      <option value="NEET 2015 Answer key.html">NEET 2015 Answer key</option>
-      <option value="NEET 2016.html">NEET 2016 Question Paper</option>
-      <option value="NEET 2016 Answer key.html">NEET 2016 Answer key</option>
-      <option value="NEET 2017.html">NEET 2017 Question Paper</option>
-      <option value="NEET 2018.html">NEET 2018 Question Paper</option>
-      <option value="NEET 2018 Answer key.html">NEET 2018 Answer key</option>
-      <option value="NEET 2019.html">NEET 2019 Question Paper</option>
-      <option value="NEET 2019 Answer key.html">NEET 2019 Answer key</option>
-      <option value="NEET 2020.html">NEET 2020 Question Paper</option>
-      <option value="NEET 2020 answer key.html">NEET 2020 Answer key</option>
-      <option value="NEET 2021.html">NEET 2021 Question Paper</option>
-      <option value="NEET 2021 Answer Key.html">NEET 2021 Answer Key</option>
-      <option value="NEET 2022.html">NEET 2022 Question Paper</option>
-      <option value="NEET 2022 Answer key.html">NEET 2022 Answer key</option>
-      <option value="NEET 2023.html">NEET 2023 Question Paper</option>
-      <option value="NEET 2023 Answer Key.html">NEET 2023 Answer Key</option>
-      <option value="NEET 2024.html">NEET 2024 Question Paper</option>
-      <option value="NEET 2024 Answer Key.html">NEET 2024 Answer Key</option>
-    </optgroup>
+  <h2>Select the subject to view notes:</h2>
+  <select id="subject-select">
+    <option value="">-- Select a subject --</option>
+    <option value="Biologynotes.html">Biology</option>
+    <option value="ChemistryNotes.html">Chemistry</option>
+    <option value="physicsnotes.html">Physics</option>
+    <option value="previousyearpaper.html">Previous Year Papers</option>
   </select>
-
   <br>
-  <button onclick="goToNote()">Go to Notes</button>
+  <button onclick="goToNotes()">Go to Notes</button>
 
-  <a href="notes.html" class="back-button">⬅ Back</a>
+  <a href="index.html" class="back-button">⬅ Back</a>
 
   <script>
     function updateDateTime() {
@@ -138,13 +68,13 @@
       document.getElementById("datetime").textContent = "Current Date & Time: " + now.toLocaleString();
     }
 
-    function goToNote() {
-      const select = document.getElementById("notes-select");
+    function goToNotes() {
+      const select = document.getElementById("subject-select");
       const selectedValue = select.value;
       if (selectedValue) {
         window.location.href = selectedValue;
       } else {
-        alert("Please select a topic.");
+        alert("Please select a subject first.");
       }
     }
 
