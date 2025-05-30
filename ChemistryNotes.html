@@ -8,19 +8,23 @@
       font-family: Arial, sans-serif;
       color: #ffffff;
       text-align: center;
+      padding-top: 60px;
       padding-bottom: 80px;
     }
 
     #datetime {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
       font-size: 16px;
-      margin: 20px 0;
     }
 
     select, button {
       padding: 10px;
       font-size: 16px;
       margin: 10px;
-      border-radius: 5px;
+      border-radius: 6px;
       border: none;
     }
 
@@ -57,10 +61,10 @@
 
   <div id="datetime"></div>
 
-  <h2>Select a Chemistry Topic:</h2>
+  <h2>Select Chemistry Topic</h2>
 
-  <select id="topic-select">
-    <option value="">-- Select a topic --</option>
+  <select id="notes-select">
+    <option value="">-- Choose a topic --</option>
     <option value="AlcoholsPhenols&EthersBy_Tiwari_Sir.html">Alcohols, Phenols & Ethers</option>
     <option value="AldehydesKetones&CarboxylicAcidsBy_Tiwari_Sir.html">Aldehydes, Ketones & Carboxylic Acids</option>
     <option value="Amines&PurificationOfOrganicCompoundsBy_Tiwari_Sir.html">Amines & Purification of Organic Compounds</option>
@@ -68,4 +72,4 @@
     <option value="ChemicalKineticsBy_Pathak_Sir.html">Chemical Kinetics</option>
     <option value="CoordinationCompoundBy_RAJEEV_SIR.html">Coordination Compounds</option>
     <option value="GOCBy_OP_Sir.html">General Organic Chemistry</option>
-    <option value="HaloalkaneHaloarenesBy_Tiwari_Sir.html">Haloalkane & Haloarenes
+    <option value
