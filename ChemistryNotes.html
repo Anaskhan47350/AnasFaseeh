@@ -65,11 +65,46 @@
 
   <select id="notes-select">
     <option value="">-- Choose a topic --</option>
-    <option value="AlcoholsPhenols&EthersBy_Tiwari_Sir.html">Alcohols, Phenols & Ethers</option>
-    <option value="AldehydesKetones&CarboxylicAcidsBy_Tiwari_Sir.html">Aldehydes, Ketones & Carboxylic Acids</option>
-    <option value="Amines&PurificationOfOrganicCompoundsBy_Tiwari_Sir.html">Amines & Purification of Organic Compounds</option>
-    <option value="ChemicalBondingBy_Rajeev_Sir.html">Chemical Bonding</option>
-    <option value="ChemicalKineticsBy_Pathak_Sir.html">Chemical Kinetics</option>
-    <option value="CoordinationCompoundBy_RAJEEV_SIR.html">Coordination Compounds</option>
-    <option value="GOCBy_OP_Sir.html">General Organic Chemistry</option>
-    <option value
+    <option value="AlcoholsPhenols&EthersBy_Tiwari_Sir.html">Alcohols, Phenols & Ethers by Tiwari Sir</option>
+    <option value="AldehydesKetones&CarboxylicAcidsBy_Tiwari_Sir.html">Aldehydes, Ketones & Carboxylic Acids by Tiwari Sir</option>
+    <option value="Amines&PurificationOfOrganicCompoundsBy_Tiwari_Sir.html">Amines & Purification of Organic Compounds by Tiwari Sir</option>
+    <option value="ChemicalBondingBy_Rajeev_Sir.html">Chemical Bonding by Rajeev Sir</option>
+    <option value="ChemicalKineticsBy_Pathak_Sir.html">Chemical Kinetics by Pathak Sir</option>
+    <option value="CoordinationCompoundBy_RAJEEV_SIR.html">Coordination Compounds by Rajeev Sir</option>
+    <option value="GOCBy_OP_Sir.html">General Organic Chemistry by OP Sir</option>
+    <option value="HaloalkaneHaloarenesBy_Tiwari_Sir.html">Haloalkane & Haloarenes by Tiwari Sir</option>
+    <option value="HydrocarbonsBy_Tiwari_Sir.html">Hydrocarbons by Tiwari Sir</option>
+    <option value="InorganicReactionsBy_Sandeep_Dan_Sir.html">Inorganic Reactions by Sandeep Dan Sir</option>
+    <option value="IsomerismBy_OP_Sir.html">Isomerism by OP Sir</option>
+    <option value="PeriodicPropertiesBy_Rajeev_Sir.html">Periodic Properties by Rajeev Sir</option>
+    <option value="SaltAnalysisBy_RAJEEV_SIR.html">Salt Analysis by Rajeev Sir</option>
+    <option value="SolutionBy_OP_Sir.html">Solution by OP Sir</option>
+  </select>
+
+  <br>
+  <button onclick="goToNote()">Go to Notes</button>
+
+  <a href="notes.html" class="back-button">⬅ Back</a>
+
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      document.getElementById("datetime").textContent = "Current Date & Time: " + now.toLocaleString();
+    }
+
+    function goToNote() {
+      const select = document.getElementById("notes-select");
+      const selectedValue = select.value;
+      if (selectedValue) {
+        window.location.href = selectedValue;
+      } else {
+        alert("Please select a topic.");
+      }
+    }
+
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+  </script>
+
+</body>
+</html>
