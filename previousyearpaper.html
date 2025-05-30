@@ -8,24 +8,7 @@
       color: #ffffff;
       font-family: Arial, sans-serif;
       padding-top: 60px;
-    }
-
-    a {
-      color: rgb(9, 9, 9);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    p {
       text-align: center;
-      font-size: 18px;
-    }
-
-    hr {
-      width: 60%;
     }
 
     #datetime {
@@ -37,6 +20,25 @@
       font-size: 16px;
     }
 
+    select, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+      border-radius: 6px;
+      border: none;
+    }
+
+    button {
+      background-color: #ffffff;
+      color: #995566;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e0e0e0;
+    }
+
     #back-button {
       position: fixed;
       bottom: 20px;
@@ -45,55 +47,4 @@
       color: #995566;
       padding: 10px 20px;
       border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    #back-button:hover {
-      background-color: #e0e0e0;
-    }
-  </style>
-</head>
-<body>
-
-  <div id="datetime"></div>
-
-  <p>Click here for <a href="NEET 2015.html">NEET 2015 Question paper</a><hr></p>
-  <p>Click here for <a href="NEET 2015 Answer key.html">NEET 2015 Answer key</a><hr></p>
-  <p>Click here for <a href="NEET 2016.html">NEET 2016 Question Paper</a><hr></p>
-  <p>Click here for <a href="NEET 2016 Answer key.html">NEET 2016 Answer key</a><hr></p>
-  <p>Click here for <a href="NEET 2017.html">NEET 2017 Question Paper</a><hr></p>
-  <p>Click here for <a href="NEET 2018.html">NEET 2018 Question Paper</a><hr></p>
-  <p>Click here for <a href="NEET 2018 Answer key.html">NEET 2018 Answer key</a><hr></p>
-  <p>Click here for <a href="NEET 2019.html">NEET 2019 Question Paper</a><hr></p>
-  <p>Click here for <a href="NEET 2019 Answer key.html">NEET 2019 Answer key</a><hr></p>
-  <p>Click here for <a href="NEET 2020.html">NEET 2020 Question Paper</a><hr></p>
-  <p>Click here for <a href="NEET 2020 answer key.html">NEET 2020 Answer key</a><hr></p>
-  <p>Click here for <a href="NEET 2021.html">NEET 2021 Question Paper</a><hr></p>
-  <p>Click here for <a href="NEET 2021 Answer Key.html">NEET 2021 Answer Key</a><hr></p>
-  <p>Click here for <a href="NEET 2022.html">NEET 2022 Question Paper</a><hr></p>
-  <p>Click here for <a href="NEET 2022 Answer key.html">NEET 2022 Answer key</a><hr></p>
-  <p>Click here for <a href="NEET 2023.html">NEET 2023 Question Paper</a><hr></p>
-  <p>Click here for <a href="NEET 2023 Answer Key.html">NEET 2023 Answer Key</a><hr></p>
-  <p>Click here for <a href="NEET 2024.html">NEET 2024 Question Paper</a><hr></p>
-  <p>Click here for <a href="NEET 2024 Answer Key.html">NEET 2024 Answer Key</a><hr></p>
-
-  <button id="back-button" onclick="goBack()">⟵ Back</button>
-
-  <script>
-    function updateDateTime() {
-      const now = new Date();
-      document.getElementById("datetime").textContent = "Current Date & Time: " + now.toLocaleString();
-    }
-
-    function goBack() {
-      window.history.back();
-    }
-
-    updateDateTime();
-    setInterval(updateDateTime, 1000);
-  </script>
-
-</body>
-</html>
+      border-radius:
