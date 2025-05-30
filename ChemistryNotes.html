@@ -11,25 +11,28 @@
       padding-bottom: 80px;
     }
 
-    a {
-      color: rgb(9, 9, 9);
-      text-decoration: none;
-      font-size: 18px;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
     #datetime {
       font-size: 16px;
       margin: 20px 0;
     }
 
-    hr {
-      width: 60%;
-      margin: 10px auto;
-      border: 0.5px solid #ffffff44;
+    select, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    button {
+      background-color: #ffffff;
+      color: #995566;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ffdada;
     }
 
     .back-button {
@@ -54,32 +57,15 @@
 
   <div id="datetime"></div>
 
-  <p>Click here for <a href="AlcoholsPhenols&EthersBy_Tiwari_Sir.html">Alcohols, Phenols & Ethers by Tiwari Sir</a></p><hr>
-  <p>Click here for <a href="AldehydesKetones&CarboxylicAcidsBy_Tiwari_Sir.html">Aldehydes, Ketones & Carboxylic Acids by Tiwari Sir</a></p><hr>
-  <p>Click here for <a href="Amines&PurificationOfOrganicCompoundsBy_Tiwari_Sir.html">Amines & Purification of Organic Compounds by Tiwari Sir</a></p><hr>
-  <p>Click here for <a href="ChemicalBondingBy_Rajeev_Sir.html">Chemical Bonding by Rajeev Sir</a></p><hr>
-  <p>Click here for <a href="ChemicalKineticsBy_Pathak_Sir.html">Chemical Kinetics by Pathak Sir</a></p><hr>
-  <p>Click here for <a href="CoordinationCompoundBy_RAJEEV_SIR.html">Coordination Compounds by Rajeev Sir</a></p><hr>
-  <p>Click here for <a href="GOCBy_OP_Sir.html">General Organic Chemistry by OP Sir</a></p><hr>
-  <p>Click here for <a href="HaloalkaneHaloarenesBy_Tiwari_Sir.html">Haloalkane & Haloarenes by Tiwari Sir</a></p><hr>
-  <p>Click here for <a href="HydrocarbonsBy_Tiwari_Sir.html">Hydrocarbons by Tiwari Sir</a></p><hr>
-  <p>Click here for <a href="InorganicReactionsBy_Sandeep_Dan_Sir.html">Inorganic Reactions by Sandeep Dan Sir</a></p><hr>
-  <p>Click here for <a href="IsomerismBy_OP_Sir.html">Isomerism By OP Sir</a></p><hr>
-  <p>Click here for <a href="PeriodicPropertiesBy_Rajeev_Sir.html">Periodic Properties by Rajeev Sir</a></p><hr>
-  <p>Click here for <a href="SaltAnalysisBy_RAJEEV_SIR.html">Salt Analysis by Rajeev Sir</a></p><hr>
-  <p>Click here for <a href="SolutionBy_OP_Sir.html">Solution by OP Sir</a></p><hr>
+  <h2>Select a Chemistry Topic:</h2>
 
-  <a href="notes.html" class="back-button">⬅ Back</a>
-
-  <script>
-    function updateDateTime() {
-      const now = new Date();
-      document.getElementById("datetime").textContent = "Current Date & Time: " + now.toLocaleString();
-    }
-
-    updateDateTime();
-    setInterval(updateDateTime, 1000);
-  </script>
-
-</body>
-</html>
+  <select id="topic-select">
+    <option value="">-- Select a topic --</option>
+    <option value="AlcoholsPhenols&EthersBy_Tiwari_Sir.html">Alcohols, Phenols & Ethers</option>
+    <option value="AldehydesKetones&CarboxylicAcidsBy_Tiwari_Sir.html">Aldehydes, Ketones & Carboxylic Acids</option>
+    <option value="Amines&PurificationOfOrganicCompoundsBy_Tiwari_Sir.html">Amines & Purification of Organic Compounds</option>
+    <option value="ChemicalBondingBy_Rajeev_Sir.html">Chemical Bonding</option>
+    <option value="ChemicalKineticsBy_Pathak_Sir.html">Chemical Kinetics</option>
+    <option value="CoordinationCompoundBy_RAJEEV_SIR.html">Coordination Compounds</option>
+    <option value="GOCBy_OP_Sir.html">General Organic Chemistry</option>
+    <option value="HaloalkaneHaloarenesBy_Tiwari_Sir.html">Haloalkane & Haloarenes
