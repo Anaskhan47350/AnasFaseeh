@@ -13,13 +13,21 @@
       font-size: 16px;
       margin: 20px 0;
     }
-    a {
-      color: rgb(9, 9, 9);
-      text-decoration: none;
-      font-size: 20px;
+    select, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+      border-radius: 5px;
+      border: none;
     }
-    a:hover {
-      text-decoration: underline;
+    button {
+      background-color: #ffffff;
+      color: #995566;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ffdddd;
     }
     .back-button {
       position: fixed;
@@ -35,24 +43,22 @@
     .back-button:hover {
       background-color: #ffdddd;
     }
-    hr {
-      width: 50%;
-      margin: 10px auto;
-    }
   </style>
 </head>
 <body>
 
   <div id="datetime"></div>
 
-  <p>Click here for <a href="Biologynotes.html">Biology Notes</a></p>
-  <hr>
-  <p>Click here for <a href="ChemistryNotes.html">Chemistry Notes</a></p>
-  <hr>
-  <p>Click here for <a href="physicsnotes.html">Physics Notes</a></p>
-  <hr>
-  <p>Click here for <a href="previousyearpaper.html">Previous year papers & Answer keys</a></p>
-  <hr>
+  <h2>Select the subject to view notes:</h2>
+  <select id="subject-select">
+    <option value="">-- Select a subject --</option>
+    <option value="Biologynotes.html">Biology</option>
+    <option value="ChemistryNotes.html">Chemistry</option>
+    <option value="physicsnotes.html">Physics</option>
+    <option value="previousyearpaper.html">Previous Year Papers</option>
+  </select>
+  <br>
+  <button onclick="goToNotes()">Go to Notes</button>
 
   <a href="index.html" class="back-button">⬅ Back</a>
 
@@ -60,6 +66,16 @@
     function updateDateTime() {
       const now = new Date();
       document.getElementById("datetime").textContent = "Current Date & Time: " + now.toLocaleString();
+    }
+
+    function goToNotes() {
+      const select = document.getElementById("subject-select");
+      const selectedValue = select.value;
+      if (selectedValue) {
+        window.location.href = selectedValue;
+      } else {
+        alert("Please select a subject first.");
+      }
     }
 
     updateDateTime();
