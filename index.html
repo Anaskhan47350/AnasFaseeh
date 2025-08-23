@@ -6,47 +6,24 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6927250853335610"
     crossorigin="anonymous"></script>
   <title>Welcome to NEET Prep Notes by Anas Faseeh</title>
+
+  <!-- 🎨 Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     body {
-      background-color: #f4f4f4;
+      background-color: #d8f3dc; /* light green */
       font-family: Arial, sans-serif;
       color: #333;
       text-align: center;
       padding: 30px;
-      position: relative;
-      margin-bottom: 100px;
-    }
-
-    /* 🎯 Running Event Bar */
-    #event-strip {
-      background-color: #2c3e50;
-      color: #fff;
-      font-size: 16px;
-      padding: 10px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      white-space: nowrap;
-      overflow: hidden;
-      z-index: 1000;
-    }
-
-    #event-strip span {
-      display: inline-block;
-      padding-left: 100%;
-      animation: scroll-left 20s linear infinite;
-    }
-
-    @keyframes scroll-left {
-      0%   { transform: translateX(0%); }
-      100% { transform: translateX(-100%); }
+      margin-bottom: 80px; /* leave space for bottom bar */
     }
 
     h1 {
       color: #2c3e50;
       font-size: 40px;
-      margin-top: 60px;
+      margin-top: 20px;
     }
 
     h2 {
@@ -68,116 +45,38 @@
       margin-bottom: 20px;
     }
 
-    .hamburger {
+    /* 📱 Bottom Nav Bar */
+    .bottom-bar {
       position: fixed;
-      top: 20px;
-      left: 20px;
-      cursor: pointer;
-      z-index: 10;
-    }
-
-    .hamburger div {
-      width: 30px;
-      height: 3px;
-      background-color: #2c3e50;
-      margin: 6px 0;
-    }
-
-    .menu {
-      display: none;
-      position: fixed;
-      top: 60px;
-      left: 20px;
-      background-color: #2c3e50;
-      color: white;
-      padding: 10px;
-      border-radius: 6px;
-      text-align: left;
-    }
-
-    .menu a {
-      color: white;
-      text-decoration: none;
-    }
-
-    .menu a:hover {
-      text-decoration: underline;
-    }
-
-    #comment-section {
-      background: #fff;
-      padding: 20px;
-      max-width: 800px;
-      margin: 50px auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border-radius: 8px;
-    }
-
-    #comment-section h3 {
-      margin-bottom: 15px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #95d5b2; /* darker green */
       color: #2c3e50;
+      padding: 12px 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      font-size: 22px;
+      border-top: 2px solid #2c3e50;
+      z-index: 1000;
     }
 
-    textarea {
-      width: 100%;
-      height: 100px;
-      padding: 10px;
-      font-size: 16px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      resize: vertical;
+    .bottom-bar a {
+      color: #2c3e50;
+      text-decoration: none;
+      transition: color 0.3s ease;
     }
 
-    button {
-      background-color: #2c3e50;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #34495e;
-    }
-
-    #comments-display {
-      margin-top: 20px;
-      text-align: left;
-    }
-
-    .comment {
-      background: #f9f9f9;
-      padding: 10px 15px;
-      margin-bottom: 10px;
-      border-left: 4px solid #2c3e50;
-      border-radius: 5px;
+    .bottom-bar a:hover {
+      color: #1b4332; /* darker green on hover */
     }
   </style>
 </head>
 <body>
 
-  <!-- 📰 Event Strip -->
-  <div id="event-strip"><span id="event-text">Loading today's event...</span></div>
-
   <!-- Real-time Date and Time -->
   <div id="datetime"></div>
-
-  <!-- Hamburger Menu -->
-  <div class="hamburger" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-
-  <div class="menu" id="menu">
-    <p><strong>Contact Me</strong></p>
-    <p>📷 Instagram: <a href="https://instagram.com/anas.khan_alig" target="_blank">@anas.khan_alig</a></p>
-    <p>📧 GMail: <a href="mailto:anaskhankhan47350@gmail.com">anaskhankhan47350@gmail.com</a></p>
-    <p>📺 YouTube: <a href="https://www.youtube.com/@anas.khan_alig" target="_blank">@anas.khan_alig</a></p>
-  </div>
 
   <h1>Welcome to NEET Prep Notes</h1>
   <h2>by Anas Faseeh</h2>
@@ -197,12 +96,11 @@
     <a href="notes.html">Start Exploring Notes &rarr;</a>
   </p>
 
-  <!-- Comment Section -->
-  <div id="comment-section">
-    <h3>💬 Leave a Comment</h3>
-    <textarea id="commentInput" placeholder="Write your comment here..."></textarea><br />
-    <button onclick="postComment()">Post Comment</button>
-    <div id="comments-display"></div>
+  <!-- 📱 Bottom Sticky Icon Menu -->
+  <div class="bottom-bar">
+    <a href="https://instagram.com/anas.khan_alig" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="mailto:anaskhankhan47350@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.youtube.com/@anas.khan_alig" target="_blank"><i class="fab fa-youtube"></i></a>
   </div>
 
   <script>
@@ -213,43 +111,8 @@
     }
     updateDateTime();
     setInterval(updateDateTime, 1000);
-
-    // 🍔 Hamburger Menu Toggle
-    function toggleMenu() {
-      const menu = document.getElementById("menu");
-      menu.style.display = menu.style.display === "block" ? "none" : "block";
-    }
-
-    // 💬 Comment Posting
-    function postComment() {
-      const input = document.getElementById("commentInput");
-      const comment = input.value.trim();
-      if (comment) {
-        const commentBox = document.createElement("div");
-        commentBox.className = "comment";
-        commentBox.textContent = comment;
-        document.getElementById("comments-display").appendChild(commentBox);
-        input.value = "";
-      } else {
-        alert("Please enter a comment before submitting.");
-      }
-    }
-
-    // 📆 Display One Important Event (Static Example)
-    function loadTodayEvent() {
-      const events = {
-        "7-27": "🎉 On this day in 1921, insulin was first used to treat diabetes in a human patient.",
-        "7-28": "📢 On this day: World Hepatitis Day is observed to raise global awareness.",
-        "7-29": "🌍 1987 – British Prime Minister Margaret Thatcher and French President François Mitterrand sign the Channel Tunnel agreement."
-        // You can expand this map or connect to an API later
-      };
-      const today = new Date();
-      const key = `${today.getMonth() + 1}-${today.getDate()}`;
-      const message = events[key] || "📜 On this day: Stay curious and keep learning!";
-      document.getElementById("event-text").textContent = message;
-    }
-    loadTodayEvent();
   </script>
 
 </body>
 </html>
+<script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_6sqPDsTw4q83CRaR5wYVGpJSJQoU" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
