@@ -113,6 +113,52 @@
     setInterval(updateDateTime, 1000);
   </script>
 
+  <!-- 📌 Vertical Notice Box -->
+<div class="notice-box">
+  <h3>Latest Notice</h3>
+  <a href="https://mcc.nic.in/ug-medical-counselling/" target="_blank">
+    UG Medical Counselling (MCC)
+  </a>
+</div>
+
+<style>
+  /* 📌 Notice Box Styles */
+  .notice-box {
+    position: fixed;
+    top: 120px; /* distance from top */
+    right: 0;   /* stick to right */
+    width: 220px;
+    background-color: #555555; /* dark gray */
+    color: white;
+    padding: 15px;
+    border-radius: 10px 0 0 10px;
+    box-shadow: -2px 2px 8px rgba(0,0,0,0.3);
+    font-family: Arial, sans-serif;
+    z-index: 1100;
+  }
+
+  .notice-box h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    text-align: center;
+  }
+
+  .notice-box a {
+    color: #90ee90; /* light green link */
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .notice-box a:hover {
+    color: #d8f3dc;
+    text-decoration: underline;
+  }
+</style>
+
+
 </body>
 </html>
 <script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_6sqPDsTw4q83CRaR5wYVGpJSJQoU" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
+
