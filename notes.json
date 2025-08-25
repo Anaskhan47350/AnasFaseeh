@@ -1,0 +1,32 @@
+{
+  "Biology": {
+    "Cell Structure": [
+      { "title": "Cell Theory", "url": "notes/biology/cell-theory.pdf" },
+      { "title": "Plasma Membrane", "url": "notes/biology/plasma-membrane.pdf" }
+    ],
+    "Genetics": [
+      { "title": "Mendel’s Laws", "url": "notes/biology/mendels-laws.pdf" },
+      { "title": "DNA Replication", "url": "notes/biology/dna-replication.pdf" }
+    ]
+  },
+  "Physics": {
+    "Mechanics": [
+      { "title": "Laws of Motion", "url": "notes/physics/laws-of-motion.pdf" },
+      { "title": "Work, Energy & Power", "url": "notes/physics/work-energy-power.pdf" }
+    ],
+    "Optics": [
+      { "title": "Reflection of Light", "url": "notes/physics/reflection.pdf" },
+      { "title": "Refraction of Light", "url": "notes/physics/refraction.pdf" }
+    ]
+  },
+  "Chemistry": {
+    "Atomic Structure": [
+      { "title": "Bohr’s Model", "url": "notes/chemistry/bohr-model.pdf" },
+      { "title": "Quantum Numbers", "url": "notes/chemistry/quantum-numbers.pdf" }
+    ],
+    "Organic Chemistry": [
+      { "title": "Hydrocarbons", "url": "notes/chemistry/hydrocarbons.pdf" },
+      { "title": "Alcohols & Phenols", "url": "notes/chemistry/alcohols-phenols.pdf" }
+    ]
+  }
+}
