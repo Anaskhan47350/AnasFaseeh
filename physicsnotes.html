@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
-<head><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6927250853335610"
-     crossorigin="anonymous"></script>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Physics Notes</title>
   <style>
     body {
@@ -9,31 +10,45 @@
       font-family: Arial, sans-serif;
       color: #ffffff;
       text-align: center;
-      padding-bottom: 80px;
+      padding: 60px 20px 80px;
+      margin: 0;
     }
 
     #datetime {
       font-size: 16px;
-      margin: 20px 0;
+      margin-bottom: 20px;
     }
 
-    select, button {
-      padding: 10px;
-      font-size: 16px;
-      margin: 10px;
-      border-radius: 5px;
-      border: none;
+    h2 {
+      margin-bottom: 30px;
     }
 
-    button {
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .card {
       background-color: #ffffff;
       color: #995566;
+      padding: 20px;
+      border-radius: 12px;
+      text-decoration: none;
       font-weight: bold;
-      cursor: pointer;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+      transition: transform 0.2s, background-color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
-    button:hover {
+    .card:hover {
       background-color: #ffdada;
+      transform: translateY(-5px);
     }
 
     .back-button {
@@ -58,29 +73,25 @@
 
   <div id="datetime"></div>
 
-  <h2>Select a Physics Topic:</h2>
+  <h2>Physics Notes</h2>
 
-  <select id="topic-select">
-    <option value="">-- Select a topic --</option>
-    <option value="AlternatingCurrentBy_Gopendra_Sir.html">Alternating Current by Gopendra Sir</option>
-    <option value="CapacitorBy_Gopendra_Sir.html">Capacitor by Gopendra Sir</option>
-    <option value="CentreOfMassBy_Bimal_Anand_Sir.html">Center of Mass by Bimal Anand Sir</option>
-    <option value="ElectromagneticInductionBy_Gopendra_Sir.html">EMI by Gopendra Sir</option>
-    <option value="ElectromagneticWaves_By_Gopendra_Sir.html">EMW by Gopendra Sir</option>
-    <option value="Electrostatics&GaussLawBy_Gopendra_Sir.html">Electrostatics and Gauss Law by Gopendra Sir</option>
-    <option value="GraphBy_Jha_Sir.html">Graphs by Jha Sir</option>
-    <option value="MagnetismBy_Gopendra_Sir.html">Magnetism by Gopendra Sir</option>
-    <option value="NuclearPhysicsBy_BIMAL_ANAND_SIR.html">Nuclear Physics by Bimal Anand Sir</option>
-    <option value="ProjectileMotionBy_Bimal_Anand_Sir.html">Projectile Motion by Bimal Anand Sir</option>
-    <option value="RotationalMotionBy_Bimal_Anand_Sir.html">Rotational Motion by Bimal Anand Sir</option>
-    <option value="SemiconductorBy_Bimal_Anand_Sir.html">Semiconductor by Bimal Anand Sir</option>
-    <option value="ThermophysicsBy_Bimal_Anand_Sir.html">Thermophysics by Bimal Anand Sir</option>
-    <option value="UnitDimension&MeasurementBy_Gopendra_Sir.html">Unit, Dimensions and Measurement by Gopendra Sir</option>
-    <option value="WavesBy_Gopendra_Sir.html">Waves by Gopendra Sir</option>
-   
-  </select>
-  <br>
-  <button onclick="goToTopic()">Go to Topic</button>
+  <div class="grid">
+    <a href="AlternatingCurrentBy_Gopendra_Sir.html" class="card">Alternating Current <br> by Gopendra Sir</a>
+    <a href="CapacitorBy_Gopendra_Sir.html" class="card">Capacitor <br> by Gopendra Sir</a>
+    <a href="CentreOfMassBy_Bimal_Anand_Sir.html" class="card">Center of Mass <br> by Bimal Anand Sir</a>
+    <a href="ElectromagneticInductionBy_Gopendra_Sir.html" class="card">EMI <br> by Gopendra Sir</a>
+    <a href="ElectromagneticWaves_By_Gopendra_Sir.html" class="card">EMW <br> by Gopendra Sir</a>
+    <a href="Electrostatics&GaussLawBy_Gopendra_Sir.html" class="card">Electrostatics & Gauss Law <br> by Gopendra Sir</a>
+    <a href="GraphBy_Jha_Sir.html" class="card">Graphs <br> by Jha Sir</a>
+    <a href="MagnetismBy_Gopendra_Sir.html" class="card">Magnetism <br> by Gopendra Sir</a>
+    <a href="NuclearPhysicsBy_BIMAL_ANAND_SIR.html" class="card">Nuclear Physics <br> by Bimal Anand Sir</a>
+    <a href="ProjectileMotionBy_Bimal_Anand_Sir.html" class="card">Projectile Motion <br> by Bimal Anand Sir</a>
+    <a href="RotationalMotionBy_Bimal_Anand_Sir.html" class="card">Rotational Motion <br> by Bimal Anand Sir</a>
+    <a href="SemiconductorBy_Bimal_Anand_Sir.html" class="card">Semiconductor <br> by Bimal Anand Sir</a>
+    <a href="ThermophysicsBy_Bimal_Anand_Sir.html" class="card">Thermophysics <br> by Bimal Anand Sir</a>
+    <a href="UnitDimension&MeasurementBy_Gopendra_Sir.html" class="card">Unit, Dimensions & Measurement <br> by Gopendra Sir</a>
+    <a href="WavesBy_Gopendra_Sir.html" class="card">Waves <br> by Gopendra Sir</a>
+  </div>
 
   <a href="notes.html" class="back-button">⬅ Back</a>
 
@@ -88,16 +99,6 @@
     function updateDateTime() {
       const now = new Date();
       document.getElementById("datetime").textContent = "Current Date & Time: " + now.toLocaleString();
-    }
-
-    function goToTopic() {
-      const select = document.getElementById("topic-select");
-      const selectedValue = select.value;
-      if (selectedValue) {
-        window.location.href = selectedValue;
-      } else {
-        alert("Please select a topic first.");
-      }
     }
 
     updateDateTime();
