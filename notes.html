@@ -33,51 +33,36 @@
       margin: 15px 0;
       font-size: 22px;
       color: #fff;
+      text-align: center;
     }
 
-    select {
-      padding: 12px 16px;
-      font-size: 16px;
-      border-radius: 10px;
-      border: 1px solid #444;
-      background-color: #3a3a3a;
-      color: #f5f5f5;
-      outline: none;
-      transition: 0.3s;
-    }
-
-    select:hover {
-      border-color: #888;
-    }
-
-    button {
-      padding: 12px 20px;
-      font-size: 16px;
-      margin-top: 15px;
-      border-radius: 10px;
-      border: none;
-      background: linear-gradient(135deg, #ff7b7b, #ff4d4d);
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-
-    button:hover {
-      background: linear-gradient(135deg, #ff4d4d, #ff0000);
-      transform: translateY(-2px);
+    /* Grid layout */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 900px;
+      margin-top: 20px;
     }
 
     .card {
       background: #3a3a3a;
       border-radius: 15px;
-      padding: 20px;
-      margin-top: 25px;
-      width: 100%;
-      max-width: 500px;
+      padding: 25px;
       text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
       box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      background: linear-gradient(135deg, #ff7b7b, #ff4d4d);
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.5);
     }
 
     .back-button {
@@ -107,18 +92,14 @@
     <div id="datetime"></div>
   </header>
 
-  <div class="card">
-    <h2>Select a Subject</h2>
-    <select id="subject-select">
-      <option value="">-- Select a subject --</option>
-      <option value="Biologynotes.html">Biology</option>
-      <option value="ChemistryNotes.html">Chemistry</option>
-      <option value="physicsnotes.html">Physics</option>
-      <option value="previousyearpaper.html">Previous Year Papers</option>
-      <option value="JEEMain.html">JEE Mains Previous Year Papers</option>
-    </select>
-    <br>
-    <button onclick="goToNotes()">Go to Notes</button>
+  <h2>Select a Subject</h2>
+
+  <div class="grid">
+    <a href="Biologynotes.html" class="card">🧬 Biology</a>
+    <a href="ChemistryNotes.html" class="card">⚗️ Chemistry</a>
+    <a href="physicsnotes.html" class="card">📐 Physics</a>
+    <a href="previousyearpaper.html" class="card">📄 Previous Year Papers</a>
+    <a href="JEEMain.html" class="card">📝 JEE Mains Papers</a>
   </div>
 
   <a href="index.html" class="back-button">⬅ Back</a>
@@ -130,25 +111,9 @@
       document.getElementById("datetime").textContent = 
         "📅 " + now.toLocaleDateString() + " ⏰ " + now.toLocaleTimeString();
     }
-
-    // Redirect to selected subject
-    function goToNotes() {
-      const select = document.getElementById("subject-select");
-      const selectedValue = select.value;
-      if (selectedValue) {
-        window.location.href = selectedValue;
-      } else {
-        alert("Please select a subject first.");
-      }
-    }
-
-    // Auto update time
     updateDateTime();
     setInterval(updateDateTime, 1000);
   </script>
 
-  <script async data-explicit-opt-in="true" data-cookie-opt-in="true" 
-    data-deployment-id="dpl_BM1EqmSLNv5RagFXy7J1PRYJqVyh" 
-    src="https://vercel.live/_next-live/feedback/feedback.js"></script>
 </body>
 </html>
