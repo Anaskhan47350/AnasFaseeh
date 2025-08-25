@@ -1,90 +1,134 @@
 <!DOCTYPE html>
-<html>
-<head><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6927250853335610"
-     crossorigin="anonymous"></script>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Biology Notes</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6927250853335610"
+    crossorigin="anonymous"></script>
   <style>
     body {
-      background-color: #995566;
-      font-family: Arial, sans-serif;
-      color: #ffffff;
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #6a3f54, #995566);
+      color: #fff;
       text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       padding-bottom: 80px;
     }
 
-    #datetime {
-      font-size: 16px;
-      margin: 20px 0;
-      color: #ffffff;
+    header {
+      padding: 20px;
     }
 
-    select, button {
-      padding: 10px;
+    #datetime {
+      font-size: 14px;
+      margin-bottom: 10px;
+      opacity: 0.85;
+    }
+
+    h2 {
+      margin: 10px 0 20px;
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+
+    select {
+      padding: 12px;
       font-size: 16px;
-      margin: 10px;
-      border-radius: 5px;
+      border-radius: 8px;
       border: none;
+      margin-bottom: 15px;
+      width: 80%;
+      max-width: 400px;
+      text-align: center;
     }
 
     button {
-      background-color: #ffffff;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      background-color: #fff;
       color: #995566;
       font-weight: bold;
       cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
     }
 
     button:hover {
       background-color: #ffdada;
+      transform: translateY(-2px);
     }
 
     .back-button {
       position: fixed;
       bottom: 20px;
       left: 20px;
-      background-color: #ffffff;
+      background-color: #fff;
       color: #995566;
-      padding: 10px 15px;
-      border-radius: 5px;
-      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 8px;
       font-weight: bold;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      text-decoration: none;
+      box-shadow: 2px 4px 8px rgba(0,0,0,0.3);
+      transition: background 0.3s ease, transform 0.2s ease;
     }
 
     .back-button:hover {
       background-color: #ffdada;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 15px;
+      font-size: 13px;
+      opacity: 0.8;
     }
   </style>
 </head>
 <body>
 
-  <div id="datetime"></div>
+  <header>
+    <div id="datetime"></div>
+    <h2>📘 Select a Biology Topic</h2>
+  </header>
 
-  <h2>Select a Biology Topic:</h2>
-
-  <select id="topic-select">
-    <option value="">-- Select a topic --</option>
-    <option value="BodyFluids&CirculationBy_Pandey_Sir.html">Body Fluids & Circulation</option>
-    <option value="Breathing&GaseousExchangeBy_Pandey_Sir.html">Breathing & Gaseous Exchange</option>
-    <option value="ChemicalControl&CoordinationBy_PANDEY_SIR.html">Chemical Control & Coordination</option>
-    <option value="EvolutionBy_Pandey_Sir.html">Evolution</option>
-    <option value="HumanHealth&DieseaseBy_PandeySir.html">Human Health & Disease</option>
-    <option value="Locomotion&MovementBy_Pandey_Sir.html">Locomotion & Movement</option>
-    <option value="NeuralControl&CoordinationBy_Pandey_Sir.html">Neural Control & Coordination</option>
-    <option value="NutritionDigestion&AbsorptionBy_Pandey_Sir.html">Nutrition & Digestion</option>
-    <option value="Osmoregulation&ExcretionBy_Pandey_Sir.html">Osmoregulation & Excretion</option>
-    <option value="ReproductionBy_Pandey_Sir.html">Reproduction</option>
-    <option value="ReproductiveHealthBy_Pandey_Sir.html">Reproductive Health</option>
-    <option value="StructuralOrganisationOfAnimalsCockroach&FrogBy_Pandey_Sir.html">Structural Organisation of Animals (Cockroach & Frog)</option>
-  </select>
-  <br>
-  <button onclick="goToTopic()">Go to Topic</button>
+  <main>
+    <select id="topic-select">
+      <option value="">-- Select a topic --</option>
+      <option value="BodyFluids&CirculationBy_Pandey_Sir.html">Body Fluids & Circulation</option>
+      <option value="Breathing&GaseousExchangeBy_Pandey_Sir.html">Breathing & Gaseous Exchange</option>
+      <option value="ChemicalControl&CoordinationBy_PANDEY_SIR.html">Chemical Control & Coordination</option>
+      <option value="EvolutionBy_Pandey_Sir.html">Evolution</option>
+      <option value="HumanHealth&DieseaseBy_PandeySir.html">Human Health & Disease</option>
+      <option value="Locomotion&MovementBy_Pandey_Sir.html">Locomotion & Movement</option>
+      <option value="NeuralControl&CoordinationBy_Pandey_Sir.html">Neural Control & Coordination</option>
+      <option value="NutritionDigestion&AbsorptionBy_Pandey_Sir.html">Nutrition & Digestion</option>
+      <option value="Osmoregulation&ExcretionBy_Pandey_Sir.html">Osmoregulation & Excretion</option>
+      <option value="ReproductionBy_Pandey_Sir.html">Reproduction</option>
+      <option value="ReproductiveHealthBy_Pandey_Sir.html">Reproductive Health</option>
+      <option value="StructuralOrganisationOfAnimalsCockroach&FrogBy_Pandey_Sir.html">Structural Organisation of Animals (Cockroach & Frog)</option>
+    </select>
+    <br>
+    <button onclick="goToTopic()">Go to Topic</button>
+  </main>
 
   <a href="notes.html" class="back-button">⬅ Back</a>
+
+  <footer>
+    © 2025 Biology Notes | Designed for Students
+  </footer>
 
   <script>
     function updateDateTime() {
       const now = new Date();
-      document.getElementById("datetime").textContent = "Current Date & Time: " + now.toLocaleString();
+      document.getElementById("datetime").textContent =
+        "📅 " + now.toLocaleDateString() + " | ⏰ " + now.toLocaleTimeString();
     }
 
     function goToTopic() {
@@ -101,5 +145,8 @@
     setInterval(updateDateTime, 1000);
   </script>
 
+  <script async data-explicit-opt-in="true" data-cookie-opt-in="true" 
+    data-deployment-id="dpl_Fp6prBnzZEsqteahd3RkvbG56ijy" 
+    src="https://vercel.live/_next-live/feedback/feedback.js"></script>
 </body>
 </html>
