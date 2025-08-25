@@ -1,178 +1,438 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6927250853335610"
-    crossorigin="anonymous"></script>
-  <title>Welcome to NEET Prep Notes by Anas Faseeh</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NEET Prep Notes by Anas Faseeh — Free NCERT‑first Notes, PYQs & Smart Revision</title>
+  <meta name="description" content="Concise, high‑quality NEET notes organized chapter‑wise per latest NCERT. Biology, Chemistry, Physics and PYQs — free to download & revise." />
+  <meta name="theme-color" content="#0ea5e9" />
+  <meta property="og:title" content="NEET Prep Notes by Anas Faseeh" />
+  <meta property="og:description" content="Concise, high‑quality NEET notes (Bio/Chem/Physics), PYQs & revision kits. Absolutely free." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://anas-faseeh.vercel.app/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cpath fill='%230ea5e9' d='M64 6a58 58 0 1058 58A58.065 58.065 0 0064 6zm0 14a44 44 0 11-44 44A44.05 44.05 0 0164 20z'/%3E%3Ctext x='64' y='78' font-size='56' text-anchor='middle' fill='%23022c22' font-family='Arial,Helvetica,sans-serif'%3ENA%3C/text%3E%3C/svg%3E" />
 
-  <!-- 🎨 Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind custom config
+    tailwind.config = {
+      darkMode: ['class', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['ui-sans-serif','system-ui','-apple-system','Segoe UI','Roboto','Inter','Helvetica','Arial','Noto Sans','Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol']
+          },
+          boxShadow: {
+            glow: '0 0 0 3px rgb(14 165 233 / 0.25)'
+          },
+          animation: {
+            float: 'float 8s ease-in-out infinite',
+            fadeIn: 'fadeIn .8s ease both'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-6px)' }
+            },
+            fadeIn: {
+              from: { opacity: 0, transform: 'translateY(6px)' },
+              to: { opacity: 1, transform: 'translateY(0)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    body {
-      background-color: #d8f3dc; /* light green */
-      font-family: Arial, sans-serif;
-      color: #333;
-      text-align: center;
-      padding: 30px;
-      margin-bottom: 80px; /* leave space for bottom bar */
-    }
-
-    h1 {
-      color: #2c3e50;
-      font-size: 40px;
-      margin-top: 20px;
-    }
-
-    h2 {
-      font-size: 24px;
-      color: #555;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 18px;
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.6;
-    }
-
-    #datetime {
-      font-size: 16px;
-      color: #555;
-      margin-bottom: 20px;
-    }
-
-    /* 📱 Bottom Nav Bar */
-    .bottom-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: #95d5b2; /* darker green */
-      color: #2c3e50;
-      padding: 12px 0;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      font-size: 22px;
-      border-top: 2px solid #2c3e50;
-      z-index: 1000;
-    }
-
-    .bottom-bar a {
-      color: #2c3e50;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .bottom-bar a:hover {
-      color: #1b4332; /* darker green on hover */
+    /* Progressive enhancement: reduce motion when requested */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "NEET Prep Notes by Anas Faseeh",
+    "url": "https://anas-faseeh.vercel.app/",
+    "about": {
+      "@type": "Thing",
+      "name": "NEET Preparation Notes (Biology, Chemistry, Physics)"
+    },
+    "creator": {
+      "@type": "Person",
+      "name": "Anas Faseeh"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://anas-faseeh.vercel.app/#search?q={query}",
+      "query-input": "required name=query"
+    }
+  }
+  </script>
 </head>
-<body>
+<body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100 font-sans">
+  <!-- Skip link for accessibility -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:px-3 focus:py-2 focus:rounded-lg focus:bg-emerald-600 focus:text-white">Skip to content</a>
 
-  <!-- Real-time Date and Time -->
-  <div id="datetime"></div>
+  <!-- Header / Navbar -->
+  <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-slate-900/60 shadow-sm">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="#" class="flex items-center gap-2 group" aria-label="Homepage">
+          <span class="inline-grid place-items-center w-8 h-8 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/20 shadow-glow">A</span>
+          <span class="font-semibold tracking-tight">Anas Faseeh — NEET Notes</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6" aria-label="Primary">
+          <a href="#subjects" class="hover:text-emerald-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded">Subjects</a>
+          <a href="#notice" class="hover:text-emerald-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded">Latest Notice</a>
+          <a href="#why" class="hover:text-emerald-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded">Why Us</a>
+          <a href="#faq" class="hover:text-emerald-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded">FAQ</a>
+          <a href="#contact" class="hover:text-emerald-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded">Contact</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="/notes.html" class="hidden sm:inline-flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold bg-emerald-600 text-white hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500 dark:focus-visible:ring-offset-slate-950" aria-label="Open notes page">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline"><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20"/><path d="M20 22V6a2 2 0 0 0-2-2H6.5A2.5 2.5 0 0 0 4 6.5"/><path d="M4 8h16"/></svg>
+            Notes
+          </a>
+          <button id="themeToggle" class="inline-flex items-center justify-center rounded-xl ring-1 ring-slate-300/50 dark:ring-slate-700/70 px-2 py-2 hover:bg-slate-100 dark:hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500" aria-label="Toggle dark mode">
+            <svg id="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5 hidden dark:inline"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364 6.364-1.414-1.414M6.05 6.05 4.636 4.636m12.728 0-1.414 1.414M6.05 17.95l-1.414 1.414"/></svg>
+            <svg id="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5 dark:hidden"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="md:hidden inline-flex items-center justify-center rounded-xl p-2 ring-1 ring-slate-300/50 dark:ring-slate-700/70" aria-label="Open menu" id="menuBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6"><path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile menu -->
+      <nav id="mobileMenu" class="hidden md:hidden pb-4" aria-label="Mobile">
+        <div class="grid gap-2">
+          <a href="#subjects" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Subjects</a>
+          <a href="#notice" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Latest Notice</a>
+          <a href="#why" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Why Us</a>
+          <a href="#faq" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">FAQ</a>
+          <a href="#contact" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Contact</a>
+          <a href="/notes.html" class="px-3 py-2 rounded-lg bg-emerald-600 text-white">Open Notes</a>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-  <h1>Welcome to NEET Prep Notes</h1>
-  <h2>by Anas Faseeh</h2>
+  <main id="main" class="">
+    <!-- Hero -->
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 -z-10 bg-gradient-to-b from-sky-50 via-white to-white dark:from-sky-900/20 dark:via-slate-950 dark:to-slate-950"></div>
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div class="space-y-6 animate-fadeIn">
+            <p class="inline-flex items-center gap-2 text-sm font-medium rounded-full ring-1 ring-emerald-500/30 text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-900/20 px-3 py-1">
+              <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              Free & NCERT‑first notes
+            </p>
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+              Welcome to <span class="text-emerald-600">NEET Prep Notes</span>
+            </h1>
+            <p class="text-lg text-slate-600 dark:text-slate-300 max-w-prose">Preparing for NEET is tough — your notes shouldn't be. I’m <strong>Anas Faseeh</strong> (NEET UG 2025 AIR 3269). Here's a clean, distraction‑free set of Biology, Chemistry and Physics notes aligned with the latest NCERT trends.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a href="/notes.html" class="inline-flex items-center gap-2 rounded-xl px-4 py-3 font-semibold bg-emerald-600 text-white hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500 dark:focus-visible:ring-offset-slate-950">
+                Start Exploring Notes
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+              <a href="#subjects" class="inline-flex items-center gap-2 rounded-xl px-4 py-3 font-semibold ring-1 ring-slate-300 dark:ring-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800">
+                Browse Subjects
+              </a>
+            </div>
+            <div class="flex items-center gap-6 text-sm text-slate-600 dark:text-slate-300">
+              <div class="flex items-center gap-2"><span class="inline-block w-2 h-2 rounded-full bg-emerald-500"></span> Updated for 2025</div>
+              <div class="flex items-center gap-2"><span class="inline-block w-2 h-2 rounded-full bg-sky-500"></span> 100% Free</div>
+              <div class="flex items-center gap-2"><span class="inline-block w-2 h-2 rounded-full bg-violet-500"></span> Mobile‑friendly</div>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="aspect-[4/3] rounded-3xl bg-gradient-to-tr from-emerald-500/15 via-sky-500/10 to-violet-500/10 ring-1 ring-slate-200 dark:ring-slate-800 p-4 sm:p-6 lg:p-8">
+              <div class="grid h-full place-items-center">
+                <div class="grid grid-cols-3 gap-3 sm:gap-4">
+                  <div class="col-span-2 rounded-2xl bg-white/80 dark:bg-slate-900/80 ring-1 ring-slate-200 dark:ring-slate-800 p-4 animate-float">
+                    <p class="text-sm font-semibold">NCERT Highlights</p>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Key margins, figures & exceptions at a glance.</p>
+                  </div>
+                  <div class="rounded-2xl bg-white/80 dark:bg-slate-900/80 ring-1 ring-slate-200 dark:ring-slate-800 p-4">
+                    <p class="text-sm font-semibold">PYQs</p>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Trend‑aware practice sets.</p>
+                  </div>
+                  <div class="rounded-2xl bg-white/80 dark:bg-slate-900/80 ring-1 ring-slate-200 dark:ring-slate-800 p-4">
+                    <p class="text-sm font-semibold">Quick Revision</p>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Last‑week turbo notes.</p>
+                  </div>
+                  <div class="col-span-2 rounded-2xl bg-white/80 dark:bg-slate-900/80 ring-1 ring-slate-200 dark:ring-slate-800 p-4">
+                    <p class="text-sm font-semibold">Clean Formatting</p>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">No clutter — only what matters.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <p>
-    Preparing for NEET can be challenging — but the right guidance and study materials can make all the difference.
-    This website is created by <strong>Anas Faseeh</strong> (scored 3269 rank in NEET UG 2025) with the goal of providing concise, high-quality, and easy-to-understand notes
-    for all NEET aspirants.
-  </p>
+    <!-- Subjects -->
+    <section id="subjects" class="py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between gap-4 mb-8">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Subjects & Resources</h2>
+          <a href="/notes.html" class="text-emerald-600 hover:underline">Open full notes →</a>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <!-- Card template -->
+          <a href="/notes.html" class="group rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 p-5 bg-white/70 dark:bg-slate-900/60 hover:shadow-lg transition">
+            <div class="flex items-center justify-between">
+              <div class="text-lg font-semibold">Biology</div>
+              <span aria-hidden class="group-hover:translate-x-0.5 transition">→</span>
+            </div>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">NCERT in‑text points, diagrams, exceptions.</p>
+          </a>
 
-  <p>
-    All notes are carefully organized chapter-wise, based on the latest NCERT syllabus and NEET trends.
-    Download, revise, and excel — completely free.
-  </p>
+          <a href="/notes.html" class="group rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 p-5 bg-white/70 dark:bg-slate-900/60 hover:shadow-lg transition">
+            <div class="flex items-center justify-between">
+              <div class="text-lg font-semibold">Chemistry</div>
+              <span aria-hidden class="group-hover:translate-x-0.5 transition">→</span>
+            </div>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Physical, Organic & Inorganic quick bites.</p>
+          </a>
 
-  <p>
-    <a href="notes.html">Start Exploring Notes &rarr;</a>
-  </p>
+          <a href="/notes.html" class="group rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 p-5 bg-white/70 dark:bg-slate-900/60 hover:shadow-lg transition">
+            <div class="flex items-center justify-between">
+              <div class="text-lg font-semibold">Physics</div>
+              <span aria-hidden class="group-hover:translate-x-0.5 transition">→</span>
+            </div>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Formulas that stick + visual intuition.</p>
+          </a>
 
-  <!-- 📱 Bottom Sticky Icon Menu -->
-  <div class="bottom-bar">
-    <a href="https://instagram.com/anas.khan_alig" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="mailto:anaskhankhan47350@gmail.com"><i class="fas fa-envelope"></i></a>
-    <a href="https://www.youtube.com/@anas.khan_alig" target="_blank"><i class="fab fa-youtube"></i></a>
-  </div>
+          <a href="/notes.html" class="group rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 p-5 bg-white/70 dark:bg-slate-900/60 hover:shadow-lg transition">
+            <div class="flex items-center justify-between">
+              <div class="text-lg font-semibold">PYQs</div>
+              <span aria-hidden class="group-hover:translate-x-0.5 transition">→</span>
+            </div>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Chapter‑wise practice with trends.</p>
+          </a>
+        </div>
+
+        <!-- Search bar (client‑side filter for future expansion) -->
+        <div id="search" class="mt-8">
+          <label for="q" class="sr-only">Search chapters or topics</label>
+          <div class="flex items-center gap-2">
+            <input id="q" type="search" placeholder="Search chapters (e.g., Morphology of Flowering Plants)" class="w-full rounded-xl ring-1 ring-slate-300 dark:ring-slate-700 bg-white/70 dark:bg-slate-900/60 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+            <button class="px-4 py-3 rounded-xl ring-1 ring-slate-300 dark:ring-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800">Search</button>
+          </div>
+          <p class="mt-2 text-xs text-slate-500">Tip: Press <kbd class="px-1 py-0.5 rounded bg-slate-100 dark:bg-slate-800">/</kbd> to focus the search.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest Notice / Links -->
+    <section id="notice" class="py-16 sm:py-20 bg-slate-50 dark:bg-slate-900/40">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-6">Latest Notice</h2>
+        <div class="grid md:grid-cols-3 gap-4 sm:gap-6">
+          <a href="https://mcc.nic.in" target="_blank" rel="noopener" class="group block rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 p-5 bg-white/80 dark:bg-slate-950/50 hover:shadow-lg">
+            <div class="flex items-center justify-between">
+              <span class="font-semibold">UG Medical Counselling (MCC)</span>
+              <span class="opacity-70 group-hover:translate-x-0.5 transition" aria-hidden>↗</span>
+            </div>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Official updates, schedules and notices.</p>
+          </a>
+
+          <a href="https://upneet.gov.in" target="_blank" rel="noopener" class="group block rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 p-5 bg-white/80 dark:bg-slate-950/50 hover:shadow-lg">
+            <div class="flex items-center justify-between">
+              <span class="font-semibold">UP NEET Counselling</span>
+              <span class="opacity-70 group-hover:translate-x-0.5 transition" aria-hidden>↗</span>
+            </div>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">State quota announcements & seat matrix.</p>
+          </a>
+
+          <a href="https://jrstutorials.ac.in" target="_blank" rel="noopener" class="group block rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 p-5 bg-white/80 dark:bg-slate-950/50 hover:shadow-lg">
+            <div class="flex items-center justify-between">
+              <span class="font-semibold">JRS Tutorials</span>
+              <span class="opacity-70 group-hover:translate-x-0.5 transition" aria-hidden>↗</span>
+            </div>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Practice resources & updates.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why choose -->
+    <section id="why" class="py-16 sm:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-8">Why students like these notes</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div class="rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 p-6 bg-white/70 dark:bg-slate-900/60">
+            <h3 class="font-semibold">NCERT‑centric</h3>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Laser‑focused on what matters for NEET. No fluff, only high‑yield lines and figures.</p>
+          </div>
+          <div class="rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 p-6 bg-white/70 dark:bg-slate-900/60">
+            <h3 class="font-semibold">Clean design</h3>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Readable typography, spacious layout and smart highlights help you revise faster.</p>
+          </div>
+          <div class="rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 p-6 bg-white/70 dark:bg-slate-900/60">
+            <h3 class="font-semibold">Free forever</h3>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Open and accessible. Share with friends and juniors — knowledge grows when shared.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials (placeholder content) -->
+    <section class="py-16 sm:py-20 bg-slate-50 dark:bg-slate-900/40">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between gap-4 mb-8">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">What learners say</h2>
+          <a href="#contact" class="text-emerald-600 hover:underline">Share your feedback →</a>
+        </div>
+        <div class="grid md:grid-cols-3 gap-4 sm:gap-6">
+          <figure class="rounded-2xl p-6 ring-1 ring-slate-200 dark:ring-slate-800 bg-white/70 dark:bg-slate-900/60">
+            <blockquote class="text-sm text-slate-700 dark:text-slate-200">“Crisp and exam‑oriented. Saved me hours before full tests.”</blockquote>
+            <figcaption class="mt-3 text-xs text-slate-500">— M. Khan, Dropper</figcaption>
+          </figure>
+          <figure class="rounded-2xl p-6 ring-1 ring-slate-200 dark:ring-slate-800 bg-white/70 dark:bg-slate-900/60">
+            <blockquote class="text-sm text-slate-700 dark:text-slate-200">“Layout is clean, and the NCERT exceptions are right where I need them.”</blockquote>
+            <figcaption class="mt-3 text-xs text-slate-500">— S. Gupta, Class 12</figcaption>
+          </figure>
+          <figure class="rounded-2xl p-6 ring-1 ring-slate-200 dark:ring-slate-800 bg-white/70 dark:bg-slate-900/60">
+            <blockquote class="text-sm text-slate-700 dark:text-slate-200">“Chapter‑wise PYQs made practice super simple.”</blockquote>
+            <figcaption class="mt-3 text-xs text-slate-500">— R. Mishra, NEET 2025</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-16 sm:py-20">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-6">FAQ</h2>
+        <div class="divide-y divide-slate-200 dark:divide-slate-800 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/70 dark:bg-slate-900/60 overflow-hidden">
+          <!-- Item -->
+          <details class="group open:bg-white/80 dark:open:bg-slate-900/70 p-5">
+            <summary class="flex cursor-pointer items-center justify-between font-medium leading-6">Are these notes free?
+              <span class="ml-4 transition group-open:rotate-180" aria-hidden>⌄</span>
+            </summary>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Yes. Everything here is free to access and download.</p>
+          </details>
+          <details class="group p-5">
+            <summary class="flex cursor-pointer items-center justify-between font-medium leading-6">How often do you update content?
+              <span class="ml-4 transition group-open:rotate-180" aria-hidden>⌄</span>
+            </summary>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Content is updated as NEET trends evolve and when NCERT texts change.</p>
+          </details>
+          <details class="group p-5">
+            <summary class="flex cursor-pointer items-center justify-between font-medium leading-6">Can I request a chapter?
+              <span class="ml-4 transition group-open:rotate-180" aria-hidden>⌄</span>
+            </summary>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Yes — use the contact form below and mention the chapter/topic you want prioritized.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-16 sm:py-20 bg-slate-50 dark:bg-slate-900/40">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-6">Contact</h2>
+        <form class="grid gap-4 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 bg-white/80 dark:bg-slate-950/50 p-6" name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact" />
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="grid gap-2">
+              <label for="name" class="text-sm font-medium">Name</label>
+              <input id="name" name="name" required class="rounded-xl ring-1 ring-slate-300 dark:ring-slate-700 bg-white/70 dark:bg-slate-900/60 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+            </div>
+            <div class="grid gap-2">
+              <label for="email" class="text-sm font-medium">Email</label>
+              <input id="email" name="email" type="email" required class="rounded-xl ring-1 ring-slate-300 dark:ring-slate-700 bg-white/70 dark:bg-slate-900/60 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+            </div>
+          </div>
+          <div class="grid gap-2">
+            <label for="message" class="text-sm font-medium">Message</label>
+            <textarea id="message" name="message" rows="5" required class="rounded-xl ring-1 ring-slate-300 dark:ring-slate-700 bg-white/70 dark:bg-slate-900/60 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="Share feedback, request a chapter, or report an issue."></textarea>
+          </div>
+          <div class="flex items-center justify-between">
+            <p class="text-xs text-slate-500">By submitting, you agree to be contacted back.</p>
+            <button class="inline-flex items-center gap-2 rounded-xl px-4 py-3 font-semibold bg-emerald-600 text-white hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500 dark:focus-visible:ring-offset-slate-950" type="submit">Send</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-12 border-t border-slate-200 dark:border-slate-800">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <p class="font-semibold">NEET Prep Notes by Anas Faseeh</p>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Made for learners who value clarity. Share it with a friend.</p>
+        </div>
+        <div class="md:text-right text-sm text-slate-600 dark:text-slate-300">
+          <p>Latest update: <time id="lastUpdated">—</time></p>
+          <nav class="mt-2 inline-flex flex-wrap gap-x-4 gap-y-2" aria-label="Footer">
+            <a class="hover:underline" href="#subjects">Subjects</a>
+            <a class="hover:underline" href="#notice">Notices</a>
+            <a class="hover:underline" href="#faq">FAQ</a>
+            <a class="hover:underline" href="#contact">Contact</a>
+            <a class="hover:underline" href="/notes.html">Notes</a>
+          </nav>
+        </div>
+      </div>
+      <p class="mt-8 text-xs text-slate-500">© <span id="year"></span> Anas Faseeh. All rights reserved.</p>
+    </div>
+  </footer>
 
   <script>
-    // 🕒 Real-time Date and Time
-    function updateDateTime() {
-      const now = new Date();
-      document.getElementById("datetime").textContent = "Current Date & Time: " + now.toLocaleString();
-    }
-    updateDateTime();
-    setInterval(updateDateTime, 1000);
+    // --- Theme toggle with localStorage ---
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) root.setAttribute('data-theme', storedTheme);
+    themeToggle?.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', current);
+      localStorage.setItem('theme', current);
+    });
+
+    // --- Mobile menu ---
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // --- Update footer meta ---
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const d = new Date();
+    const dt = d.toLocaleString(undefined, { year: 'numeric', month: 'short', day: '2-digit' });
+    document.getElementById('lastUpdated').textContent = dt;
+
+    // --- Keyboard shortcut to focus search ---
+    const q = document.getElementById('q');
+    window.addEventListener('keydown', (e) => {
+      if (e.key === '/' && document.activeElement !== q) {
+        e.preventDefault();
+        q?.focus();
+      }
+    });
+
+    // --- Simple intersection-based reveal animations ---
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fadeIn');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('section').forEach(el => observer.observe(el));
   </script>
-
-  <!-- 📌 Vertical Notice Box -->
-<div class="notice-box">
-  <h3>Latest Notice</h3>
-  <a href="https://mcc.nic.in/ug-medical-counselling/" target="_blank">
-    UG Medical Counselling (MCC)
-  </a><br><hr>
-  <a href="https://upneet.gov.in/" target="_blank">
-    UP NEET Counselling
-  </a><br><hr>
-  <a href="https://jrstutorials.ac.in/Home.aspx" target="_blank">
-    JRS Tutorials
-  </a><br><hr>
-</div>
-
-<style>
-  /* 📌 Notice Box Styles */
-  .notice-box {
-    position: fixed;
-    top: 120px; /* distance from top */
-    right: 0;   /* stick to right */
-    width: 220px;
-    background-color: #555555; /* dark gray */
-    color: white;
-    padding: 15px;
-    border-radius: 10px 0 0 10px;
-    box-shadow: -2px 2px 8px rgba(0,0,0,0.3);
-    font-family: Arial, sans-serif;
-    z-index: 1100;
-  }
-
-  .notice-box h3 {
-    margin: 0 0 10px 0;
-    font-size: 18px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 5px;
-    text-align: center;
-  }
-
-  .notice-box a {
-    color: #90ee90; /* light green link */
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  .notice-box a:hover {
-    color: #d8f3dc;
-    text-decoration: underline;
-  }
-</style>
-
-
 </body>
 </html>
-<script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_6sqPDsTw4q83CRaR5wYVGpJSJQoU" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
-
-
-
-
-
-
-
-
-
