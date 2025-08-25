@@ -5,9 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NEET Prep Notes — Subjects</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script defer src="notes.js"></script>
+  <script>
+    // Dark mode toggle persistence
+    document.addEventListener("DOMContentLoaded", () => {
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    });
+  </script>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
+
   <!-- Navbar -->
   <header class="sticky top-0 bg-white/70 dark:bg-gray-900/70 backdrop-blur z-50 border-b border-gray-200 dark:border-gray-700">
     <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
@@ -16,19 +24,108 @@
     </div>
   </header>
 
-  <!-- Search + Filters -->
+  <!-- Search Bar -->
   <section class="max-w-6xl mx-auto px-4 py-6">
-    <div class="flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
-      <input type="text" id="searchInput" placeholder="Search notes..." class="w-full md:w-1/2 px-4 py-2 border rounded-lg dark:bg-gray-800" />
-      <select id="subjectFilter" class="px-4 py-2 border rounded-lg dark:bg-gray-800">
-        <option value="all">All Subjects</option>
-      </select>
-    </div>
+    <input type="text" id="searchInput" placeholder="Search notes..."
+      class="w-full px-4 py-2 border rounded-lg dark:bg-gray-800" />
   </section>
 
-  <!-- Notes Container -->
-  <main class="max-w-6xl mx-auto px-4 pb-12">
-    <div id="notesContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  <!-- Notes Section -->
+  <main class="max-w-6xl mx-auto px-4 pb-12 space-y-6" id="notesContainer">
+
+    <!-- Biology -->
+    <details class="border rounded-xl p-4 dark:border-gray-700">
+      <summary class="cursor-pointer font-bold text-lg">Biology</summary>
+      <div class="pl-4 mt-3 space-y-4">
+
+        <details>
+          <summary class="cursor-pointer font-semibold">Cell Structure</summary>
+          <ul class="list-disc pl-6 mt-2 space-y-1">
+            <li><a href="notes/biology/cell-theory.pdf" target="_blank" class="text-blue-600 hover:underline">Cell Theory</a></li>
+            <li><a href="notes/biology/plasma-membrane.pdf" target="_blank" class="text-blue-600 hover:underline">Plasma Membrane</a></li>
+          </ul>
+        </details>
+
+        <details>
+          <summary class="cursor-pointer font-semibold">Genetics</summary>
+          <ul class="list-disc pl-6 mt-2 space-y-1">
+            <li><a href="notes/biology/mendels-laws.pdf" target="_blank" class="text-blue-600 hover:underline">Mendel’s Laws</a></li>
+            <li><a href="notes/biology/dna-replication.pdf" target="_blank" class="text-blue-600 hover:underline">DNA Replication</a></li>
+          </ul>
+        </details>
+
+      </div>
+    </details>
+
+    <!-- Physics -->
+    <details class="border rounded-xl p-4 dark:border-gray-700">
+      <summary class="cursor-pointer font-bold text-lg">Physics</summary>
+      <div class="pl-4 mt-3 space-y-4">
+
+        <details>
+          <summary class="cursor-pointer font-semibold">Mechanics</summary>
+          <ul class="list-disc pl-6 mt-2 space-y-1">
+            <li><a href="notes/physics/laws-of-motion.pdf" target="_blank" class="text-blue-600 hover:underline">Laws of Motion</a></li>
+            <li><a href="notes/physics/work-energy-power.pdf" target="_blank" class="text-blue-600 hover:underline">Work, Energy & Power</a></li>
+          </ul>
+        </details>
+
+        <details>
+          <summary class="cursor-pointer font-semibold">Optics</summary>
+          <ul class="list-disc pl-6 mt-2 space-y-1">
+            <li><a href="notes/physics/reflection.pdf" target="_blank" class="text-blue-600 hover:underline">Reflection of Light</a></li>
+            <li><a href="notes/physics/refraction.pdf" target="_blank" class="text-blue-600 hover:underline">Refraction of Light</a></li>
+          </ul>
+        </details>
+
+      </div>
+    </details>
+
+    <!-- Chemistry -->
+    <details class="border rounded-xl p-4 dark:border-gray-700">
+      <summary class="cursor-pointer font-bold text-lg">Chemistry</summary>
+      <div class="pl-4 mt-3 space-y-4">
+
+        <details>
+          <summary class="cursor-pointer font-semibold">Atomic Structure</summary>
+          <ul class="list-disc pl-6 mt-2 space-y-1">
+            <li><a href="notes/chemistry/bohr-model.pdf" target="_blank" class="text-blue-600 hover:underline">Bohr’s Model</a></li>
+            <li><a href="notes/chemistry/quantum-numbers.pdf" target="_blank" class="text-blue-600 hover:underline">Quantum Numbers</a></li>
+          </ul>
+        </details>
+
+        <details>
+          <summary class="cursor-pointer font-semibold">Organic Chemistry</summary>
+          <ul class="list-disc pl-6 mt-2 space-y-1">
+            <li><a href="notes/chemistry/hydrocarbons.pdf" target="_blank" class="text-blue-600 hover:underline">Hydrocarbons</a></li>
+            <li><a href="notes/chemistry/alcohols-phenols.pdf" target="_blank" class="text-blue-600 hover:underline">Alcohols & Phenols</a></li>
+          </ul>
+        </details>
+
+      </div>
+    </details>
+
   </main>
+
+  <!-- JS for Dark Mode + Search -->
+  <script>
+    // Dark mode toggle
+    document.getElementById("darkToggle").addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
+      localStorage.setItem("theme", document.documentElement.classList.contains("dark") ? "dark" : "light");
+    });
+
+    // Search filter
+    const searchInput = document.getElementById("searchInput");
+    const notesContainer = document.getElementById("notesContainer");
+
+    searchInput.addEventListener("input", () => {
+      const term = searchInput.value.toLowerCase();
+      notesContainer.querySelectorAll("li").forEach(li => {
+        li.style.display = li.textContent.toLowerCase().includes(term) ? "" : "none";
+      });
+    });
+  </script>
+
 </body>
 </html>
