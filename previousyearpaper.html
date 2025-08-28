@@ -1,60 +1,80 @@
 <!DOCTYPE html>
-<html>
-<head><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6927250853335610"
-     crossorigin="anonymous"></script>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PYP - NEET Previous Year Papers</title>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6927250853335610"
+    crossorigin="anonymous"></script>
+
   <style>
     body {
-      background-color: #995566;
-      color: #ffffff;
+      margin: 0;
       font-family: Arial, sans-serif;
-      padding-top: 60px;
+      background-color: #995566;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
       text-align: center;
+      padding: 60px 20px 80px;
     }
 
     #datetime {
-      position: fixed;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #ffffff;
       font-size: 16px;
+      margin-bottom: 20px;
     }
 
-    select, button {
-      padding: 10px;
-      font-size: 16px;
-      margin: 10px;
-      border-radius: 6px;
-      border: none;
+    h2 {
+      margin-bottom: 30px;
     }
 
-    button {
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .card {
       background-color: #ffffff;
       color: #995566;
+      padding: 20px;
+      border-radius: 12px;
+      text-decoration: none;
       font-weight: bold;
-      cursor: pointer;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+      transition: transform 0.2s, background-color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
-    button:hover {
-      background-color: #e0e0e0;
+    .card:hover {
+      background-color: #ffdada;
+      transform: translateY(-5px);
     }
 
-    #back-button {
+    .back-button {
       position: fixed;
       bottom: 20px;
       right: 20px;
       background-color: #ffffff;
       color: #995566;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
+      padding: 10px 15px;
+      border-radius: 6px;
       font-weight: bold;
+      text-decoration: none;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
     }
 
-    #back-button:hover {
-      background-color: #e0e0e0;
+    .back-button:hover {
+      background-color: #ffdada;
     }
   </style>
 </head>
@@ -62,53 +82,36 @@
 
   <div id="datetime"></div>
 
-  <h2>Select NEET Year/Type</h2>
+  <h2>NEET Previous Year Papers</h2>
 
-  <select id="pyp-select">
-    <option value="">-- Select a paper or answer key --</option>
-    <option value="NEET 2015.html">NEET 2015 Question Paper</option>
-    <option value="NEET 2015 Answer key.html">NEET 2015 Answer Key</option>
-    <option value="NEET 2016.html">NEET 2016 Question Paper</option>
-    <option value="NEET 2016 Answer key.html">NEET 2016 Answer Key</option>
-    <option value="NEET 2017.html">NEET 2017 Question Paper</option>
-    <option value="NEET 2018.html">NEET 2018 Question Paper</option>
-    <option value="NEET 2018 Answer key.html">NEET 2018 Answer Key</option>
-    <option value="NEET 2019.html">NEET 2019 Question Paper</option>
-    <option value="NEET 2019 Answer key.html">NEET 2019 Answer Key</option>
-    <option value="NEET 2020.html">NEET 2020 Question Paper</option>
-    <option value="NEET 2020 answer key.html">NEET 2020 Answer Key</option>
-    <option value="NEET 2021.html">NEET 2021 Question Paper</option>
-    <option value="NEET 2021 Answer Key.html">NEET 2021 Answer Key</option>
-    <option value="NEET 2022.html">NEET 2022 Question Paper</option>
-    <option value="NEET 2022 Answer key.html">NEET 2022 Answer Key</option>
-    <option value="NEET 2023.html">NEET 2023 Question Paper</option>
-    <option value="NEET 2023 Answer Key.html">NEET 2023 Answer Key</option>
-    <option value="NEET 2024.html">NEET 2024 Question Paper</option>
-    <option value="NEET 2024 Answer Key.html">NEET 2024 Answer Key</option>
-  </select>
-  <br>
-  <button onclick="goToPYP()">Go to Paper</button>
+  <div class="grid">
+    <a href="NEET 2015.html" class="card">NEET 2015 Question Paper</a>
+    <a href="NEET 2015 Answer key.html" class="card">NEET 2015 Answer Key</a>
+    <a href="NEET 2016.html" class="card">NEET 2016 Question Paper</a>
+    <a href="NEET 2016 Answer key.html" class="card">NEET 2016 Answer Key</a>
+    <a href="NEET 2017.html" class="card">NEET 2017 Question Paper</a>
+    <a href="NEET 2018.html" class="card">NEET 2018 Question Paper</a>
+    <a href="NEET 2018 Answer key.html" class="card">NEET 2018 Answer Key</a>
+    <a href="NEET 2019.html" class="card">NEET 2019 Question Paper</a>
+    <a href="NEET 2019 Answer key.html" class="card">NEET 2019 Answer Key</a>
+    <a href="NEET 2020.html" class="card">NEET 2020 Question Paper</a>
+    <a href="NEET 2020 answer key.html" class="card">NEET 2020 Answer Key</a>
+    <a href="NEET 2021.html" class="card">NEET 2021 Question Paper</a>
+    <a href="NEET 2021 Answer Key.html" class="card">NEET 2021 Answer Key</a>
+    <a href="NEET 2022.html" class="card">NEET 2022 Question Paper</a>
+    <a href="NEET 2022 Answer key.html" class="card">NEET 2022 Answer Key</a>
+    <a href="NEET 2023.html" class="card">NEET 2023 Question Paper</a>
+    <a href="NEET 2023 Answer Key.html" class="card">NEET 2023 Answer Key</a>
+    <a href="NEET 2024.html" class="card">NEET 2024 Question Paper</a>
+    <a href="NEET 2024 Answer Key.html" class="card">NEET 2024 Answer Key</a>
+  </div>
 
-  <button id="back-button" onclick="goBack()">⟵ Back</button>
+  <a href="notes.html" class="back-button">⬅ Back</a>
 
   <script>
     function updateDateTime() {
       const now = new Date();
       document.getElementById("datetime").textContent = "Current Date & Time: " + now.toLocaleString();
-    }
-
-    function goToPYP() {
-      const select = document.getElementById("pyp-select");
-      const selectedValue = select.value;
-      if (selectedValue) {
-        window.location.href = selectedValue;
-      } else {
-        alert("Please select a paper or answer key.");
-      }
-    }
-
-    function goBack() {
-      window.history.back();
     }
 
     updateDateTime();
