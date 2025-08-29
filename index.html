@@ -374,7 +374,7 @@
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
   (function() {
-    emailjs.init(hUUonXV5znW_81Npv); // ✅ Replace with your Public Key
+    emailjs.init("hUUonXV5znW_81Npv"); // ✅ Replace with your Public Key
   })();
 
   document.getElementById("contact-form").addEventListener("submit", function(e) {
@@ -383,7 +383,7 @@
     document.getElementById("send-btn").disabled = true;
     document.getElementById("status-msg").innerText = "Sending...";
 
-    emailjs.sendForm(service_22s5knd, template_4s20ud6, this)
+    emailjs.sendForm("service_22s5knd", "template_4s20ud6", this)
       .then(function() {
         document.getElementById("status-msg").innerText = "✅ Message sent successfully!";
         document.getElementById("contact-form").reset();
@@ -466,6 +466,7 @@
   </script>
 </body>
 </html>
+
 
 
 
