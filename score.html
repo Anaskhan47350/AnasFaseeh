@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NEET Question Paper Scoring</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #f3f4f6; color: #111827; }
+    header { background: #2563eb; color: #fff; padding: 16px; text-align: center; font-size: 22px; font-weight: bold; }
+    main { max-width: 900px; margin: 20px auto; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    h2, h3 { margin-bottom: 10px; }
+    .notice, .instructions { background:#fef9c3; border:1px solid #facc15; padding:12px; border-radius:8px; margin-bottom:16px; font-size: 14px; }
+    .instructions { background:#ecfdf5; border-color:#10b981; }
+    .row { margin: 10px 0; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    label { font-weight: 500; }
+    input, button { padding: 8px 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; }
+    button { cursor: pointer; background: #2563eb; color: #fff; border: none; transition: background 0.2s; }
+    button:hover { background: #1d4ed8; }
+    .answer-box { width: 42px; text-align: center; font-weight: bold; font-size: 14px; }
+    .result { margin-top: 18px; font-weight: bold; white-space: pre-wrap; padding: 12px; background: #f9fafb; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; }
+    #loading { display:none; margin-top: 10px; font-style: italic; color: #0ea5e9; }
+    #progressBar { width: 100%; background: #e5e7eb; height: 12px; border-radius: 6px; overflow: hidden; display:none; margin-top:10px; }
+    #progressFill { height: 100%; width: 0%; background: #16a34a; text-align: center; color: white; font-size: 10px; line-height: 12px; }
+    #preview { margin-top:10px; font-size: 14px; background:#f9fafb; padding:8px; border:1px solid #ddd; border-radius:6px; white-space:pre-line; }
+    form#answersForm { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; margin-top: 12px; }
+    label.debug { font-size: 14px; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <header>NEET Question Paper Score Calculator</header>
+  <main>
+    <div class="notice">
+      ℹ️ <b>Notice:</b> Upload your Answer Key in <b>PDF / JPG / PNG / TXT</b> format.  
+      - If PDF is scanned (image-based), OCR will be used (slower & may reduce accuracy).  
+    </div>
+
+    <div class="instructions">
+      <h3>📌 Instructions</h3>
+      <ul style="margin:6px 0 0 18px; font-size:14px; line-height:1.5;">
+        <li>Ensure PDF is <b>machine-readable</b> (not blurry scan) for best results.</li>
+        <li>Answer boxes are <b>auto-filled</b> from the key. If wrong, change manually.</li>
+        <li>If a question is <b>bonus</b>, write <b>"b"</b> → awarded <b>+4 marks</b>.</li>
+        <li>If a question is <b>cancelled / left blank</b>, write <b>"L"</b> → <b>0 marks</b>.</li>
+        <li>Marking scheme: Correct = +4, Wrong = −1, Bonus = +4, Left = 0.</li>
+      </ul>
+    </div>
+
+    <h3>Step 1: Upload Answer Key</h3>
+    <div class="row">
+      <label>Upload File:</label>
+      <input type="file" id="answerKeyFile" accept=".txt,.csv,.pdf,.jpg,.jpeg,.png" />
+    </div>
+    <div class="row">
+      <label>Max Q (cap):</label>
+      <input id="maxQ" type="number" min="1" max="400" value="200" />
+      <button id="btnGenerate" type="button">Generate Answer Fields</button>
+    </div>
+
+    <div class="row">
+      <label class="debug"><input type="checkbox" id="debugMode"> Debug Mode</label>
+      <button type="button" id="btnDownloadRaw">Download Raw Extracted Text</button>
+    </div>
+
+    <div id="loading">⏳ Processing... Please wait.</div>
+    <div id="progressBar"><div id="progressFill">0%</div></div>
+    <div id="preview">No answer key loaded yet.</div>
+
+    <h3>Step 2: Enter Your Answers</h3>
+    <form id="answersForm"></form>
+
+    <div class="row" style="margin-top:14px;">
+      <button type="button" id="btnScore">Calculate Score</button>
+      <button type="button" id="btnPDF">Download PDF Report</button>
+    </div>
+
+    <div class="result" id="result"></div>
+  </main>
+
+  <script>
+    let answerKey = [];
+    let totalQuestions = 0;
+    let lastRawText = "";
+
+    const PDF_JS_URL = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js";
+    const PDF_WORKER_URL = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
+
+    function ensurePDFJS() {
+      return new Promise((resolve) => {
+        if (window.pdfjsLib) {
+          try { window.pdfjsLib.GlobalWorkerOptions.workerSrc = PDF_WORKER_URL; } catch(e) {}
+          return resolve(window.pdfjsLib);
+        }
+        const s = document.createElement('script');
+        s.src = PDF_JS_URL;
+        s.onload = () => {
+          if (window.pdfjsLib) {
+            try { window.pdfjsLib.GlobalWorkerOptions.workerSrc = PDF_WORKER_URL; } catch(e) {}
+            resolve(window.pdfjsLib);
+          } else resolve(null);
+        };
+        s.onerror = () => resolve(null);
+        document.head.appendChild(s);
+      });
+    }
+
+    function setLoading(on) {
+      document.getElementById("loading").style.display = on ? "block" : "none";
+      document.getElementById("progressBar").style.display = on ? "block" : "none";
+      if (!on) {
+        const pf = document.getElementById("progressFill");
+        pf.style.width = "0%"; pf.innerText = "0%";
+      }
+    }
+
+    // ✅ Parser
+    function extractAnswersFromText(rawText, cap=200) {
+      const temp = [];
+      let maxDetected = 0;
+      let text = rawText.replace(/\r?\n/g, " ").replace(/\s+/g, " ");
+      const regex1 = /Q\.?\s*No\.?\s*(\d+)\s*[:\-]?\s*([1-4])/gi;
+      let m;
+      while ((m = regex1.exec(text)) !== null) {
+        const qNo = parseInt(m[1], 10); const ans = m[2];
+        if (qNo <= cap) { temp[qNo-1] = ans; if (qNo > maxDetected) maxDetected = qNo; }
+      }
+      const regex2 = /\b(\d{1,3})\s+([1-4])\b/g;
+      while ((m = regex2.exec(text)) !== null) {
+        const qNo = parseInt(m[1], 10); const ans = m[2];
+        if (qNo <= cap && !temp[qNo-1]) { temp[qNo-1] = ans; if (qNo > maxDetected) maxDetected = qNo; }
+      }
+      const regex3 = /\b(\d{2,3})([1-4])\b/g;
+      while ((m = regex3.exec(text)) !== null) {
+        const qNo = parseInt(m[1], 10); const ans = m[2];
+        if (qNo <= cap && !temp[qNo-1]) { temp[qNo-1] = ans; if (qNo > maxDetected) maxDetected = qNo; }
+      }
+      return { key: temp, count: maxDetected };
+    }
+
+    document.getElementById("answerKeyFile").addEventListener("change", async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const ext = file.name.split(".").pop().toLowerCase();
+      if (["txt","csv"].includes(ext)) {
+        const text = await file.text();
+        applyParsedKey(text);
+      } else if (ext === "pdf") {
+        await extractFromPDF(file);
+      } else if (["jpg","jpeg","png"].includes(ext)) {
+        await extractFromImage(file);
+      } else {
+        alert("Unsupported file type!");
+      }
+    });
+
+    async function extractFromPDF(file) {
+      setLoading(true);
+      const lib = await ensurePDFJS();
+      if (!lib) return extractFromImage(file);
+      try {
+        const buf = await file.arrayBuffer();
+        const pdf = await window.pdfjsLib.getDocument({ data: new Uint8Array(buf) }).promise;
+        let textContent = '';
+        for (let i = 1; i <= pdf.numPages; i++) {
+          const page = await pdf.getPage(i);
+          const t = await page.getTextContent();
+          textContent += t.items.map(it => it.str).join(' ') + ' ';
+        }
+        setLoading(false);
+        lastRawText = textContent;
+        const cap = parseInt(document.getElementById("maxQ").value || "200", 10);
+        const { key, count } = extractAnswersFromText(textContent, cap);
+        if (count < 10) return extractPDFWithOCR(file);
+        applyParsedKey(textContent);
+      } catch (err) {
+        setLoading(false);
+        extractPDFWithOCR(file);
+      }
+    }
+
+    async function extractPDFWithOCR(file) {
+      setLoading(true);
+      const buf = await file.arrayBuffer();
+      const pdf = await window.pdfjsLib.getDocument({ data: new Uint8Array(buf) }).promise;
+      let combinedText = '';
+      for (let i = 1; i <= pdf.numPages; i++) {
+        const page = await pdf.getPage(i);
+        const viewport = page.getViewport({ scale: 2 });
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = viewport.width; canvas.height = viewport.height;
+        await page.render({ canvasContext: ctx, viewport }).promise;
+        const { data: { text } } = await Tesseract.recognize(canvas, 'eng', {
+          logger: m => {
+            if (m.status === 'recognizing text') {
+              const pct = Math.round(((i - 1) + m.progress) / pdf.numPages * 100);
+              const pf = document.getElementById("progressFill");
+              pf.style.width = pct + "%"; pf.innerText = pct + "%";
+            }
+          }
+        });
+        combinedText += text + "\n";
+      }
+      setLoading(false);
+      lastRawText = combinedText;
+      applyParsedKey(combinedText);
+    }
+
+    async function extractFromImage(file) {
+      setLoading(true);
+      const pf = document.getElementById("progressFill");
+      pf.style.width = "0%"; pf.innerText = "0%";
+      try {
+        const { data: { text } } = await Tesseract.recognize(file, 'eng', {
+          logger: m => {
+            if (m.status === 'recognizing text') {
+              const pct = Math.round(m.progress * 100);
+              pf.style.width = pct + "%"; pf.innerText = pct + "%";
+            }
+          }
+        });
+        setLoading(false);
+        lastRawText = text;
+        applyParsedKey(text);
+      } catch (err) {
+        setLoading(false);
+        alert("OCR failed.");
+      }
+    }
+
+    function applyParsedKey(text) {
+      const cap = parseInt(document.getElementById("maxQ").value || "200", 10);
+      const { key, count } = extractAnswersFromText(text, cap);
+      answerKey = key; totalQuestions = count;
+      const first20 = [];
+      for (let i = 0; i < Math.min(20, totalQuestions); i++) {
+        first20.push(`Q${i+1}: ${key[i] || '(missing)'}`);
+      }
+      document.getElementById("preview").textContent =
+        "Preview of first 20 answers:\n" + first20.join("\n");
+      alert(`Answer Key Loaded! Questions detected: ${totalQuestions}`);
+    }
+
+    document.getElementById("btnGenerate").addEventListener("click", generateInputs);
+    function generateInputs() {
+      if (totalQuestions === 0) { alert("Upload answer key first!"); return; }
+      const form = document.getElementById("answersForm");
+      form.innerHTML = "";
+      for (let i = 1; i <= totalQuestions; i++) {
+        form.innerHTML += `
+          <label>
+            Q${i}: <input type="text" id="q${i}" class="answer-box" maxlength="1"
+                          placeholder="1-4/b/L" value="${answerKey[i-1]||''}"
+                          oninput="moveNext(${i}, ${totalQuestions})">
+          </label>`;
+      }
+    }
+    function moveNext(i, total) {
+      const current = document.getElementById(`q${i}`);
+      if (current.value.length === 1 && i < total) {
+        document.getElementById(`q${i+1}`).focus();
+      }
+    }
+
+    // ✅ Modified scoring logic
+    document.getElementById("btnScore").addEventListener("click", () => {
+      let score = 0, correct = 0, wrong = 0, blank = 0, bonus = 0;
+      let table = "";
+      for (let i = 1; i <= totalQuestions; i++) {
+        const userAns = document.getElementById(`q${i}`).value.trim();
+        const correctAns = answerKey[i-1] || "";
+        if (userAns === "L" || userAns === "") {
+          blank++; table += `Q${i}: Left | Correct: ${correctAns}\n`;
+        } else if (userAns.toLowerCase() === "b") {
+          score += 4; bonus++; table += `Q${i}: 🏅 Bonus (+4)\n`;
+        } else if (userAns === correctAns) {
+          score += 4; correct++; table += `Q${i}: ✅ ${userAns}\n`;
+        } else {
+          score -= 1; wrong++; table += `Q${i}: ❌ ${userAns} (Correct: ${correctAns})\n`;
+        }
+      }
+      document.getElementById("result").innerText =
+        `Score: ${score}\nCorrect: ${correct}\nWrong: ${wrong}\nBonus: ${bonus}\nLeft: ${blank}\n\nDetails:\n` + table;
+    });
+
+    document.getElementById("btnPDF").addEventListener("click", () => {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      doc.text(document.getElementById("result").innerText || "No score calculated.", 10, 10);
+      doc.save("Score_Report.pdf");
+    });
+
+    document.getElementById("btnDownloadRaw").addEventListener("click", () => {
+      if (!document.getElementById("debugMode").checked) {
+        alert("Enable Debug Mode first."); return;
+      }
+      if (!lastRawText) { alert("No raw text available yet."); return; }
+      const blob = new Blob([lastRawText], { type: "text/plain" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a"); a.href = url; a.download = "raw_extracted.txt";
+      a.click(); URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>
