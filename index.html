@@ -462,6 +462,19 @@
       }
     });
 
+
+    // --- Simple intersection-based reveal animations ---
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fadeIn');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('section').forEach(el => observer.observe(el));
+  </script>
+
     <!-- Floating Social Media Links -->
 <div class="social-links">
   <a href="https://instagram.com/anas.khan_alig" target="_blank" class="social instagram">
@@ -512,21 +525,9 @@
   opacity: 0.95;
 }
 </style>
-
-
-    // --- Simple intersection-based reveal animations ---
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fadeIn');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('section').forEach(el => observer.observe(el));
-  </script>
 </body>
 </html>
+
 
 
 
