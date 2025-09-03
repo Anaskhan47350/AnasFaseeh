@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JEE Main Previous Year Papers</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>JEE Main Previous Year Papers (2002 - 2025)</title>
 
   <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6927250853335610" crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6927250853335610"
+    crossorigin="anonymous"></script>
 
   <style>
     :root{
-      --bg:#995566;
-      --fg:#ffffff;
-      --fg-soft:#ffdada;
-      --card-bg:#ffffff;
-      --card-fg:#995566;
-      --shadow:2px 2px 8px rgba(0,0,0,0.3);
-      --shadow-sm:2px 2px 6px rgba(0,0,0,0.3);
-      --radius:12px;
+      --bg: #995566;
+      --fg: #ffffff;
+      --fg-soft: #ffdada;
+      --card-bg: #ffffff;
+      --card-fg: #995566;
+      --radius: 12px;
+      --shadow: 2px 2px 8px rgba(0,0,0,0.3);
+      --shadow-sm: 2px 2px 6px rgba(0,0,0,0.3);
+      --max-w: 1100px;
     }
+
     * { box-sizing: border-box; }
     body {
       margin: 0;
@@ -30,383 +33,599 @@
       align-items: center;
       min-height: 100vh;
       text-align: center;
-      padding: 60px 20px 80px;
+      padding: 60px 20px 100px;
     }
-    #datetime {
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-    h1, h2 { margin: 0; }
-    h2 { margin-bottom: 30px; }
-    h3 {
-      margin: 44px 0 18px;
-      color: var(--fg-soft);
-      font-size: 20px;
-      line-height: 1.3;
-    }
-    .section {
+
+    #datetime { font-size: 15px; margin-bottom: 12px; }
+    h1 { margin: 0 0 6px; font-size: 22px; color: #fff; }
+    h2 { margin: 6px 0 20px; font-size: 18px; color: #fff; }
+
+    #filter {
+      margin-bottom: 18px;
+      max-width: var(--max-w);
       width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      align-items: center;
     }
+
+    #filter label { color: #fff; font-weight: 600; }
+    select {
+      padding: 7px 10px;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+      color: var(--card-fg);
+      background: var(--card-bg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .container { width: 100%; max-width: var(--max-w); }
+
+    .year-header {
+      background: var(--card-bg);
+      color: var(--card-fg);
+      padding: 12px 16px;
+      margin: 12px auto 6px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 700;
+      text-align: left;
+      box-shadow: var(--shadow);
+      transition: background 0.18s, transform 0.12s;
+      max-width: var(--max-w);
+      width: 100%;
+      display: block;
+    }
+
+    .year-header:hover { background: var(--fg-soft); transform: translateY(-2px); }
+
+    .year-header::after {
+      content: "▸";
+      float: right;
+      transform-origin: center;
+      transition: transform 0.2s;
+    }
+
+    .year-header.active::after { content: "▾"; }
+
+    .year-content {
+      display: none;
+      margin-bottom: 18px;
+      width: 100%;
+      max-width: var(--max-w);
+      padding: 10px 6px 0 6px;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
-      max-width: 1100px;
-      margin: 0 auto 8px;
+      gap: 16px;
+      margin: 8px 0 18px;
     }
+
     .card {
       background-color: var(--card-bg);
       color: var(--card-fg);
-      padding: 16px 18px;
+      padding: 16px;
       border-radius: var(--radius);
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 700;
       box-shadow: var(--shadow);
-      transition: transform 0.2s, background-color 0.2s;
+      transition: transform 0.18s, background-color 0.18s;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      min-height: 64px;
+      min-height: 60px;
     }
-    .card:hover, .card:focus-visible {
-      background-color: var(--fg-soft);
-      transform: translateY(-5px);
-    }
-    .muted {
-      opacity: 0.9;
-      font-weight: normal;
-      display: block;
-      font-size: 13px;
-      margin-top: 4px;
-    }
+
+    .card:hover, .card:focus { background-color: var(--fg-soft); transform: translateY(-6px); }
+
     .back-button {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: #ffffff;
-      color: #995566;
-      padding: 10px 15px;
-      border-radius: 6px;
-      font-weight: bold;
+      background-color: var(--card-bg);
+      color: var(--card-fg);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-weight: 700;
       text-decoration: none;
       box-shadow: var(--shadow-sm);
     }
-    .back-button:hover { background-color: var(--fg-soft); }
 
-    /* small helper spacing between blocks inside a year */
-    .subnote {
-      margin-top: -10px;
-      margin-bottom: 10px;
-      font-size: 13px;
-      color: var(--fg-soft);
-      opacity: 0.95;
+    .back-button:hover { background: var(--fg-soft); }
+
+    /* small screens spacing */
+    @media (max-width:520px){
+      body { padding: 40px 12px 90px; }
+      .year-header { padding: 10px 12px; }
+      .card { padding: 12px; font-size: 14px; }
     }
   </style>
 </head>
 <body>
 
   <div id="datetime"></div>
-  <h2>JEE Main Previous Year Papers (2025 – 2002)</h2>
+  <h1>JEE Main Previous Year Papers</h1>
+  <h2>(Question Papers only · 2002 → 2025)</h2>
 
-  <div class="section">
+  <!-- Filter -->
+  <div id="filter" class="container">
+    <label for="yearSelect">Jump to Year:</label>
+    <select id="yearSelect" onchange="selectYear(this.value)">
+      <option value="">-- Select Year --</option>
+      <option value="2025">2025</option>
+      <option value="2024">2024</option>
+      <option value="2023">2023</option>
+      <option value="2022">2022</option>
+      <option value="2021">2021</option>
+      <option value="2020">2020</option>
+      <option value="2019">2019</option>
+      <option value="2018">2018</option>
+      <option value="2017">2017</option>
+      <option value="2016">2016</option>
+      <option value="2015">2015</option>
+      <option value="2014">2014</option>
+      <option value="2013">2013</option>
+      <option value="2012">2012</option>
+      <option value="2011">2011</option>
+      <option value="2010">2010</option>
+      <option value="2009">2009</option>
+      <option value="2008">2008</option>
+      <option value="2007">2007</option>
+      <option value="2006">2006</option>
+      <option value="2005">2005</option>
+      <option value="2004">2004</option>
+      <option value="2003">2003</option>
+      <option value="2002">2002</option>
+    </select>
+  </div>
+
+  <div class="container">
 
     <!-- 2025 -->
-    <h3>JEE Main 2025 (January)</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/hFUS" class="card" target="_blank" rel="noopener noreferrer">22 Jan – Shift 1</a>
-      <a href="https://links.mathongo.com/rFDq" class="card" target="_blank" rel="noopener noreferrer">22 Jan – Shift 2</a>
-      <a href="https://links.mathongo.com/XFHh" class="card" target="_blank" rel="noopener noreferrer">23 Jan – Shift 1</a>
-      <a href="https://links.mathongo.com/AFPX" class="card" target="_blank" rel="noopener noreferrer">23 Jan – Shift 2</a>
-      <a href="https://links.mathongo.com/8FGH" class="card" target="_blank" rel="noopener noreferrer">24 Jan – Shift 1</a>
-      <a href="https://links.mathongo.com/2FFa" class="card" target="_blank" rel="noopener noreferrer">24 Jan – Shift 2</a>
-      <a href="https://links.mathongo.com/FFOm" class="card" target="_blank" rel="noopener noreferrer">28 Jan – Shift 1</a>
-      <a href="https://links.mathongo.com/gFIw" class="card" target="_blank" rel="noopener noreferrer">28 Jan – Shift 2</a>
-      <a href="https://links.mathongo.com/CFSe" class="card" target="_blank" rel="noopener noreferrer">29 Jan – Shift 1</a>
-      <a href="https://links.mathongo.com/WFAQ" class="card" target="_blank" rel="noopener noreferrer">29 Jan – Shift 2</a>
+    <h3 id="header2025" class="year-header" onclick="toggle('2025')">JEE Main 2025 (January)</h3>
+    <div id="year2025" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/hFUS" class="card" target="_blank" rel="noopener noreferrer">22 Jan – Shift 1</a>
+        <a href="https://links.mathongo.com/rFDq" class="card" target="_blank" rel="noopener noreferrer">22 Jan – Shift 2</a>
+        <a href="https://links.mathongo.com/XFHh" class="card" target="_blank" rel="noopener noreferrer">23 Jan – Shift 1</a>
+        <a href="https://links.mathongo.com/AFPX" class="card" target="_blank" rel="noopener noreferrer">23 Jan – Shift 2</a>
+        <a href="https://links.mathongo.com/8FGH" class="card" target="_blank" rel="noopener noreferrer">24 Jan – Shift 1</a>
+        <a href="https://links.mathongo.com/2FFa" class="card" target="_blank" rel="noopener noreferrer">24 Jan – Shift 2</a>
+        <a href="https://links.mathongo.com/FFOm" class="card" target="_blank" rel="noopener noreferrer">28 Jan – Shift 1</a>
+        <a href="https://links.mathongo.com/gFIw" class="card" target="_blank" rel="noopener noreferrer">28 Jan – Shift 2</a>
+        <a href="https://links.mathongo.com/CFSe" class="card" target="_blank" rel="noopener noreferrer">29 Jan – Shift 1</a>
+        <a href="https://links.mathongo.com/WFAQ" class="card" target="_blank" rel="noopener noreferrer">29 Jan – Shift 2</a>
+      </div>
     </div>
 
-    <!-- 2024 -->
-    <h3>JEE Main 2024 (January)</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/Qe0X" class="card" target="_blank" rel="noopener noreferrer">27 Jan – Shift 1</a>
-      <a href="https://links.mathongo.com/2rtB" class="card" target="_blank" rel="noopener noreferrer">27 Jan – Shift 2</a>
-      <a href="https://links.mathongo.com/Oe6L" class="card" target="_blank" rel="noopener noreferrer">29 Jan – Shift 1</a>
-      <a href="https://links.mathongo.com/Be5F" class="card" target="_blank" rel="noopener noreferrer">29 Jan – Shift 2</a>
-      <a href="https://links.mathongo.com/ZrrZ" class="card" target="_blank" rel="noopener noreferrer">30 Jan – Shift 1</a>
-      <a href="https://links.mathongo.com/urqP" class="card" target="_blank" rel="noopener noreferrer">30 Jan – Shift 2</a>
-      <a href="https://links.mathongo.com/0rqQ" class="card" target="_blank" rel="noopener noreferrer">31 Jan – Shift 1</a>
-      <a href="https://links.mathongo.com/YreE" class="card" target="_blank" rel="noopener noreferrer">31 Jan – Shift 2</a>
-      <a href="https://links.mathongo.com/JeHi" class="card" target="_blank" rel="noopener noreferrer">01 Feb – Shift 1</a>
-      <a href="https://links.mathongo.com/EeXb" class="card" target="_blank" rel="noopener noreferrer">01 Feb – Shift 2</a>
+    <!-- 2024 January -->
+    <h3 id="header2024" class="year-header" onclick="toggle('2024')">JEE Main 2024 (January)</h3>
+    <div id="year2024" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/Qe0X" class="card" target="_blank" rel="noopener noreferrer">27 Jan – Shift 1</a>
+        <a href="https://links.mathongo.com/2rtB" class="card" target="_blank" rel="noopener noreferrer">27 Jan – Shift 2</a>
+        <a href="https://links.mathongo.com/Oe6L" class="card" target="_blank" rel="noopener noreferrer">29 Jan – Shift 1</a>
+        <a href="https://links.mathongo.com/Be5F" class="card" target="_blank" rel="noopener noreferrer">29 Jan – Shift 2</a>
+        <a href="https://links.mathongo.com/ZrrZ" class="card" target="_blank" rel="noopener noreferrer">30 Jan – Shift 1</a>
+        <a href="https://links.mathongo.com/urqP" class="card" target="_blank" rel="noopener noreferrer">30 Jan – Shift 2</a>
+        <a href="https://links.mathongo.com/0rqQ" class="card" target="_blank" rel="noopener noreferrer">31 Jan – Shift 1</a>
+        <a href="https://links.mathongo.com/YreE" class="card" target="_blank" rel="noopener noreferrer">31 Jan – Shift 2</a>
+        <a href="https://links.mathongo.com/JeHi" class="card" target="_blank" rel="noopener noreferrer">01 Feb – Shift 1</a>
+        <a href="https://links.mathongo.com/EeXb" class="card" target="_blank" rel="noopener noreferrer">01 Feb – Shift 2</a>
+      </div>
     </div>
 
-    <h3>JEE Main 2024 (April)</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/1eFi" class="card" target="_blank" rel="noopener noreferrer">04 Apr – Shift 1</a>
-      <a href="https://links.mathongo.com/ke3T" class="card" target="_blank" rel="noopener noreferrer">04 Apr – Shift 2</a>
-      <a href="https://links.mathongo.com/Qe4c" class="card" target="_blank" rel="noopener noreferrer">05 Apr – Shift 1</a>
-      <a href="https://links.mathongo.com/ve7K" class="card" target="_blank" rel="noopener noreferrer">05 Apr – Shift 2</a>
-      <a href="https://links.mathongo.com/be1q" class="card" target="_blank" rel="noopener noreferrer">06 Apr – Shift 1</a>
-      <a href="https://links.mathongo.com/We8M" class="card" target="_blank" rel="noopener noreferrer">06 Apr – Shift 2</a>
-      <a href="https://links.mathongo.com/Te2Q" class="card" target="_blank" rel="noopener noreferrer">08 Apr – Shift 1</a>
-      <a href="https://links.mathongo.com/UeMQ" class="card" target="_blank" rel="noopener noreferrer">08 Apr – Shift 2</a>
-      <a href="https://links.mathongo.com/QeNi" class="card" target="_blank" rel="noopener noreferrer">09 Apr – Shift 1</a>
-      <a href="https://links.mathongo.com/Ee9x" class="card" target="_blank" rel="noopener noreferrer">09 Apr – Shift 2</a>
+    <!-- 2024 April -->
+    <h3 id="header2024apr" class="year-header" onclick="toggle('2024apr')">JEE Main 2024 (April)</h3>
+    <div id="year2024apr" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/1eFi" class="card" target="_blank" rel="noopener noreferrer">04 Apr – Shift 1</a>
+        <a href="https://links.mathongo.com/ke3T" class="card" target="_blank" rel="noopener noreferrer">04 Apr – Shift 2</a>
+        <a href="https://links.mathongo.com/Qe4c" class="card" target="_blank" rel="noopener noreferrer">05 Apr – Shift 1</a>
+        <a href="https://links.mathongo.com/ve7K" class="card" target="_blank" rel="noopener noreferrer">05 Apr – Shift 2</a>
+        <a href="https://links.mathongo.com/be1q" class="card" target="_blank" rel="noopener noreferrer">06 Apr – Shift 1</a>
+        <a href="https://links.mathongo.com/We8M" class="card" target="_blank" rel="noopener noreferrer">06 Apr – Shift 2</a>
+        <a href="https://links.mathongo.com/Te2Q" class="card" target="_blank" rel="noopener noreferrer">08 Apr – Shift 1</a>
+        <a href="https://links.mathongo.com/UeMQ" class="card" target="_blank" rel="noopener noreferrer">08 Apr – Shift 2</a>
+        <a href="https://links.mathongo.com/QeNi" class="card" target="_blank" rel="noopener noreferrer">09 Apr – Shift 1</a>
+        <a href="https://links.mathongo.com/Ee9x" class="card" target="_blank" rel="noopener noreferrer">09 Apr – Shift 2</a>
+      </div>
     </div>
 
-    <!-- 2023 -->
-    <h3>JEE Main 2023 (January)</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/FeSn" class="card" target="_blank" rel="noopener noreferrer">24 Jan – Shift 1</a>
-      <a href="https://links.mathongo.com/0eGa" class="card" target="_blank" rel="noopener noreferrer">24 Jan – Shift 2</a>
-      <a href="https://links.mathongo.com/reDl" class="card" target="_blank" rel="noopener noreferrer">25 Jan – Shift 1</a>
-      <a href="https://links.mathongo.com/ueKo" class="card" target="_blank" rel="noopener noreferrer">25 Jan – Shift 2</a>
-      <a href="https://links.mathongo.com/9eZR" class="card" target="_blank" rel="noopener noreferrer">29 Jan – Shift 1</a>
-      <a href="https://links.mathongo.com/NeJV" class="card" target="_blank" rel="noopener noreferrer">29 Jan – Shift 2</a>
-      <a href="https://links.mathongo.com/WeCF" class="card" target="_blank" rel="noopener noreferrer">30 Jan – Shift 1</a>
-      <a href="https://links.mathongo.com/7eLF" class="card" target="_blank" rel="noopener noreferrer">30 Jan – Shift 2</a>
-      <a href="https://links.mathongo.com/teB4" class="card" target="_blank" rel="noopener noreferrer">31 Jan – Shift 1</a>
-      <a href="https://links.mathongo.com/teVX" class="card" target="_blank" rel="noopener noreferrer">31 Jan – Shift 2</a>
-      <a href="https://links.mathongo.com/Wecg" class="card" target="_blank" rel="noopener noreferrer">01 Feb – Shift 1</a>
-      <a href="https://links.mathongo.com/qevi" class="card" target="_blank" rel="noopener noreferrer">01 Feb – Shift 2</a>
+    <!-- 2023 January -->
+    <h3 id="header2023" class="year-header" onclick="toggle('2023')">JEE Main 2023 (January)</h3>
+    <div id="year2023" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/FeSn" class="card" target="_blank" rel="noopener noreferrer">24 Jan – Shift 1</a>
+        <a href="https://links.mathongo.com/0eGa" class="card" target="_blank" rel="noopener noreferrer">24 Jan – Shift 2</a>
+        <a href="https://links.mathongo.com/reDl" class="card" target="_blank" rel="noopener noreferrer">25 Jan – Shift 1</a>
+        <a href="https://links.mathongo.com/ueKo" class="card" target="_blank" rel="noopener noreferrer">25 Jan – Shift 2</a>
+        <a href="https://links.mathongo.com/9eZR" class="card" target="_blank" rel="noopener noreferrer">29 Jan – Shift 1</a>
+        <a href="https://links.mathongo.com/NeJV" class="card" target="_blank" rel="noopener noreferrer">29 Jan – Shift 2</a>
+        <a href="https://links.mathongo.com/WeCF" class="card" target="_blank" rel="noopener noreferrer">30 Jan – Shift 1</a>
+        <a href="https://links.mathongo.com/7eLF" class="card" target="_blank" rel="noopener noreferrer">30 Jan – Shift 2</a>
+        <a href="https://links.mathongo.com/teB4" class="card" target="_blank" rel="noopener noreferrer">31 Jan – Shift 1</a>
+        <a href="https://links.mathongo.com/teVX" class="card" target="_blank" rel="noopener noreferrer">31 Jan – Shift 2</a>
+        <a href="https://links.mathongo.com/Wecg" class="card" target="_blank" rel="noopener noreferrer">01 Feb – Shift 1</a>
+        <a href="https://links.mathongo.com/qevi" class="card" target="_blank" rel="noopener noreferrer">01 Feb – Shift 2</a>
+      </div>
     </div>
 
-    <h3>JEE Main 2023 (April)</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/CemG" class="card" target="_blank" rel="noopener noreferrer">06 Apr – Shift 1</a>
-      <a href="https://links.mathongo.com/VeIY" class="card" target="_blank" rel="noopener noreferrer">06 Apr – Shift 2</a>
-      <a href="https://links.mathongo.com/AePp" class="card" target="_blank" rel="noopener noreferrer">08 Apr – Shift 1</a>
-      <a href="https://links.mathongo.com/ueOJ" class="card" target="_blank" rel="noopener noreferrer">08 Apr – Shift 2</a>
-      <a href="https://links.mathongo.com/peTO" class="card" target="_blank" rel="noopener noreferrer">10 Apr – Shift 1</a>
-      <a href="https://links.mathongo.com/8eYy" class="card" target="_blank" rel="noopener noreferrer">10 Apr – Shift 2</a>
-      <a href="https://links.mathongo.com/heA9" class="card" target="_blank" rel="noopener noreferrer">11 Apr – Shift 1</a>
-      <a href="https://links.mathongo.com/peEc" class="card" target="_blank" rel="noopener noreferrer">11 Apr – Shift 2</a>
-      <a href="https://links.mathongo.com/jeUu" class="card" target="_blank" rel="noopener noreferrer">12 Apr – Shift 1</a>
-      <a href="https://links.mathongo.com/8eR2" class="card" target="_blank" rel="noopener noreferrer">13 Apr – Shift 1</a>
-      <a href="https://links.mathongo.com/7eQ6" class="card" target="_blank" rel="noopener noreferrer">13 Apr – Shift 2</a>
-      <a href="https://links.mathongo.com/veWO" class="card" target="_blank" rel="noopener noreferrer">15 Apr – Shift 1</a>
+    <!-- 2023 April -->
+    <h3 id="header2023apr" class="year-header" onclick="toggle('2023apr')">JEE Main 2023 (April)</h3>
+    <div id="year2023apr" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/CemG" class="card" target="_blank" rel="noopener noreferrer">06 Apr – Shift 1</a>
+        <a href="https://links.mathongo.com/VeIY" class="card" target="_blank" rel="noopener noreferrer">06 Apr – Shift 2</a>
+        <a href="https://links.mathongo.com/AePp" class="card" target="_blank" rel="noopener noreferrer">08 Apr – Shift 1</a>
+        <a href="https://links.mathongo.com/ueOJ" class="card" target="_blank" rel="noopener noreferrer">08 Apr – Shift 2</a>
+        <a href="https://links.mathongo.com/peTO" class="card" target="_blank" rel="noopener noreferrer">10 Apr – Shift 1</a>
+        <a href="https://links.mathongo.com/8eYy" class="card" target="_blank" rel="noopener noreferrer">10 Apr – Shift 2</a>
+        <a href="https://links.mathongo.com/heA9" class="card" target="_blank" rel="noopener noreferrer">11 Apr – Shift 1</a>
+        <a href="https://links.mathongo.com/peEc" class="card" target="_blank" rel="noopener noreferrer">11 Apr – Shift 2</a>
+        <a href="https://links.mathongo.com/jeUu" class="card" target="_blank" rel="noopener noreferrer">12 Apr – Shift 1</a>
+        <a href="https://links.mathongo.com/8eR2" class="card" target="_blank" rel="noopener noreferrer">13 Apr – Shift 1</a>
+        <a href="https://links.mathongo.com/7eQ6" class="card" target="_blank" rel="noopener noreferrer">13 Apr – Shift 2</a>
+        <a href="https://links.mathongo.com/veWO" class="card" target="_blank" rel="noopener noreferrer">15 Apr – Shift 1</a>
+      </div>
     </div>
 
-    <!-- 2022 -->
-    <h3>JEE Main 2022 (June)</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/6ews" class="card" target="_blank" rel="noopener noreferrer">24 Jun – Shift 1</a>
-      <a href="https://links.mathongo.com/FeeC" class="card" target="_blank" rel="noopener noreferrer">24 Jun – Shift 2</a>
-      <a href="https://links.mathongo.com/cw64" class="card" target="_blank" rel="noopener noreferrer">25 Jun – Shift 1</a>
-      <a href="https://links.mathongo.com/UerM" class="card" target="_blank" rel="noopener noreferrer">25 Jun – Shift 2</a>
-      <a href="https://links.mathongo.com/7eaY" class="card" target="_blank" rel="noopener noreferrer">26 Jun – Shift 1</a>
-      <a href="https://links.mathongo.com/Oep9" class="card" target="_blank" rel="noopener noreferrer">26 Jun – Shift 2</a>
-      <a href="https://links.mathongo.com/hege" class="card" target="_blank" rel="noopener noreferrer">27 Jun – Shift 1</a>
-      <a href="https://links.mathongo.com/zefX" class="card" target="_blank" rel="noopener noreferrer">27 Jun – Shift 2</a>
-      <a href="https://links.mathongo.com/sen0" class="card" target="_blank" rel="noopener noreferrer">28 Jun – Shift 1</a>
-      <a href="https://links.mathongo.com/sexw" class="card" target="_blank" rel="noopener noreferrer">28 Jun – Shift 2</a>
-      <a href="https://links.mathongo.com/gebc" class="card" target="_blank" rel="noopener noreferrer">29 Jun – Shift 1</a>
-      <a href="https://links.mathongo.com/zezZ" class="card" target="_blank" rel="noopener noreferrer">29 Jun – Shift 2</a>
+    <!-- 2022 June -->
+    <h3 id="header2022" class="year-header" onclick="toggle('2022')">JEE Main 2022 (June)</h3>
+    <div id="year2022" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/6ews" class="card" target="_blank" rel="noopener noreferrer">24 Jun – Shift 1</a>
+        <a href="https://links.mathongo.com/FeeC" class="card" target="_blank" rel="noopener noreferrer">24 Jun – Shift 2</a>
+        <a href="https://links.mathongo.com/cw64" class="card" target="_blank" rel="noopener noreferrer">25 Jun – Shift 1</a>
+        <a href="https://links.mathongo.com/UerM" class="card" target="_blank" rel="noopener noreferrer">25 Jun – Shift 2</a>
+        <a href="https://links.mathongo.com/7eaY" class="card" target="_blank" rel="noopener noreferrer">26 Jun – Shift 1</a>
+        <a href="https://links.mathongo.com/Oep9" class="card" target="_blank" rel="noopener noreferrer">26 Jun – Shift 2</a>
+        <a href="https://links.mathongo.com/hege" class="card" target="_blank" rel="noopener noreferrer">27 Jun – Shift 1</a>
+        <a href="https://links.mathongo.com/zefX" class="card" target="_blank" rel="noopener noreferrer">27 Jun – Shift 2</a>
+        <a href="https://links.mathongo.com/sen0" class="card" target="_blank" rel="noopener noreferrer">28 Jun – Shift 1</a>
+        <a href="https://links.mathongo.com/sexw" class="card" target="_blank" rel="noopener noreferrer">28 Jun – Shift 2</a>
+        <a href="https://links.mathongo.com/gebc" class="card" target="_blank" rel="noopener noreferrer">29 Jun – Shift 1</a>
+        <a href="https://links.mathongo.com/zezZ" class="card" target="_blank" rel="noopener noreferrer">29 Jun – Shift 2</a>
+      </div>
     </div>
 
-    <h3>JEE Main 2022 (July)</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/keij" class="card" target="_blank" rel="noopener noreferrer">25 Jul – Shift 1</a>
-      <a href="https://links.mathongo.com/Rw5W" class="card" target="_blank" rel="noopener noreferrer">25 Jul – Shift 2</a>
-      <a href="https://links.mathongo.com/Heu7" class="card" target="_blank" rel="noopener noreferrer">26 Jul – Shift 1</a>
-      <a href="https://links.mathongo.com/kedY" class="card" target="_blank" rel="noopener noreferrer">26 Jul – Shift 2</a>
-      <a href="https://links.mathongo.com/wese" class="card" target="_blank" rel="noopener noreferrer">27 Jul – Shift 1</a>
-      <a href="https://links.mathongo.com/qejq" class="card" target="_blank" rel="noopener noreferrer">27 Jul – Shift 2</a>
-      <a href="https://links.mathongo.com/Geoa" class="card" target="_blank" rel="noopener noreferrer">28 Jul – Shift 1</a>
-      <a href="https://links.mathongo.com/AehM" class="card" target="_blank" rel="noopener noreferrer">28 Jul – Shift 2</a>
-      <a href="https://links.mathongo.com/Eels" class="card" target="_blank" rel="noopener noreferrer">29 Jul – Shift 1</a>
-      <a href="https://links.mathongo.com/QekQ" class="card" target="_blank" rel="noopener noreferrer">29 Jul – Shift 2</a>
+    <!-- 2022 July -->
+    <h3 id="header2022jul" class="year-header" onclick="toggle('2022jul')">JEE Main 2022 (July)</h3>
+    <div id="year2022jul" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/keij" class="card" target="_blank" rel="noopener noreferrer">25 Jul – Shift 1</a>
+        <a href="https://links.mathongo.com/Rw5W" class="card" target="_blank" rel="noopener noreferrer">25 Jul – Shift 2</a>
+        <a href="https://links.mathongo.com/Heu7" class="card" target="_blank" rel="noopener noreferrer">26 Jul – Shift 1</a>
+        <a href="https://links.mathongo.com/kedY" class="card" target="_blank" rel="noopener noreferrer">26 Jul – Shift 2</a>
+        <a href="https://links.mathongo.com/wese" class="card" target="_blank" rel="noopener noreferrer">27 Jul – Shift 1</a>
+        <a href="https://links.mathongo.com/qejq" class="card" target="_blank" rel="noopener noreferrer">27 Jul – Shift 2</a>
+        <a href="https://links.mathongo.com/Geoa" class="card" target="_blank" rel="noopener noreferrer">28 Jul – Shift 1</a>
+        <a href="https://links.mathongo.com/AehM" class="card" target="_blank" rel="noopener noreferrer">28 Jul – Shift 2</a>
+        <a href="https://links.mathongo.com/Eels" class="card" target="_blank" rel="noopener noreferrer">29 Jul – Shift 1</a>
+        <a href="https://links.mathongo.com/QekQ" class="card" target="_blank" rel="noopener noreferrer">29 Jul – Shift 2</a>
+      </div>
     </div>
 
-    <!-- 2021 -->
-    <h3>JEE Main 2021 (February)</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/PwHn" class="card" target="_blank" rel="noopener noreferrer">24 Feb – Shift 1</a>
-      <a href="https://links.mathongo.com/HwVA" class="card" target="_blank" rel="noopener noreferrer">24 Feb – Shift 2</a>
-      <a href="https://links.mathongo.com/XwLf" class="card" target="_blank" rel="noopener noreferrer">25 Feb – Shift 1</a>
-      <a href="https://links.mathongo.com/PwXj" class="card" target="_blank" rel="noopener noreferrer">25 Feb – Shift 2</a>
-      <a href="https://links.mathongo.com/cw1G" class="card" target="_blank" rel="noopener noreferrer">26 Feb – Shift 1</a>
-      <a href="https://links.mathongo.com/bw2P" class="card" target="_blank" rel="noopener noreferrer">26 Feb – Shift 2</a>
+    <!-- 2021 Feb -->
+    <h3 id="header2021" class="year-header" onclick="toggle('2021')">JEE Main 2021 (February)</h3>
+    <div id="year2021" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/PwHn" class="card" target="_blank" rel="noopener noreferrer">24 Feb – Shift 1</a>
+        <a href="https://links.mathongo.com/HwVA" class="card" target="_blank" rel="noopener noreferrer">24 Feb – Shift 2</a>
+        <a href="https://links.mathongo.com/XwLf" class="card" target="_blank" rel="noopener noreferrer">25 Feb – Shift 1</a>
+        <a href="https://links.mathongo.com/PwXj" class="card" target="_blank" rel="noopener noreferrer">25 Feb – Shift 2</a>
+        <a href="https://links.mathongo.com/cw1G" class="card" target="_blank" rel="noopener noreferrer">26 Feb – Shift 1</a>
+        <a href="https://links.mathongo.com/bw2P" class="card" target="_blank" rel="noopener noreferrer">26 Feb – Shift 2</a>
+      </div>
     </div>
 
-    <h3>JEE Main 2021 (March)</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/DwPt" class="card" target="_blank" rel="noopener noreferrer">16 Mar – Shift 1</a>
-      <a href="https://links.mathongo.com/WwDK" class="card" target="_blank" rel="noopener noreferrer">16 Mar – Shift 2</a>
-      <a href="https://links.mathongo.com/xwIV" class="card" target="_blank" rel="noopener noreferrer">17 Mar – Shift 1</a>
-      <a href="https://links.mathongo.com/8wAv" class="card" target="_blank" rel="noopener noreferrer">17 Mar – Shift 2</a>
-      <a href="https://links.mathongo.com/9wO3" class="card" target="_blank" rel="noopener noreferrer">18 Mar – Shift 1</a>
-      <a href="https://links.mathongo.com/jwJH" class="card" target="_blank" rel="noopener noreferrer">18 Mar – Shift 2</a>
+    <!-- 2021 Mar -->
+    <h3 id="header2021mar" class="year-header" onclick="toggle('2021mar')">JEE Main 2021 (March)</h3>
+    <div id="year2021mar" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/DwPt" class="card" target="_blank" rel="noopener noreferrer">16 Mar – Shift 1</a>
+        <a href="https://links.mathongo.com/WwDK" class="card" target="_blank" rel="noopener noreferrer">16 Mar – Shift 2</a>
+        <a href="https://links.mathongo.com/xwIV" class="card" target="_blank" rel="noopener noreferrer">17 Mar – Shift 1</a>
+        <a href="https://links.mathongo.com/8wAv" class="card" target="_blank" rel="noopener noreferrer">17 Mar – Shift 2</a>
+        <a href="https://links.mathongo.com/9wO3" class="card" target="_blank" rel="noopener noreferrer">18 Mar – Shift 1</a>
+        <a href="https://links.mathongo.com/jwJH" class="card" target="_blank" rel="noopener noreferrer">18 Mar – Shift 2</a>
+      </div>
     </div>
 
-    <h3>JEE Main 2021 (July)</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/jwK2" class="card" target="_blank" rel="noopener noreferrer">20 Jul – Shift 1</a>
-      <a href="https://links.mathongo.com/ZwZI" class="card" target="_blank" rel="noopener noreferrer">20 Jul – Shift 2</a>
-      <a href="https://links.mathongo.com/xwCd" class="card" target="_blank" rel="noopener noreferrer">22 Jul – Shift 1</a>
-      <a href="https://links.mathongo.com/9w7k" class="card" target="_blank" rel="noopener noreferrer">25 Jul – Shift 1</a>
-      <a href="https://links.mathongo.com/gwMp" class="card" target="_blank" rel="noopener noreferrer">25 Jul – Shift 2</a>
+    <!-- 2021 July -->
+    <h3 id="header2021jul" class="year-header" onclick="toggle('2021jul')">JEE Main 2021 (July)</h3>
+    <div id="year2021jul" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/jwK2" class="card" target="_blank" rel="noopener noreferrer">20 Jul – Shift 1</a>
+        <a href="https://links.mathongo.com/ZwZI" class="card" target="_blank" rel="noopener noreferrer">20 Jul – Shift 2</a>
+        <a href="https://links.mathongo.com/xwCd" class="card" target="_blank" rel="noopener noreferrer">22 Jul – Shift 1</a>
+        <a href="https://links.mathongo.com/9w7k" class="card" target="_blank" rel="noopener noreferrer">25 Jul – Shift 1</a>
+        <a href="https://links.mathongo.com/gwMp" class="card" target="_blank" rel="noopener noreferrer">25 Jul – Shift 2</a>
+      </div>
     </div>
 
-    <h3>JEE Main 2021 (August)</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/Lw8t" class="card" target="_blank" rel="noopener noreferrer">26 Aug – Shift 1</a>
-      <a href="https://links.mathongo.com/iw9h" class="card" target="_blank" rel="noopener noreferrer">26 Aug – Shift 2</a>
-      <a href="https://links.mathongo.com/Zw45" class="card" target="_blank" rel="noopener noreferrer">27 Aug – Shift 1</a>
-      <a href="https://links.mathongo.com/ow3J" class="card" target="_blank" rel="noopener noreferrer">27 Aug – Shift 2</a>
-      <a href="https://links.mathongo.com/0w0J" class="card" target="_blank" rel="noopener noreferrer">27 Jul – Shift 1</a>
-      <a href="https://links.mathongo.com/geyn" class="card" target="_blank" rel="noopener noreferrer">27 Jul – Shift 2</a>
-      <a href="https://links.mathongo.com/MeqH" class="card" target="_blank" rel="noopener noreferrer">31 Aug – Shift 1</a>
-      <a href="https://links.mathongo.com/9ets" class="card" target="_blank" rel="noopener noreferrer">31 Aug – Shift 2</a>
-      <a href="https://links.mathongo.com/iwUM" class="card" target="_blank" rel="noopener noreferrer">01 Sep – Shift 2</a>
+    <!-- 2021 Aug -->
+    <h3 id="header2021aug" class="year-header" onclick="toggle('2021aug')">JEE Main 2021 (August)</h3>
+    <div id="year2021aug" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/Lw8t" class="card" target="_blank" rel="noopener noreferrer">26 Aug – Shift 1</a>
+        <a href="https://links.mathongo.com/iw9h" class="card" target="_blank" rel="noopener noreferrer">26 Aug – Shift 2</a>
+        <a href="https://links.mathongo.com/Zw45" class="card" target="_blank" rel="noopener noreferrer">27 Aug – Shift 1</a>
+        <a href="https://links.mathongo.com/ow3J" class="card" target="_blank" rel="noopener noreferrer">27 Aug – Shift 2</a>
+        <a href="https://links.mathongo.com/0w0J" class="card" target="_blank" rel="noopener noreferrer">27 Jul – Shift 1</a>
+        <a href="https://links.mathongo.com/geyn" class="card" target="_blank" rel="noopener noreferrer">27 Jul – Shift 2</a>
+        <a href="https://links.mathongo.com/MeqH" class="card" target="_blank" rel="noopener noreferrer">31 Aug – Shift 1</a>
+        <a href="https://links.mathongo.com/9ets" class="card" target="_blank" rel="noopener noreferrer">31 Aug – Shift 2</a>
+        <a href="https://links.mathongo.com/iwUM" class="card" target="_blank" rel="noopener noreferrer">01 Sep – Shift 2</a>
+      </div>
     </div>
 
-    <!-- 2020 -->
-    <h3>JEE Main 2020 (January)</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/GwE5" class="card" target="_blank" rel="noopener noreferrer">07 Jan – Shift 1</a>
-      <a href="https://links.mathongo.com/4wmk" class="card" target="_blank" rel="noopener noreferrer">07 Jan – Shift 2</a>
-      <a href="https://links.mathongo.com/DwY6" class="card" target="_blank" rel="noopener noreferrer">08 Jan – Shift 1</a>
-      <a href="https://links.mathongo.com/XwSh" class="card" target="_blank" rel="noopener noreferrer">08 Jan – Shift 2</a>
-      <a href="https://links.mathongo.com/RwGO" class="card" target="_blank" rel="noopener noreferrer">09 Jan – Shift 1</a>
-      <a href="https://links.mathongo.com/SwFb" class="card" target="_blank" rel="noopener noreferrer">09 Jan – Shift 2</a>
+    <!-- 2020 Jan -->
+    <h3 id="header2020" class="year-header" onclick="toggle('2020')">JEE Main 2020 (January)</h3>
+    <div id="year2020" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/GwE5" class="card" target="_blank" rel="noopener noreferrer">07 Jan – Shift 1</a>
+        <a href="https://links.mathongo.com/4wmk" class="card" target="_blank" rel="noopener noreferrer">07 Jan – Shift 2</a>
+        <a href="https://links.mathongo.com/DwY6" class="card" target="_blank" rel="noopener noreferrer">08 Jan – Shift 1</a>
+        <a href="https://links.mathongo.com/XwSh" class="card" target="_blank" rel="noopener noreferrer">08 Jan – Shift 2</a>
+        <a href="https://links.mathongo.com/RwGO" class="card" target="_blank" rel="noopener noreferrer">09 Jan – Shift 1</a>
+        <a href="https://links.mathongo.com/SwFb" class="card" target="_blank" rel="noopener noreferrer">09 Jan – Shift 2</a>
+      </div>
     </div>
 
-    <h3>JEE Main 2020 (September)</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/Vwjv" class="card" target="_blank" rel="noopener noreferrer">02 Sep – Shift 1</a>
-      <a href="https://links.mathongo.com/Dwhp" class="card" target="_blank" rel="noopener noreferrer">02 Sep – Shift 2</a>
-      <a href="https://links.mathongo.com/wwBF" class="card" target="_blank" rel="noopener noreferrer">03 Sep – Shift 1</a>
-      <a href="https://links.mathongo.com/4wxE" class="card" target="_blank" rel="noopener noreferrer">03 Sep – Shift 2</a>
-      <a href="https://links.mathongo.com/wwN3" class="card" target="_blank" rel="noopener noreferrer">04 Sep – Shift 1</a>
-      <a href="https://links.mathongo.com/wwgV" class="card" target="_blank" rel="noopener noreferrer">04 Sep – Shift 2</a>
-      <a href="https://links.mathongo.com/BwQF" class="card" target="_blank" rel="noopener noreferrer">05 Sep – Shift 1</a>
-      <a href="https://links.mathongo.com/HwWG" class="card" target="_blank" rel="noopener noreferrer">05 Sep – Shift 2</a>
-      <a href="https://links.mathongo.com/ywRw" class="card" target="_blank" rel="noopener noreferrer">06 Sep – Shift 1</a>
-      <a href="https://links.mathongo.com/cwT1" class="card" target="_blank" rel="noopener noreferrer">06 Sep – Shift 2</a>
+    <!-- 2020 Sep -->
+    <h3 id="header2020sep" class="year-header" onclick="toggle('2020sep')">JEE Main 2020 (September)</h3>
+    <div id="year2020sep" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/Vwjv" class="card" target="_blank" rel="noopener noreferrer">02 Sep – Shift 1</a>
+        <a href="https://links.mathongo.com/Dwhp" class="card" target="_blank" rel="noopener noreferrer">02 Sep – Shift 2</a>
+        <a href="https://links.mathongo.com/wwBF" class="card" target="_blank" rel="noopener noreferrer">03 Sep – Shift 1</a>
+        <a href="https://links.mathongo.com/4wxE" class="card" target="_blank" rel="noopener noreferrer">03 Sep – Shift 2</a>
+        <a href="https://links.mathongo.com/wwN3" class="card" target="_blank" rel="noopener noreferrer">04 Sep – Shift 1</a>
+        <a href="https://links.mathongo.com/wwgV" class="card" target="_blank" rel="noopener noreferrer">04 Sep – Shift 2</a>
+        <a href="https://links.mathongo.com/BwQF" class="card" target="_blank" rel="noopener noreferrer">05 Sep – Shift 1</a>
+        <a href="https://links.mathongo.com/HwWG" class="card" target="_blank" rel="noopener noreferrer">05 Sep – Shift 2</a>
+        <a href="https://links.mathongo.com/ywRw" class="card" target="_blank" rel="noopener noreferrer">06 Sep – Shift 1</a>
+        <a href="https://links.mathongo.com/cwT1" class="card" target="_blank" rel="noopener noreferrer">06 Sep – Shift 2</a>
+      </div>
     </div>
 
-    <!-- 2019 -->
-    <h3>JEE Main 2019 (January)</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/nwal" class="card" target="_blank" rel="noopener noreferrer">09 Jan – Shift 1</a>
-      <a href="https://links.mathongo.com/fwfI" class="card" target="_blank" rel="noopener noreferrer">09 Jan – Shift 2</a>
-      <a href="https://links.mathongo.com/8wrM" class="card" target="_blank" rel="noopener noreferrer">10 Jan – Shift 1</a>
-      <a href="https://links.mathongo.com/jwcF" class="card" target="_blank" rel="noopener noreferrer">10 Jan – Shift 2</a>
-      <a href="https://links.mathongo.com/swbS" class="card" target="_blank" rel="noopener noreferrer">11 Jan – Shift 1</a>
-      <a href="https://links.mathongo.com/1wz6" class="card" target="_blank" rel="noopener noreferrer">11 Jan – Shift 2</a>
-      <a href="https://links.mathongo.com/ewnT" class="card" target="_blank" rel="noopener noreferrer">12 Jan – Shift 1</a>
-      <a href="https://links.mathongo.com/5wvc" class="card" target="_blank" rel="noopener noreferrer">12 Jan – Shift 2</a>
+    <!-- 2019 Jan -->
+    <h3 id="header2019" class="year-header" onclick="toggle('2019')">JEE Main 2019 (January)</h3>
+    <div id="year2019" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/nwal" class="card" target="_blank" rel="noopener noreferrer">09 Jan – Shift 1</a>
+        <a href="https://links.mathongo.com/fwfI" class="card" target="_blank" rel="noopener noreferrer">09 Jan – Shift 2</a>
+        <a href="https://links.mathongo.com/8wrM" class="card" target="_blank" rel="noopener noreferrer">10 Jan – Shift 1</a>
+        <a href="https://links.mathongo.com/jwcF" class="card" target="_blank" rel="noopener noreferrer">10 Jan – Shift 2</a>
+        <a href="https://links.mathongo.com/swbS" class="card" target="_blank" rel="noopener noreferrer">11 Jan – Shift 1</a>
+        <a href="https://links.mathongo.com/1wz6" class="card" target="_blank" rel="noopener noreferrer">11 Jan – Shift 2</a>
+        <a href="https://links.mathongo.com/ewnT" class="card" target="_blank" rel="noopener noreferrer">12 Jan – Shift 1</a>
+        <a href="https://links.mathongo.com/5wvc" class="card" target="_blank" rel="noopener noreferrer">12 Jan – Shift 2</a>
+      </div>
     </div>
 
-    <h3>JEE Main 2019 (April)</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/Qwta" class="card" target="_blank" rel="noopener noreferrer">08 Apr – Shift 1</a>
-      <a href="https://links.mathongo.com/Mwpj" class="card" target="_blank" rel="noopener noreferrer">08 Apr – Shift 2</a>
-      <a href="https://links.mathongo.com/cweI" class="card" target="_blank" rel="noopener noreferrer">09 Apr – Shift 1</a>
-      <a href="https://links.mathongo.com/Zwuj" class="card" target="_blank" rel="noopener noreferrer">09 Apr – Shift 2</a>
-      <a href="https://links.mathongo.com/cwyh" class="card" target="_blank" rel="noopener noreferrer">10 Apr – Shift 1</a>
-      <a href="https://links.mathongo.com/ywoA" class="card" target="_blank" rel="noopener noreferrer">10 Apr – Shift 2</a>
-      <a href="https://links.mathongo.com/Uwl9" class="card" target="_blank" rel="noopener noreferrer">12 Apr – Shift 1</a>
-      <a href="https://links.mathongo.com/5wkc" class="card" target="_blank" rel="noopener noreferrer">12 Apr – Shift 2</a>
+    <!-- 2019 Apr -->
+    <h3 id="header2019apr" class="year-header" onclick="toggle('2019apr')">JEE Main 2019 (April)</h3>
+    <div id="year2019apr" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/Qwta" class="card" target="_blank" rel="noopener noreferrer">08 Apr – Shift 1</a>
+        <a href="https://links.mathongo.com/Mwpj" class="card" target="_blank" rel="noopener noreferrer">08 Apr – Shift 2</a>
+        <a href="https://links.mathongo.com/cweI" class="card" target="_blank" rel="noopener noreferrer">09 Apr – Shift 1</a>
+        <a href="https://links.mathongo.com/Zwuj" class="card" target="_blank" rel="noopener noreferrer">09 Apr – Shift 2</a>
+        <a href="https://links.mathongo.com/cwyh" class="card" target="_blank" rel="noopener noreferrer">10 Apr – Shift 1</a>
+        <a href="https://links.mathongo.com/ywoA" class="card" target="_blank" rel="noopener noreferrer">10 Apr – Shift 2</a>
+        <a href="https://links.mathongo.com/Uwl9" class="card" target="_blank" rel="noopener noreferrer">12 Apr – Shift 1</a>
+        <a href="https://links.mathongo.com/5wkc" class="card" target="_blank" rel="noopener noreferrer">12 Apr – Shift 2</a>
+      </div>
     </div>
 
     <!-- 2018 -->
-    <h3>JEE Main 2018</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/QME" class="card" target="_blank" rel="noopener noreferrer">08 Apr</a>
-      <a href="https://links.mathongo.com/Z4E" class="card" target="_blank" rel="noopener noreferrer">15 Apr – Shift 1 (Online)</a>
-      <a href="https://links.mathongo.com/Xwdf" class="card" target="_blank" rel="noopener noreferrer">15 Apr – Shift 2 (Online)</a>
-      <a href="https://links.mathongo.com/Dwir" class="card" target="_blank" rel="noopener noreferrer">15 Apr</a>
-      <a href="https://links.mathongo.com/5wst" class="card" target="_blank" rel="noopener noreferrer">16 Apr (Online)</a>
+    <h3 id="header2018" class="year-header" onclick="toggle('2018')">JEE Main 2018</h3>
+    <div id="year2018" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/QME" class="card" target="_blank" rel="noopener noreferrer">08 Apr</a>
+        <a href="https://links.mathongo.com/Z4E" class="card" target="_blank" rel="noopener noreferrer">15 Apr – Shift 1 (Online)</a>
+        <a href="https://links.mathongo.com/Xwdf" class="card" target="_blank" rel="noopener noreferrer">15 Apr – Shift 2 (Online)</a>
+        <a href="https://links.mathongo.com/Dwir" class="card" target="_blank" rel="noopener noreferrer">15 Apr</a>
+        <a href="https://links.mathongo.com/5wst" class="card" target="_blank" rel="noopener noreferrer">16 Apr (Online)</a>
+      </div>
     </div>
 
     <!-- 2017 -->
-    <h3>JEE Main 2017</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/Fwwk" class="card" target="_blank" rel="noopener noreferrer">02 Apr</a>
-      <a href="https://links.mathongo.com/z2Y" class="card" target="_blank" rel="noopener noreferrer">08 Apr (Online)</a>
-      <a href="https://links.mathongo.com/Zwqy" class="card" target="_blank" rel="noopener noreferrer">09 Apr (Online)</a>
+    <h3 id="header2017" class="year-header" onclick="toggle('2017')">JEE Main 2017</h3>
+    <div id="year2017" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/Fwwk" class="card" target="_blank" rel="noopener noreferrer">02 Apr</a>
+        <a href="https://links.mathongo.com/z2Y" class="card" target="_blank" rel="noopener noreferrer">08 Apr (Online)</a>
+        <a href="https://links.mathongo.com/Zwqy" class="card" target="_blank" rel="noopener noreferrer">09 Apr (Online)</a>
+      </div>
     </div>
 
     <!-- 2016 -->
-    <h3>JEE Main 2016</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/YBo" class="card" target="_blank" rel="noopener noreferrer">03 Apr</a>
-      <a href="https://links.mathongo.com/hNa" class="card" target="_blank" rel="noopener noreferrer">09 Apr (Online)</a>
-      <a href="https://links.mathongo.com/j9e" class="card" target="_blank" rel="noopener noreferrer">10 Apr (Online)</a>
+    <h3 id="header2016" class="year-header" onclick="toggle('2016')">JEE Main 2016</h3>
+    <div id="year2016" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/YBo" class="card" target="_blank" rel="noopener noreferrer">03 Apr</a>
+        <a href="https://links.mathongo.com/hNa" class="card" target="_blank" rel="noopener noreferrer">09 Apr (Online)</a>
+        <a href="https://links.mathongo.com/j9e" class="card" target="_blank" rel="noopener noreferrer">10 Apr (Online)</a>
+      </div>
     </div>
 
     <!-- 2015 -->
-    <h3>JEE Main 2015</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/60R" class="card" target="_blank" rel="noopener noreferrer">04 Apr</a>
-      <a href="https://links.mathongo.com/k8T" class="card" target="_blank" rel="noopener noreferrer">10 Apr (Online)</a>
-      <a href="https://links.mathongo.com/I1q" class="card" target="_blank" rel="noopener noreferrer">11 Apr (Online)</a>
+    <h3 id="header2015" class="year-header" onclick="toggle('2015')">JEE Main 2015</h3>
+    <div id="year2015" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/60R" class="card" target="_blank" rel="noopener noreferrer">04 Apr</a>
+        <a href="https://links.mathongo.com/k8T" class="card" target="_blank" rel="noopener noreferrer">10 Apr (Online)</a>
+        <a href="https://links.mathongo.com/I1q" class="card" target="_blank" rel="noopener noreferrer">11 Apr (Online)</a>
+      </div>
     </div>
 
     <!-- 2014 -->
-    <h3>JEE Main 2014</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/2Gu" class="card" target="_blank" rel="noopener noreferrer">06 Apr</a>
-      <a href="https://links.mathongo.com/d6I" class="card" target="_blank" rel="noopener noreferrer">09 Apr (Online)</a>
-      <a href="https://links.mathongo.com/f5D" class="card" target="_blank" rel="noopener noreferrer">11 Apr (Online)</a>
-      <a href="https://links.mathongo.com/A7P" class="card" target="_blank" rel="noopener noreferrer">12 Apr (Online)</a>
-      <a href="https://links.mathongo.com/T3r" class="card" target="_blank" rel="noopener noreferrer">19 Apr (Online)</a>
+    <h3 id="header2014" class="year-header" onclick="toggle('2014')">JEE Main 2014</h3>
+    <div id="year2014" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/2Gu" class="card" target="_blank" rel="noopener noreferrer">06 Apr</a>
+        <a href="https://links.mathongo.com/d6I" class="card" target="_blank" rel="noopener noreferrer">09 Apr (Online)</a>
+        <a href="https://links.mathongo.com/f5D" class="card" target="_blank" rel="noopener noreferrer">11 Apr (Online)</a>
+        <a href="https://links.mathongo.com/A7P" class="card" target="_blank" rel="noopener noreferrer">12 Apr (Online)</a>
+        <a href="https://links.mathongo.com/T3r" class="card" target="_blank" rel="noopener noreferrer">19 Apr (Online)</a>
+      </div>
     </div>
 
     <!-- 2013 -->
-    <h3>JEE Main 2013</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/tCq" class="card" target="_blank" rel="noopener noreferrer">07 Apr</a>
-      <a href="https://links.mathongo.com/cSN" class="card" target="_blank" rel="noopener noreferrer">09 Apr (Online)</a>
-      <a href="https://links.mathongo.com/xDM" class="card" target="_blank" rel="noopener noreferrer">22 Apr (Online)</a>
-      <a href="https://links.mathongo.com/nAL" class="card" target="_blank" rel="noopener noreferrer">23 Apr (Online)</a>
-      <a href="https://links.mathongo.com/SZ6" class="card" target="_blank" rel="noopener noreferrer">25 Apr (Online)</a>
+    <h3 id="header2013" class="year-header" onclick="toggle('2013')">JEE Main 2013</h3>
+    <div id="year2013" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/tCq" class="card" target="_blank" rel="noopener noreferrer">07 Apr</a>
+        <a href="https://links.mathongo.com/cSN" class="card" target="_blank" rel="noopener noreferrer">09 Apr (Online)</a>
+        <a href="https://links.mathongo.com/xDM" class="card" target="_blank" rel="noopener noreferrer">22 Apr (Online)</a>
+        <a href="https://links.mathongo.com/nAL" class="card" target="_blank" rel="noopener noreferrer">23 Apr (Online)</a>
+        <a href="https://links.mathongo.com/SZ6" class="card" target="_blank" rel="noopener noreferrer">25 Apr (Online)</a>
+      </div>
     </div>
 
     <!-- 2012 -->
-    <h3>JEE Main 2012</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/zKw" class="card" target="_blank" rel="noopener noreferrer">07 May (Online)</a>
-      <a href="https://links.mathongo.com/aXB" class="card" target="_blank" rel="noopener noreferrer">12 May (Online)</a>
-      <a href="https://links.mathongo.com/KFg" class="card" target="_blank" rel="noopener noreferrer">19 May (Online)</a>
-      <a href="https://links.mathongo.com/HH6" class="card" target="_blank" rel="noopener noreferrer">26 May (Online)</a>
-      <a href="https://links.mathongo.com/yLa" class="card" target="_blank" rel="noopener noreferrer">Offline</a>
+    <h3 id="header2012" class="year-header" onclick="toggle('2012')">JEE Main 2012</h3>
+    <div id="year2012" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/zKw" class="card" target="_blank" rel="noopener noreferrer">07 May (Online)</a>
+        <a href="https://links.mathongo.com/aXB" class="card" target="_blank" rel="noopener noreferrer">12 May (Online)</a>
+        <a href="https://links.mathongo.com/KFg" class="card" target="_blank" rel="noopener noreferrer">19 May (Online)</a>
+        <a href="https://links.mathongo.com/HH6" class="card" target="_blank" rel="noopener noreferrer">26 May (Online)</a>
+        <a href="https://links.mathongo.com/yLa" class="card" target="_blank" rel="noopener noreferrer">Offline</a>
+      </div>
     </div>
 
     <!-- 2011 - 2002 -->
-    <h3>JEE Main 2011 – 2002</h3>
-    <div class="grid">
-      <a href="https://links.mathongo.com/ZVj" class="card" target="_blank" rel="noopener noreferrer">2011 – Previous Year Paper</a>
-      <a href="https://links.mathongo.com/wJ4" class="card" target="_blank" rel="noopener noreferrer">2010 – Previous Year Paper</a>
-      <a href="https://links.mathongo.com/1UX" class="card" target="_blank" rel="noopener noreferrer">2009 – Previous Year Paper</a>
-      <a href="https://links.mathongo.com/OPO" class="card" target="_blank" rel="noopener noreferrer">2008 – Previous Year Paper</a>
-      <a href="https://links.mathongo.com/kT2" class="card" target="_blank" rel="noopener noreferrer">2007 – Previous Year Paper</a>
-      <a href="https://links.mathongo.com/hYQ" class="card" target="_blank" rel="noopener noreferrer">2006 – Previous Year Paper</a>
-      <a href="https://links.mathongo.com/tRq" class="card" target="_blank" rel="noopener noreferrer">2005 – Previous Year Paper</a>
-      <a href="https://links.mathongo.com/cOX" class="card" target="_blank" rel="noopener noreferrer">2004 – Previous Year Paper</a>
-      <a href="https://links.mathongo.com/QIX" class="card" target="_blank" rel="noopener noreferrer">2003 – Previous Year Paper</a>
-      <a href="https://links.mathongo.com/fEr" class="card" target="_blank" rel="noopener noreferrer">2002 – Previous Year Paper</a>
+    <h3 id="header2002to2011" class="year-header" onclick="toggle('2002to2011')">JEE Main 2011 – 2002</h3>
+    <div id="year2002to2011" class="year-content">
+      <div class="grid">
+        <a href="https://links.mathongo.com/ZVj" class="card" target="_blank" rel="noopener noreferrer">2011 – Previous Year Paper</a>
+        <a href="https://links.mathongo.com/wJ4" class="card" target="_blank" rel="noopener noreferrer">2010 – Previous Year Paper</a>
+        <a href="https://links.mathongo.com/1UX" class="card" target="_blank" rel="noopener noreferrer">2009 – Previous Year Paper</a>
+        <a href="https://links.mathongo.com/OPO" class="card" target="_blank" rel="noopener noreferrer">2008 – Previous Year Paper</a>
+        <a href="https://links.mathongo.com/kT2" class="card" target="_blank" rel="noopener noreferrer">2007 – Previous Year Paper</a>
+        <a href="https://links.mathongo.com/hYQ" class="card" target="_blank" rel="noopener noreferrer">2006 – Previous Year Paper</a>
+        <a href="https://links.mathongo.com/tRq" class="card" target="_blank" rel="noopener noreferrer">2005 – Previous Year Paper</a>
+        <a href="https://links.mathongo.com/cOX" class="card" target="_blank" rel="noopener noreferrer">2004 – Previous Year Paper</a>
+        <a href="https://links.mathongo.com/QIX" class="card" target="_blank" rel="noopener noreferrer">2003 – Previous Year Paper</a>
+        <a href="https://links.mathongo.com/fEr" class="card" target="_blank" rel="noopener noreferrer">2002 – Previous Year Paper</a>
+      </div>
     </div>
 
-  </div>
+  </div> <!-- container end -->
 
   <a href="notes.html" class="back-button">⬅ Back</a>
 
+  <!-- feedback script (preserved as you requested) -->
+  <script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_BnkVdQ4D7BrSQJR52jotvHeSkT7J" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
+
   <script>
+    // Date/time updater
     function updateDateTime() {
       const now = new Date();
-      document.getElementById("datetime").textContent =
-        "Current Date & Time: " + now.toLocaleString();
+      document.getElementById("datetime").textContent = "Current Date & Time: " + now.toLocaleString();
     }
     updateDateTime();
     setInterval(updateDateTime, 1000);
+
+    // Toggle a single year (collapsible)
+    function toggle(yearKey) {
+      // mapping: content id uses yearKey (some keys include suffixes like 2024apr)
+      const contentId = 'year' + yearKey;
+      const headerId = (yearKey === '2002to2011') ? 'header2002to2011' : ('header' + yearKey);
+      const contentEl = document.getElementById(contentId);
+      const headerEl = document.getElementById(headerId);
+
+      if (!contentEl || !headerEl) return;
+
+      const isOpen = contentEl.style.display === 'block';
+
+      // close all
+      document.querySelectorAll('.year-content').forEach(c => c.style.display = 'none');
+      document.querySelectorAll('.year-header').forEach(h => h.classList.remove('active'));
+
+      if (!isOpen) {
+        contentEl.style.display = 'block';
+        headerEl.classList.add('active');
+        // small timeout to allow layout then focus/scroll
+        setTimeout(() => {
+          headerEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 80);
+      } else {
+        // closed — scroll to header (still visible)
+        headerEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // Called by dropdown select
+    function selectYear(value) {
+      if (!value) return;
+      // value is like "2025" or "2024apr" or "2002to2011" depending mapping.
+      // We need to match the keys used in ids above.
+      // Map user simple years to the actual id keys used above:
+      const map = {
+        "2025":"2025",
+        "2024":"2024",
+        "2023":"2023",
+        "2022":"2022",
+        "2021":"2021",
+        "2020":"2020",
+        "2019":"2019",
+        "2018":"2018",
+        "2017":"2017",
+        "2016":"2016",
+        "2015":"2015",
+        "2014":"2014",
+        "2013":"2013",
+        "2012":"2012",
+        "2011":"2002to2011",
+        "2010":"2002to2011",
+        "2009":"2002to2011",
+        "2008":"2002to2011",
+        "2007":"2002to2011",
+        "2006":"2002to2011",
+        "2005":"2002to2011",
+        "2004":"2002to2011",
+        "2003":"2002to2011",
+        "2002":"2002to2011"
+      };
+
+      // special-case: 2024 has two blocks (2024 and 2024apr). direct mapping to January by default.
+      if (value === "2024") {
+        // choose the January block as default
+        toggle(map[value]);
+        return;
+      }
+
+      // special-case: 2023 -> January by default
+      if (value === "2023") { toggle(map[value]); return; }
+
+      // 2021/2020 etc: toggle their main key
+      const key = map[value] || value;
+      toggle(key);
+    }
+
+    // Allow Toggle by pressing Enter when header is focused for accessibility
+    document.addEventListener('keydown', function(e){
+      if((e.key === 'Enter' || e.key === ' ') && document.activeElement && document.activeElement.classList.contains('year-header')){
+        e.preventDefault();
+        // derive key from id: headerXXXX -> XXXX
+        const hid = document.activeElement.id;
+        if (hid && hid.startsWith('header')) {
+          const key = hid.replace('header','');
+          toggle(key);
+        }
+      }
+    });
   </script>
 
 </body>
 </html>
-<script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_BnkVdQ4D7BrSQJR52jotvHeSkT7J" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
