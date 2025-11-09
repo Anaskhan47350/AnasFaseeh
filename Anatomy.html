@@ -1,0 +1,1559 @@
+
+
+
+ <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <!-- Meta Tags -->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="" />
+
+  <!-- Page Title -->
+  <title></title>
+  <link href="neo-assets/images/logo-new.jpg" rel="shortcut icon" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Stylesheet -->
+  <link href="neo-assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="neo-assets/css/jquery-ui.min.css" rel="stylesheet" type="text/css"><!-- have 2 font family -->
+  <link href="neo-assets/css/animate.css" rel="stylesheet" type="text/css">
+  <link href="neo-assets/css/css-plugin-collections.css" rel="stylesheet" /> <!-- have multiple font family -->
+  <link href="neo-assets/css/my-css.css" rel="stylesheet" type="text/css">
+
+  <!-- CSS | menuzord megamenu skins -->
+  <link href="neo-assets/css/menuzord-megamenu.css" rel="stylesheet" /> <!-- have 2 font family -->
+  <link id="menuzord-menu-skins" href="neo-assets/css/menuzord-skins/menuzord-boxed.css" rel="stylesheet" />
+  <!-- CSS | Main style file -->
+  <link href="neo-assets/css/style-main.css" rel="stylesheet" type="text/css"><!-- have multiple font family -->
+  <!-- CSS | Preloader Styles -->
+  <link href="neo-assets/css/preloader.css" rel="stylesheet" type="text/css">
+  <!-- CSS | Custom Margin Padding Collection -->
+  <link href="neo-assets/css/custom-bootstrap-margin-padding.css" rel="stylesheet" type="text/css">
+  <!-- CSS | Responsive media queries -->
+  <link href="neo-assets/css/responsive.css" rel="stylesheet" type="text/css">
+  <!-- CSS | Style css. This is the file where you can place your own custom css code. Just uncomment it and use it. -->
+  <!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
+
+  <!-- CSS | Theme Color -->
+  <link href="neo-assets/css/colors/theme-skin-color-set1.css" rel="stylesheet" type="text/css">
+  <!-- CSS | Style css. This is the file where you can place your own custom css code. Just uncomment it and use it. -->
+  <!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
+  <link href="neo-assets/js/revolution-slider/css/settings.css" rel="stylesheet" type="text/css" /><!-- have multiple font family -->
+  <link href="neo-assets/js/revolution-slider/css/layers.css" rel="stylesheet" type="text/css" /> <!-- have multiple font family -->
+  <link href="neo-assets/js/revolution-slider/css/navigation.css" rel="stylesheet" type="text/css" /><!-- have multiple font family -->
+  <link href="neo-assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />  -->
+
+  <!-- external javascripts -->
+  <script src="neo-assets/js/jquery-2.2.4.min.js"></script>
+  <script src="neo-assets/js/jquery-ui.min.js"></script>
+  <script src="neo-assets/js/bootstrap.min.js"></script>
+  <!-- JS | jquery plugin collection for this theme -->
+  <script src="neo-assets/js/jquery-plugin-collection.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .top-bar {
+      background-color: #2c3e50;
+      color: white;
+      padding: 3px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .top-bar a {
+      color: white;
+      text-decoration: none;
+      margin-right: 15px;
+    }
+
+    .top-bar a:hover {
+      text-decoration: underline;
+    }
+
+    .left-links {
+      display: flex;
+      align-items: center;
+    }
+
+    .right-controls {
+      display: flex;
+      align-items: center;
+    }
+
+    .right-controls button,
+    .right-controls span {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      margin-left: 10px;
+    }
+
+    .right-controls button:hover {
+      color: #f1c40f;
+    }
+
+    .sitemap-icon {
+      font-size: 18px;
+    }
+
+    nav {
+      width: 100%;
+      font-family: helvetica;
+      font-size: 15px;
+    }
+
+    nav ul:first-child {
+      /*margin:0 auto;
+      float:left;
+      background: #444;*/
+      width: 100%;
+    }
+
+   /* Top-level menu container */
+.upper-nav > ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav .upper-nav ul {
+  margin: 0 auto;
+  float: left;
+  background: #19191a;
+}
+
+nav .upper-nav ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: left;
+  position: relative;
+}
+
+nav .upper-nav ul li a {
+  background: #222;
+  padding: 1.2vh 1.2vw;
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+}
+
+nav .upper-nav ul li a:hover {
+  background: rgba(0, 0, 0, 0.4);
+  color: #368cc9;
+  transition: all 0.5s;
+}
+
+nav .upper-nav ul ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 2;
+  background: #222;
+  box-shadow: 0 0 10px 0 #888;
+}
+
+nav .upper-nav ul li:hover > ul {
+  visibility: visible;
+}
+
+nav .upper-nav ul ul li {
+  float: none;
+}
+
+nav .upper-nav ul ul li a {
+  padding: 9px 15px;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  width: 250px;
+  border-bottom: 2px solid black;
+}
+
+/* Default: open nested submenu to right */
+nav .upper-nav ul ul li ul {
+  top: 0;
+  left: 100%;
+  box-shadow: 0 0 10px 0 #888;
+}
+
+/* When not enough space: open to the left */
+nav .upper-nav ul ul li ul.open-left {
+  left: auto;
+  right: 100%;
+}
+
+    /*----------lower-nav---------*/
+    nav .lower-nav {
+      width: 100%;
+      /*border:2px solid red;*/
+      height: auto;
+      padding: 1.2vh 0;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 10px 0 #959696;
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav-left-col,
+    .nav-right-col {
+      width: 40%;
+      float: left;
+    }
+
+    .nav-center-col {
+      width: 20%;
+      float: left;
+    }
+
+    .nav-left-col ul,
+    .nav-right-col ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 5px;
+    }
+
+    nav .lower-nav ul li {
+      padding: 1vh 1vw;
+      text-decoration: none;
+      /*border:1px solid #368cc9;*/
+      border-radius: 4px;
+      margin: 2px;
+      transition: all 1s;
+      transition-timing-function: ease;
+      text-align: center;
+    }
+
+    nav .lower-nav ul li a {
+      color: #111;
+    }
+
+    nav .lower-nav ul li:hover {
+      /*background-color: #368cc9;*/
+    }
+
+    nav .lower-nav ul li:hover a {
+      color: #368cc9;
+    }
+
+    .my-responsive-nav-wrapper {
+      display: none;
+    }
+
+    /*responsive menu*/
+    @media only screen and (max-width: 1000px) {
+      .my-nav-wrapper {
+        display: none;
+      }
+
+      .my-responsive-nav-wrapper {
+        display: block;
+      }
+
+      .my-responsive-nav-wrapper .my-brand-logo {
+        padding: 4px;
+        box-shadow: 0 0 5px 0 #aaa;
+      }
+
+      .my-responsive-nav-content {
+        height: 0px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding-left: 20px;
+      }
+
+      .my-responsive-nav-wrapper ul li {
+        margin: 16px 6px;
+        font-weight: bold;
+      }
+
+      .my-responsive-nav-wrapper ul ul {
+        display: none;
+      }
+
+      nav .my-responsive-nav-wrapper ul ul li ul {
+        top: -55%;
+        left: 7vw;
+      }
+
+      nav .my-responsive-nav-wrapper ul li:hover>ul {
+        display: block;
+      }
+    }
+
+    .flexslider {
+      max-height: 450px;
+      overflow: hidden;
+    }
+
+    .flexslider .slides li img {
+      max-height: 450px;
+      object-fit: cover;
+      /* Optional: crops image to fill the space nicely */
+      width: 100%;
+    }
+      
+  </style>
+  <style>
+    h2 {
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+
+    .ranking-card {
+      background: linear-gradient(to right, #fff6db, #ffd699);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+      height: 100%;
+    }
+
+    .ranking-card .logo {
+      width: 60px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .ranking-card .logo.large {
+      width: 80px;
+      float: right;
+    }
+
+    .ranking-card .title {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 10px 0;
+    }
+
+    .ranking-card .year {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .ranking-card .grade {
+      font-size: 24px;
+      font-weight: bold;
+      color: #000;
+    }
+
+    .ranking-card .validity {
+      font-size: 13px;
+      color: #333;
+      margin-top: 10px;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .stats div {
+      background: #f8c146;
+      padding: 8px 12px;
+      border-radius: 8px;
+      text-align: center;
+      min-width: 60px;
+    }
+
+    .stats span {
+      display: block;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .stats label {
+      font-size: 12px;
+      color: #333;
+    }
+    
+    .logo-img {
+    max-width: 666px;     /* Increase size (adjust as needed) */
+   
+  }
+  /* Background Image */
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('kgmu.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.demo-title {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-dark);
+}
+
+/* Info Modal */
+.info-modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.info-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    width: 80%;
+    max-width: 500px;
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.close-info {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-info:hover {
+    color: black;
+}
+
+/* Chat Button & Animation Effects */
+.chat-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    z-index: 999;
+    transition: var(--transition);
+}
+
+.chat-button i {
+    font-size: 24px;
+}
+
+.chat-button:hover {
+    background-color: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+/* Concentric Rings Animation */
+.chat-button::before,
+.chat-button::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(0, 86, 179, 0.3); /* Using primary color with opacity */
+    z-index: -1;
+    animation: pulse 2s infinite;
+}
+
+.chat-button::before {
+    width: 80px;
+    height: 80px;
+    animation-delay: 0.5s;
+}
+
+.chat-button::after {
+    width: 100px;
+    height: 100px;
+    animation-delay: 1s;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.5);
+        opacity: 0.8;
+    }
+    70% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Notification Cloud */
+.notification-cloud {
+    position: absolute;
+    top: -15px;
+    right: -10px;
+    background-color: #FF5252;
+    color: white;
+    border-radius: 20px;
+    font-size: 12px;
+    padding: 3px 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.notification-cloud.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Speech bubble shape for the cloud */
+.notification-cloud::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    right: 10px;
+    width: 10px;
+    height: 10px;
+    background-color: #FF5252;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+/* Enhanced Info Modal Styles */
+.info-content {
+    background-color: white;
+    margin: 7% auto;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    width: 80%;
+    max-width: 600px;
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.developer-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-image-container {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary-color);
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.developer-profile h2 {
+    color: var(--primary-dark);
+    margin-bottom: 5px;
+}
+
+.credentials {
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.developer-bio {
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.developer-bio p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.kgmu-quick-links {
+    background-color: var(--secondary-color);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+}
+
+.kgmu-quick-links h3 {
+    color: var(--primary-dark);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.links-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.kgmu-link {
+    flex: 1 0 45%;
+    padding: 10px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    color: var(--primary-color);
+    text-align: center;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.kgmu-link:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.connect-section {
+    text-align: center;
+}
+
+.connect-section h3 {
+    color: var(--primary-dark);
+    margin-bottom: 15px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons a {
+    font-size: 24px;
+    color: var(--primary-color);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: var(--primary-dark);
+    background-color: #d9e9ff;
+}
+
+/* Chat Container */
+.chat-container {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 360px;
+    height: 600px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.chat-container.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+}
+
+/* Chat Header */
+.chat-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 12px;
+    background-color: white;
+    object-fit: contain;
+}
+
+.header-text h3 {
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+.university-name {
+    font-size: 10px;
+    opacity: 0.9;
+}
+
+.header-actions {
+    display: flex;
+}
+
+.action-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    margin-left: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: var(--transition);
+}
+
+.action-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Chat Body */
+.chat-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+}
+
+.chat-message {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    max-width: 85%;
+}
+
+.message-content {
+    padding: 12px 15px;
+    border-radius: 18px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    position: relative;
+    word-wrap: break-word;
+}
+
+.message-content p {
+    margin-bottom: 8px;
+}
+
+.message-content p:last-child {
+    margin-bottom: 0;
+}
+
+.message-content a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    word-break: break-all;
+}
+
+.bot {
+    align-self: flex-start;
+}
+
+.bot .message-content {
+    background-color: var(--bot-message-bg);
+    color: var(--text-color);
+    border-bottom-left-radius: 4px;
+}
+
+.user {
+    align-self: flex-end;
+}
+
+.user .message-content {
+    background-color: var(--user-message-bg);
+    color: var(--user-message-text);
+    border-bottom-right-radius: 4px;
+}
+
+/* Typing Indicator */
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: var(--bot-message-bg);
+    border-radius: 18px;
+    max-width: 100px;
+    margin-bottom: 15px;
+}
+
+.typing-indicator span {
+    height: 8px;
+    width: 8px;
+    margin: 0 2px;
+    background-color: #999;
+    border-radius: 50%;
+    display: inline-block;
+    animation: typing 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.5); }
+    100% { transform: scale(1); }
+}
+
+/* Chat Footer */
+.chat-footer {
+    padding: 10px 15px;
+    background-color: white;
+    display: flex;
+    align-items: flex-end;
+    border-top: 1px solid #eee;
+}
+
+#user-input {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 14px;
+    max-height: 120px;
+    overflow-y: auto;
+    resize: none;
+    outline: none;
+    transition: var(--transition);
+}
+
+#user-input:focus {
+    border-color: var(--primary-light);
+}
+
+#send-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition);
+}
+
+#send-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+#send-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Timer Styles */
+#timer-display {
+    font-size: 14px;
+    color: var(--primary-dark);
+    margin-right: 10px; /* Space between timer and send button */
+    visibility: hidden; /* Initially hidden */
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease;
+    padding: 10px;
+}
+#timer-display.active{
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .chat-container.active {
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+    }
+
+    .chat-button {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .info-content {
+        width: 90%;
+        margin: 20% auto;
+    }
+    
+    .links-container {
+        flex-direction: column;
+    }
+    
+    .kgmu-link {
+        flex: 1 0 100%;
+    }
+}
+  </style>
+  <script>
+    var navClicked_count = 0;
+
+    function myDropdownFunction() {
+      if (navClicked_count == 0) {
+        $('.my-responsive-nav-content').animate({
+          'height': '45vh'
+        });
+        navClicked_count = 1;
+      } else {
+        $('.my-responsive-nav-content').animate({
+          'height': '0'
+        });
+        navClicked_count = 0;
+      }
+    }
+  </script>
+  </style>
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+  <div>
+    <div class="top-bar">
+      <div class="left-links">
+        <a href="">Information for:</a><a href="internetlogin.php">Faculty & Staff</a><a href="hospital_opd.php">Patients</a><a href="http://89.116.32.8/">Alumni</a>
+      </div>
+
+      <div class="right-controls">   
+ <a href="sitemap.php" class="sitemap-icon"><i class="fa fa-sitemap"></i></a>   <!--  <a href="/" class="sitemap-icon"><i class="fa fa-home"></i></a><span onclick="toggleReader()" style="cursor:pointer;">ðŸ§‘â€ðŸ¦¯ On Screen Reader</span>
+ -->
+        
+        <button onclick="changeFontSize(1)">A+</button>
+        <button onclick="changeFontSize(-1)">A-</button>
+         <a href="screen-reader.php" class="sitemap-icon"><i class="fa fa-speaker"></i>On Screen Reader</a>
+        
+      </div>
+    </div>
+  </div>
+  <nav>
+    <div class="my-nav-wrapper">
+
+      <div class="lower-nav">
+        <div class="nav-center-col text-center"><a href="index.php"><img src="img/kgmu-logo.png" class="img-responsive logo-img"></a></div>
+        <div class="nav-left-col">
+          <ul>
+                      </ul>
+        </div>
+        
+        <div class="nav-right-col">
+          <ul>
+                      </ul>
+          <img src="neo-assets/images/ranking/acc-top.png" style="max-height: 100px; float: right;" class="img-responsive logo-img">
+        </div>
+      </div>
+      <div class="upper-nav">
+        <ul>
+          <li><a href="/">Home</a><ul class="dropdown"></ul></li><li><a href="about-us.php">About</a><ul class="dropdown"><li><a href="about-us.php">About Us Overview</a><ul class="dropdown"></ul></li><li><a href="kgmu_history.php">History</a><ul class="dropdown"></ul></li><li><a href="#">Administration</a><ul class="dropdown"><li><a href="chancellor.php">Chancellor</a><ul class="dropdown"></ul></li><li><a href="vicechancellor.php">Vice Chancellor</a><ul class="dropdown"></ul></li><li><a href="provicechancellor.php">Pro Vice Chancellor</a><ul class="dropdown"></ul></li><li><a href="  incharge_section.php">Registrar</a><ul class="dropdown"></ul></li><li><a href="#">Dean Academics</a><ul class="dropdown"><li><a href="dean_faculty_of_med_science.php">Dean  Faculty of Medical Sciences</a><ul class="dropdown"></ul></li><li><a href="dean_message.php">Dean Faculty of Dental Sciences</a><ul class="dropdown"></ul></li><li><a href="dean_faculty_of_nursing.php">Dean  Faculty of Nursing</a><ul class="dropdown"></ul></li><li><a href="dean_faculty_of_paramedical_sci.php">Dean  Faculty of Para Medical </a><ul class="dropdown"></ul></li></ul></li><li><a href="finance.php">Finance Officer</a><ul class="dropdown"></ul></li><li><a href="#">Controller Of Examination</a><ul class="dropdown"><li><a href="controller_of_examination.php">Controller of Examination </a><ul class="dropdown"></ul></li><li><a href="online_exam_portal.php">Online Examination Fee Portal</a><ul class="dropdown"></ul></li><li><a href="https://www.digilocker.gov.in/">Degree Certificates of all batches.</a><ul class="dropdown"></ul></li><li><a href="examportal.php">Entrance Examination Registration Portal</a><ul class="dropdown"></ul></li></ul></li><li><a href="proctor-office.php">Proctor</a><ul class="dropdown"></ul></li><li><a href="ms-office.php">MS office</a><ul class="dropdown"></ul></li><li><a href="office_bearers.php">Other Office Bearers</a><ul class="dropdown"></ul></li><li><a href="committees.php">Committees</a><ul class="dropdown"></ul></li><li><a href="#">Executive Council Minutes</a><ul class="dropdown"><li><a href="https://drive.google.com/open?id=1G_j6hlBuBlnMVnV8RDsbShE98TmHi1wE">Policy Decisions & Orders of the EC</a><ul class="dropdown"></ul></li><li><a href="exe_councillors.php">Executive Council Minutes</a><ul class="dropdown"></ul></li><li><a href="download/regulations2018.pdf">EC Regulations 2018</a><ul class="dropdown"></ul></li><li><a href="meeting.php">Other Meeting Minutes</a><ul class="dropdown"></ul></li></ul></li><li><a href="academic_council.php">Academic Council</a><ul class="dropdown"></ul></li><li><a href="university_court.php">University Court</a><ul class="dropdown"></ul></li></ul></li><li><a href="#">Acts & Statutes</a><ul class="dropdown"><li><a href="#">KGMU Act</a><ul class="dropdown"><li><a href="https://drive.google.com/file/d/1-RjjLozTrruu3ZFixKJKl6ErVzS8XP6f/view">KGMU Act 2002</a><ul class="dropdown"></ul></li></ul></li><li><a href="#">Statutes</a><ul class="dropdown"><li><a href="https://drive.google.com/file/d/1oRzEumaGQIRPVtnfoaFJCBpoTq2YYFoO/view">Statute 2011</a><ul class="dropdown"></ul></li></ul></li><li><a href="recognization_2f.php">UGC Recognition/Approval</a><ul class="dropdown"></ul></li></ul></li><li><a href="organogram.php">Organogram</a><ul class="dropdown"></ul></li></ul></li><li><a href="#">Faculties</a><ul class="dropdown"><li><a href="department.php">Faculty of Medical Sciences</a><ul class="dropdown"></ul></li><li><a href="department.php?dept_type=1&department=Faculty-of-Dental-Sciences">Faculty of Dental sciences</a><ul class="dropdown"></ul></li><li><a href="/department_details.php?dept_id=81&dept_type=2">Faculty of Nursing</a><ul class="dropdown"></ul></li><li><a href="paramedical_about_faculty.php">Faculty of Paramedical science</a><ul class="dropdown"></ul></li><li><a href="#">Awards</a><ul class="dropdown"><li><a href="armedforces.php ">Gallantry Awards</a><ul class="dropdown"></ul></li><li><a href="alumni_award.php">Civilian Awards - Alumni</a><ul class="dropdown"></ul></li><li><a href="awards_cma.php">Chancellor Medal Awards</a><ul class="dropdown"></ul></li><li><a href="awards_ha.php">Hewett Medal </a><ul class="dropdown"></ul></li><li><a href="students_awards.php">University Honours Medal</a><ul class="dropdown"></ul></li><li><a href="covid_awards.php">Covid 19 warriors under the leadership of LT. Gen. (Dr.) Bipin Puri</a><ul class="dropdown"></ul></li></ul></li></ul></li><li><a href="#">Students</a><ul class="dropdown"><li><a href="https://www.kgmu.org/admission_courses.php">Admissions </a><ul class="dropdown"></ul></li><li><a href="#">Academics</a><ul class="dropdown"><li><a href="academic_program.php">Academic Program</a><ul class="dropdown"></ul></li><li><a href="academic_calender_old.php">Academic Time Table</a><ul class="dropdown"></ul></li><li><a href="academic_calender.php">Academic Calendar</a><ul class="dropdown"></ul></li></ul></li><li><a href="campus_library.php">Central Library</a><ul class="dropdown"><li><a href="library_adv_committee.php">Advisory Committee</a><ul class="dropdown"></ul></li><li><a href="library_resources.php">Library Resources</a><ul class="dropdown"></ul></li><li><a href="library_ebooks.php">Audio-Visual Material</a><ul class="dropdown"></ul></li><li><a href="library_opac.php">OPAC</a><ul class="dropdown"></ul></li><li><a href="library_subscribedlist.php">Print Journals </a><ul class="dropdown"></ul></li><li><a href="list-of-book.php">List of Book</a><ul class="dropdown"></ul></li></ul></li><li><a href="#">Examination</a><ul class="dropdown"><li><a href=" exam_scheme.php ">Examination Scheme</a><ul class="dropdown"></ul></li><li><a href="kgmu_result/examination_result.php">Examination Result</a><ul class="dropdown"></ul></li><li><a href=" exam_fee.php">Examination Fee Notice</a><ul class="dropdown"></ul></li><li><a href="entrance_exam_notice.php">Entrance Examination Notice</a><ul class="dropdown"></ul></li><li><a href="exam_notice.php"> Examination General Notice</a><ul class="dropdown"></ul></li><li><a href="scrutiny.php">Scrutiny </a><ul class="dropdown"></ul></li><li><a href="digilocker.php">Digilocker </a><ul class="dropdown"></ul></li><li><a href="online_exam_portal.php">Online  Examination Fee Portal</a><ul class="dropdown"></ul></li><li><a href="#">Samarth </a><ul class="dropdown"><li><a href="https://kgmu.samarth.edu.in/index.php/site/login">For Student Login</a><ul class="dropdown"></ul></li><li><a href="https://kgmu.samarth.ac.in/index.php/site/login">Admin & Faculty Login</a><ul class="dropdown"></ul></li></ul></li></ul></li><li><a href="deanStudentWelfare.php">Dean Student Welfare</a><ul class="dropdown"></ul></li><li><a href="https://www.kgmu.org/anti_ragging1.php">Anti Ragging</a><ul class="dropdown"></ul></li><li><a href="athletic_association.php">Athletic Association</a><ul class="dropdown"></ul></li><li><a href="stu_internships.php">Short Term Internship </a><ul class="dropdown"></ul></li><li><a href="">E content</a><ul class="dropdown"><li><a href="video.php">Video content</a><ul class="dropdown"></ul></li><li><a href="e_content_program.php">MBBS presentations</a><ul class="dropdown"></ul></li><li><a href="bds.php">BDS presentations</a><ul class="dropdown"></ul></li></ul></li></ul></li><li><a href="#">Campus</a><ul class="dropdown"><li><a href="about_campus.php">About</a><ul class="dropdown"></ul></li><li><a href="campus_map.php">Map</a><ul class="dropdown"></ul></li><li><a href="kalamcenter.php">Kalam Center</a><ul class="dropdown"></ul></li><li><a href="hostel.php">Hostels</a><ul class="dropdown"></ul></li><li><a href="scientific_conv_centre.php">Atal Bihari Vajpayee Scientific Convention Center</a><ul class="dropdown"></ul></li><li><a href="guest_house.php">Guest House</a><ul class="dropdown"></ul></li><li><a href="campus_canteen.php">Canteens</a><ul class="dropdown"></ul></li><li><a href="it_infrastructure.php">IT Infrastructure</a><ul class="dropdown"></ul></li><li><a href="sarasvati_mandir.php">Sanctum of Wisdom</a><ul class="dropdown"></ul></li></ul></li><li><a href="research.php">Research  & Innovation</a><ul class="dropdown"><li><a href="research.php">Research cell</a><ul class="dropdown"></ul></li><li><a href="">Code of Ethics</a><ul class="dropdown"><li><a href="download/Research-Methodology-with-course-on-Research-Ethics.pdf">Research Methodology with course on research ethics</a><ul class="dropdown"></ul></li><li><a href="enstitutional_ethics_committee.php">Institutional Ethics Committee</a><ul class="dropdown"></ul></li><li><a href="download/Plagiarism_Check.pdf">Plagiarism Check</a><ul class="dropdown"></ul></li><li><a href="Committee_Publication_guidelines.php"> Committee on Publication guidelines</a><ul class="dropdown"></ul></li></ul></li><li><a href="download/Ethical-Approval.pdf">Ethical Approval Guide For Students</a><ul class="dropdown"></ul></li><li><a href="icmr-sts-guide.php">ICMR STS Guide for UG</a><ul class="dropdown"></ul></li><li><a href="intramural_project.php"> Intramural Projects  </a><ul class="dropdown"></ul></li><li><a href="extramural_project.php"> Extramural Projects</a><ul class="dropdown"></ul></li><li><a href="mou_new.php">MOU &  Collaboration </a><ul class="dropdown"></ul></li><li><a href="student_research_bulletin.php">Medical Research Bulletin</a><ul class="dropdown"></ul></li><li><a href="publication.php">Our Publications</a><ul class="dropdown"></ul></li><li><a href="#">Innovation  Ecosystem</a><ul class="dropdown"><li><a href="sib-shine.php"> SIB SHInE</a><ul class="dropdown"></ul></li><li><a href="#">Patents & Intellectual Property Rights </a><ul class="dropdown"><li><a href="download/KGMU-IP-Policy-21-09-2023.pdf">IP Policy</a><ul class="dropdown"></ul></li><li><a href="download/IP-Filing-SOP-and-Forms.pdf">IP filing SOP and Forms</a><ul class="dropdown"></ul></li></ul></li></ul></li><li><a href="https://kgmudhrmru.in/">KGMU DHR MRU</a><ul class="dropdown"></ul></li><li><a href="https://www.amdrckgmu.com/">Advanced Mycology Diagnostic & Research Centre</a><ul class="dropdown"></ul></li></ul></li><li><a href="">Central units</a><ul class="dropdown"><li><a href="https://kgmu.org/department_details.php?dept_id=51&dept_type=2">Department of Medical Education</a><ul class="dropdown"></ul></li><li><a href="ued_about.php">University Environment Department</a><ul class="dropdown"></ul></li><li><a href="international_colabration_cell.php">International Student’s and Collaboration cell</a><ul class="dropdown"></ul></li><li><a href="women_empowerment.php">Women Empowerment Cell</a><ul class="dropdown"></ul></li><li><a href="placements_details.php">Placement cell</a><ul class="dropdown"></ul></li><li><a href="telemedicine.php">Telemedicine Unit</a><ul class="dropdown"></ul></li></ul></li><li><a href="event-calendar.php">Events</a><ul class="dropdown"></ul></li><li><a href="job.php">Recruitment</a><ul class="dropdown"></ul></li><li><a href="kgmu_notice_board.php">Notice Board</a><ul class="dropdown"></ul></li><li><a href="#">IQAS</a><ul class="dropdown"><li><a href="iqac_home.php">IQAC</a><ul class="dropdown"><li><a href="mission.php">Vision & Mission Statement</a><ul class="dropdown"></ul></li><li><a href="iqas.php">Internal Quality Assurance policy</a><ul class="dropdown"></ul></li><li><a href="iqac_orders.php">IQAC Orders</a><ul class="dropdown"></ul></li><li><a href="iqac_activities.php">IQAC Activities</a><ul class="dropdown"><li><a href="certificate.php">Certification</a><ul class="dropdown"></ul></li><li><a href="feedback_new.php">Feedback</a><ul class="dropdown"></ul></li></ul></li></ul></li><li><a href="nirf.php">NIRF</a><ul class="dropdown"></ul></li><li><a href="iqac_annual_report.php">KGMU Annual Reports</a><ul class="dropdown"></ul></li></ul></li>        </ul>
+      </div>
+    </div>
+
+    <!-- ---------responsive navbar--------- -->
+    <div class="my-responsive-nav-wrapper">
+      <div class="my-brand-logo"><a href="index.php"><img src="logo.jpg" width="70vw"></a><a href="javascript:void(0);" class="icon" onclick="myDropdownFunction()"><i class="fa fa-bars fa-2x mt-15 mr-15" style="float:right;"></i></a></div>
+      <div>
+        <ul class="my-responsive-nav-content">
+          <li><a href="/">Home</a><ul class="dropdown"></ul></li><li><a href="about-us.php">About</a><ul class="dropdown"><li><a href="about-us.php">About Us Overview</a><ul class="dropdown"></ul></li><li><a href="kgmu_history.php">History</a><ul class="dropdown"></ul></li><li><a href="#">Administration</a><ul class="dropdown"><li><a href="chancellor.php">Chancellor</a><ul class="dropdown"></ul></li><li><a href="vicechancellor.php">Vice Chancellor</a><ul class="dropdown"></ul></li><li><a href="provicechancellor.php">Pro Vice Chancellor</a><ul class="dropdown"></ul></li><li><a href="  incharge_section.php">Registrar</a><ul class="dropdown"></ul></li><li><a href="#">Dean Academics</a><ul class="dropdown"><li><a href="dean_faculty_of_med_science.php">Dean  Faculty of Medical Sciences</a><ul class="dropdown"></ul></li><li><a href="dean_message.php">Dean Faculty of Dental Sciences</a><ul class="dropdown"></ul></li><li><a href="dean_faculty_of_nursing.php">Dean  Faculty of Nursing</a><ul class="dropdown"></ul></li><li><a href="dean_faculty_of_paramedical_sci.php">Dean  Faculty of Para Medical </a><ul class="dropdown"></ul></li></ul></li><li><a href="finance.php">Finance Officer</a><ul class="dropdown"></ul></li><li><a href="#">Controller Of Examination</a><ul class="dropdown"><li><a href="controller_of_examination.php">Controller of Examination </a><ul class="dropdown"></ul></li><li><a href="online_exam_portal.php">Online Examination Fee Portal</a><ul class="dropdown"></ul></li><li><a href="https://www.digilocker.gov.in/">Degree Certificates of all batches.</a><ul class="dropdown"></ul></li><li><a href="examportal.php">Entrance Examination Registration Portal</a><ul class="dropdown"></ul></li></ul></li><li><a href="proctor-office.php">Proctor</a><ul class="dropdown"></ul></li><li><a href="ms-office.php">MS office</a><ul class="dropdown"></ul></li><li><a href="office_bearers.php">Other Office Bearers</a><ul class="dropdown"></ul></li><li><a href="committees.php">Committees</a><ul class="dropdown"></ul></li><li><a href="#">Executive Council Minutes</a><ul class="dropdown"><li><a href="https://drive.google.com/open?id=1G_j6hlBuBlnMVnV8RDsbShE98TmHi1wE">Policy Decisions & Orders of the EC</a><ul class="dropdown"></ul></li><li><a href="exe_councillors.php">Executive Council Minutes</a><ul class="dropdown"></ul></li><li><a href="download/regulations2018.pdf">EC Regulations 2018</a><ul class="dropdown"></ul></li><li><a href="meeting.php">Other Meeting Minutes</a><ul class="dropdown"></ul></li></ul></li><li><a href="academic_council.php">Academic Council</a><ul class="dropdown"></ul></li><li><a href="university_court.php">University Court</a><ul class="dropdown"></ul></li></ul></li><li><a href="#">Acts & Statutes</a><ul class="dropdown"><li><a href="#">KGMU Act</a><ul class="dropdown"><li><a href="https://drive.google.com/file/d/1-RjjLozTrruu3ZFixKJKl6ErVzS8XP6f/view">KGMU Act 2002</a><ul class="dropdown"></ul></li></ul></li><li><a href="#">Statutes</a><ul class="dropdown"><li><a href="https://drive.google.com/file/d/1oRzEumaGQIRPVtnfoaFJCBpoTq2YYFoO/view">Statute 2011</a><ul class="dropdown"></ul></li></ul></li><li><a href="recognization_2f.php">UGC Recognition/Approval</a><ul class="dropdown"></ul></li></ul></li><li><a href="organogram.php">Organogram</a><ul class="dropdown"></ul></li></ul></li><li><a href="#">Faculties</a><ul class="dropdown"><li><a href="department.php">Faculty of Medical Sciences</a><ul class="dropdown"></ul></li><li><a href="department.php?dept_type=1&department=Faculty-of-Dental-Sciences">Faculty of Dental sciences</a><ul class="dropdown"></ul></li><li><a href="/department_details.php?dept_id=81&dept_type=2">Faculty of Nursing</a><ul class="dropdown"></ul></li><li><a href="paramedical_about_faculty.php">Faculty of Paramedical science</a><ul class="dropdown"></ul></li><li><a href="#">Awards</a><ul class="dropdown"><li><a href="armedforces.php ">Gallantry Awards</a><ul class="dropdown"></ul></li><li><a href="alumni_award.php">Civilian Awards - Alumni</a><ul class="dropdown"></ul></li><li><a href="awards_cma.php">Chancellor Medal Awards</a><ul class="dropdown"></ul></li><li><a href="awards_ha.php">Hewett Medal </a><ul class="dropdown"></ul></li><li><a href="students_awards.php">University Honours Medal</a><ul class="dropdown"></ul></li><li><a href="covid_awards.php">Covid 19 warriors under the leadership of LT. Gen. (Dr.) Bipin Puri</a><ul class="dropdown"></ul></li></ul></li></ul></li><li><a href="#">Students</a><ul class="dropdown"><li><a href="https://www.kgmu.org/admission_courses.php">Admissions </a><ul class="dropdown"></ul></li><li><a href="#">Academics</a><ul class="dropdown"><li><a href="academic_program.php">Academic Program</a><ul class="dropdown"></ul></li><li><a href="academic_calender_old.php">Academic Time Table</a><ul class="dropdown"></ul></li><li><a href="academic_calender.php">Academic Calendar</a><ul class="dropdown"></ul></li></ul></li><li><a href="campus_library.php">Central Library</a><ul class="dropdown"><li><a href="library_adv_committee.php">Advisory Committee</a><ul class="dropdown"></ul></li><li><a href="library_resources.php">Library Resources</a><ul class="dropdown"></ul></li><li><a href="library_ebooks.php">Audio-Visual Material</a><ul class="dropdown"></ul></li><li><a href="library_opac.php">OPAC</a><ul class="dropdown"></ul></li><li><a href="library_subscribedlist.php">Print Journals </a><ul class="dropdown"></ul></li><li><a href="list-of-book.php">List of Book</a><ul class="dropdown"></ul></li></ul></li><li><a href="#">Examination</a><ul class="dropdown"><li><a href=" exam_scheme.php ">Examination Scheme</a><ul class="dropdown"></ul></li><li><a href="kgmu_result/examination_result.php">Examination Result</a><ul class="dropdown"></ul></li><li><a href=" exam_fee.php">Examination Fee Notice</a><ul class="dropdown"></ul></li><li><a href="entrance_exam_notice.php">Entrance Examination Notice</a><ul class="dropdown"></ul></li><li><a href="exam_notice.php"> Examination General Notice</a><ul class="dropdown"></ul></li><li><a href="scrutiny.php">Scrutiny </a><ul class="dropdown"></ul></li><li><a href="digilocker.php">Digilocker </a><ul class="dropdown"></ul></li><li><a href="online_exam_portal.php">Online  Examination Fee Portal</a><ul class="dropdown"></ul></li><li><a href="#">Samarth </a><ul class="dropdown"><li><a href="https://kgmu.samarth.edu.in/index.php/site/login">For Student Login</a><ul class="dropdown"></ul></li><li><a href="https://kgmu.samarth.ac.in/index.php/site/login">Admin & Faculty Login</a><ul class="dropdown"></ul></li></ul></li></ul></li><li><a href="deanStudentWelfare.php">Dean Student Welfare</a><ul class="dropdown"></ul></li><li><a href="https://www.kgmu.org/anti_ragging1.php">Anti Ragging</a><ul class="dropdown"></ul></li><li><a href="athletic_association.php">Athletic Association</a><ul class="dropdown"></ul></li><li><a href="stu_internships.php">Short Term Internship </a><ul class="dropdown"></ul></li><li><a href="">E content</a><ul class="dropdown"><li><a href="video.php">Video content</a><ul class="dropdown"></ul></li><li><a href="e_content_program.php">MBBS presentations</a><ul class="dropdown"></ul></li><li><a href="bds.php">BDS presentations</a><ul class="dropdown"></ul></li></ul></li></ul></li><li><a href="#">Campus</a><ul class="dropdown"><li><a href="about_campus.php">About</a><ul class="dropdown"></ul></li><li><a href="campus_map.php">Map</a><ul class="dropdown"></ul></li><li><a href="kalamcenter.php">Kalam Center</a><ul class="dropdown"></ul></li><li><a href="hostel.php">Hostels</a><ul class="dropdown"></ul></li><li><a href="scientific_conv_centre.php">Atal Bihari Vajpayee Scientific Convention Center</a><ul class="dropdown"></ul></li><li><a href="guest_house.php">Guest House</a><ul class="dropdown"></ul></li><li><a href="campus_canteen.php">Canteens</a><ul class="dropdown"></ul></li><li><a href="it_infrastructure.php">IT Infrastructure</a><ul class="dropdown"></ul></li><li><a href="sarasvati_mandir.php">Sanctum of Wisdom</a><ul class="dropdown"></ul></li></ul></li><li><a href="research.php">Research  & Innovation</a><ul class="dropdown"><li><a href="research.php">Research cell</a><ul class="dropdown"></ul></li><li><a href="">Code of Ethics</a><ul class="dropdown"><li><a href="download/Research-Methodology-with-course-on-Research-Ethics.pdf">Research Methodology with course on research ethics</a><ul class="dropdown"></ul></li><li><a href="enstitutional_ethics_committee.php">Institutional Ethics Committee</a><ul class="dropdown"></ul></li><li><a href="download/Plagiarism_Check.pdf">Plagiarism Check</a><ul class="dropdown"></ul></li><li><a href="Committee_Publication_guidelines.php"> Committee on Publication guidelines</a><ul class="dropdown"></ul></li></ul></li><li><a href="download/Ethical-Approval.pdf">Ethical Approval Guide For Students</a><ul class="dropdown"></ul></li><li><a href="icmr-sts-guide.php">ICMR STS Guide for UG</a><ul class="dropdown"></ul></li><li><a href="intramural_project.php"> Intramural Projects  </a><ul class="dropdown"></ul></li><li><a href="extramural_project.php"> Extramural Projects</a><ul class="dropdown"></ul></li><li><a href="mou_new.php">MOU &  Collaboration </a><ul class="dropdown"></ul></li><li><a href="student_research_bulletin.php">Medical Research Bulletin</a><ul class="dropdown"></ul></li><li><a href="publication.php">Our Publications</a><ul class="dropdown"></ul></li><li><a href="#">Innovation  Ecosystem</a><ul class="dropdown"><li><a href="sib-shine.php"> SIB SHInE</a><ul class="dropdown"></ul></li><li><a href="#">Patents & Intellectual Property Rights </a><ul class="dropdown"><li><a href="download/KGMU-IP-Policy-21-09-2023.pdf">IP Policy</a><ul class="dropdown"></ul></li><li><a href="download/IP-Filing-SOP-and-Forms.pdf">IP filing SOP and Forms</a><ul class="dropdown"></ul></li></ul></li></ul></li><li><a href="https://kgmudhrmru.in/">KGMU DHR MRU</a><ul class="dropdown"></ul></li><li><a href="https://www.amdrckgmu.com/">Advanced Mycology Diagnostic & Research Centre</a><ul class="dropdown"></ul></li></ul></li><li><a href="">Central units</a><ul class="dropdown"><li><a href="https://kgmu.org/department_details.php?dept_id=51&dept_type=2">Department of Medical Education</a><ul class="dropdown"></ul></li><li><a href="ued_about.php">University Environment Department</a><ul class="dropdown"></ul></li><li><a href="international_colabration_cell.php">International Student’s and Collaboration cell</a><ul class="dropdown"></ul></li><li><a href="women_empowerment.php">Women Empowerment Cell</a><ul class="dropdown"></ul></li><li><a href="placements_details.php">Placement cell</a><ul class="dropdown"></ul></li><li><a href="telemedicine.php">Telemedicine Unit</a><ul class="dropdown"></ul></li></ul></li><li><a href="event-calendar.php">Events</a><ul class="dropdown"></ul></li><li><a href="job.php">Recruitment</a><ul class="dropdown"></ul></li><li><a href="kgmu_notice_board.php">Notice Board</a><ul class="dropdown"></ul></li><li><a href="#">IQAS</a><ul class="dropdown"><li><a href="iqac_home.php">IQAC</a><ul class="dropdown"><li><a href="mission.php">Vision & Mission Statement</a><ul class="dropdown"></ul></li><li><a href="iqas.php">Internal Quality Assurance policy</a><ul class="dropdown"></ul></li><li><a href="iqac_orders.php">IQAC Orders</a><ul class="dropdown"></ul></li><li><a href="iqac_activities.php">IQAC Activities</a><ul class="dropdown"><li><a href="certificate.php">Certification</a><ul class="dropdown"></ul></li><li><a href="feedback_new.php">Feedback</a><ul class="dropdown"></ul></li></ul></li></ul></li><li><a href="nirf.php">NIRF</a><ul class="dropdown"></ul></li><li><a href="iqac_annual_report.php">KGMU Annual Reports</a><ul class="dropdown"></ul></li></ul></li><li><a href="">Information for:</a></li><li><a href="internetlogin.php">Faculty & Staff</a></li><li><a href="hospital_opd.php">Patients</a></li><li><a href="http://89.116.32.8/">Alumni</a></li>        </ul>
+      </div>
+    </div>
+  </nav>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const submenuParents = document.querySelectorAll("nav .upper-nav ul ul li");
+
+    submenuParents.forEach(parent => {
+      const submenu = parent.querySelector("ul");
+
+      if (submenu) {
+        parent.addEventListener("mouseenter", function () {
+          submenu.classList.remove("open-left"); // reset direction
+          submenu.style.visibility = "hidden"; // hide to measure
+          submenu.style.display = "block"; // show temporarily
+
+          const rect = submenu.getBoundingClientRect();
+          const willOverflow = rect.right > window.innerWidth;
+
+          submenu.style.display = ""; // restore
+          submenu.style.visibility = "";
+
+          if (willOverflow) {
+            submenu.classList.add("open-left");
+          }
+        });
+
+        parent.addEventListener("mouseleave", function () {
+          submenu.classList.remove("open-left");
+        });
+      }
+    });
+  });
+</script>
+
+<div style="clear:both"></div>
+<!--<div id="flash"></div>-->
+<div id="contents">
+<div>
+<div class="body">
+
+<div id="cnts">
+<div>
+
+   
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td height="42" class="heading" background="images/headingbg.jpg" style="background-repeat:no-repeat;"><strong>Digital Resources</strong></td>
+</tr>
+<tr>
+<td height="11"><table width="100%" border="0" cellpadding="2" cellspacing="0">
+<tr>
+<td width="99%" height="8" align="center" valign="top"><table width="100%" border="0" cellpadding="2" cellspacing="0">
+<tr>
+<td align="center"></td>
+</tr>
+
+<tr> 
+<td align="center" class="text">
+<h3 style="background: #FF9900;padding: 5px;padding-left:5px;">	Department of Anatomy</h3>    
+<ol  style="list-style: decimal; margin-left: 20px;">
+<li><a href="download/anotomy_pdf/CERVICAL-PLEXUS.pdf" target="_blank">CERVICAL-PLEXUS</a></li>
+
+<li><a href="download/anotomy_pdf/CRANIAL-CAVITY-I.pdf" target="_blank">CRANIAL-CAVITY-I</a></li>
+<li><a href="download/anotomy_pdf/CRANIAL CAVITY-II.pdf" target="_blank">CRANIAL CAVITY II</a></li>
+<li><a href="download/anotomy_pdf/CRANIOVERTEBRAL-JOINTS-JOINTS-OF-CERVICAL-VERTEBRAL-COLUMN-[9-1-20].pdf" target="_blank">CRANIOVERTEBRAL JOINTS JOINTS OF CERVICAL VERTEBRAL COLUMN</a></li>
+<li><a href="download/anotomy_pdf/EAR-I.pdf" target="_blank">EAR-I</a></li>
+<li><a href="download/anotomy_pdf/EAR-II.pdf" target="_blank">EAR-II</a></li>
+<li><a href="download/anotomy_pdf/EAR-III.pdf" target="_blank">EAR-III</a></li>
+<li><a href="download/anotomy_pdf/EAR-IV.pdf" target="_blank">EAR-IV</a></li>
+<li><a href="download/anotomy_pdf/EUSTACHIAN-TUBE.pdf" target="_blank">EUSTACHIAN TUBE</a></li>
+<li><a href="download/anotomy_pdf/LARYNX-I.pdf" target="_blank">LARYNX-I</a></li>
+<li><a href="download/anotomy_pdf/Larynx-II.pdf" target="_blank">Larynx-II</a></li>
+<li><a href="download/anotomy_pdf/Larynx-III.pdf" target="_blank">Larynx-III</a></li>
+<li><a href="download/anotomy_pdf/LYMPHATIC-DRAINAGE-OF-HEAD-NECK.pdf" target="_blank">LYMPHATIC DRAINAGE OF HEAD NECK</a></li>
+<li><a href="download/anotomy_pdf/MUSCLES-OF-MASTICATION.pdf" target="_blank">MUSCLES OF MASTICATION</a></li>
+<li><a href="download/anotomy_pdf/Nasal Cavity-II.pdf" target="_blank">Nasal Cavity-II</a></li>
+<li><a href="download/anotomy_pdf/NASAL-CAVITY-1.pdf" target="_blank">NASAL CAVITY-1</a></li>
+<li><a href="download/anotomy_pdf/ORBIT-I.pdf" target="_blank">ORBIT-I</a></li>
+<li><a href="download/anotomy_pdf/ORBIT-II.pdf" target="_blank">ORBIT-II</a></li>
+<li><a href="download/anotomy_pdf/ORBIT-III.pdf" target="_blank">ORBIT-III</a></li>
+<li><a href="download/anotomy_pdf/ORBIT-I.pdf" target="_blank">ORBIT-I</a></li>
+<li><a href="download/anotomy_pdf/PALATE.pdf" target="_blank">PALATE</a></li>
+<li><a href="download/anotomy_pdf/PALATINE-TONSILS.pdf" target="_blank">PALATINE-TONSILS</a></li>
+<li><a href="download/anotomy_pdf/PARANASAL-AIR-SINUSES.pdf" target="_blank">PARANASAL AIR SINUSES</a></li>
+<li><a href="download/anotomy_pdf/PARAVERTEBRAL-REGION-ROOT-OF-NECK.pdf" target="_blank">PARAVERTEBRAL REGION ROOT OF NECK</a></li>
+<li><a href="download/anotomy_pdf/PAROTID-REGION.pdf" target="_blank">PAROTID REGION</a></li>
+<li><a href="download/anotomy_pdf/PHARYNX-I.pdf" target="_blank">PHARYNX-I</a></li>
+<li><a href="download/anotomy_pdf/PHARYNX-II.pdf" target="_blank">PHARYNX-II.pdf</a></li>
+<li><a href="download/anotomy_pdf/PHARYNX-III.pdf" target="_blank">PHARYNX-III</a></li>
+<li><a href="download/anotomy_pdf/PREVERTEBRAL-REGION.pdf" target="_blank">PREVERTEBRAL REGION</a></li>
+<li><a href="download/anotomy_pdf/SUBMANDIBULAR-REGION.pdf" target="_blank">SUBMANDIBULAR REGION</a></li>
+<li><a href="download/anotomy_pdf/TONGUE-I.pdf" target="_blank">TONGUE-I</a></li>
+<li><a href="download/anotomy_pdf/TONGUE-II.pdf" target="_blank">TONGUE-II.pdf</a></li>
+<li><a href="download/anotomy_pdf/TRACHEA-OESOPHAGUS.pdf" target="_blank">TRACHEA OESOPHAGUS</a></li>
+<li><a href="download/anotomy_pdf/VERTEBRAL-CANAL-I.pdf" target="_blank">VERTEBRAL CANAL-I</a></li>
+<li><a href="download/anotomy_pdf/VERTEBRAL-CANAL-II.pdf" target="_blank">VERTEBRAL CANAL-II</a></li>
+<li><a href="digital_lectures/medical/anatomy/Dr. Archana Rani (Peritoneum 1).pdf" target="_blank">Peritoneum-I</a></li>
+<li><a href="digital_lectures/medical/anatomy/Dr. Archana Rani (Peritoneum 2).pdf" target="_blank">Peritoneum-II</a></li>
+<li><a href="digital_lectures/medical/anatomy/Dr. Archana Rani (Peritoneum 3).pdf" target="_blank">Peritoneum-III</a></li>
+<li><a href="digital_lectures/medical/anatomy/dr_garima_sehgal _pancreas.pdf" target="_blank">Pancreas</a></li>
+<li><a href="digital_lectures/medical/anatomy/dr_garima_sehgal_posterior_abdominal_wall_1st.pdf" target="_blank">Posterior Abdominal wall I (Abdominal Aorta, Inferior Vena Cava, Lymph nodes)</a></li>
+<li><a href="digital_lectures/medical/anatomy/dr_garima_sehgal_posterior_abdominal_wall2nd.pdf" target="_blank">Posterior Abdominal wall II (Muscles & nerves)</a></li>
+<li><a href="digital_lectures/medical/anatomy/dr_garima_sehgal_kidney1_persentation.pdf" target="_blank">Kidney I</a></li>
+<li><a href="digital_lectures/medical/anatomy/dr_garima_sehgal_kidney-II.pdf" target="_blank">Kidney II</a></li>
+<li><a href="digital_lectures/medical/anatomy/dr_archana-rani_uterus.pdf" target="_blank">Uterus</a></li>
+<li><a href="digital_lectures/medical/anatomy/dr_archana_rani_cutaneous_innervationof_lower_limb" target="_blank;">Cutaneous innervations of lower limb</a></li>
+<li><a href="digital_lectures/medical/anatomy/Ischioanal_fossa.pdf" target="_blank">Ischioanal Fossa</a></li>
+<li><a href="digital_lectures/medical/anatomy/anal_canal.pdf" target="_blank">Anal Canal</a></li>
+<li><a href="digital_lectures/medical/anatomy/gluteal_region_1.pdf" target="_blank">Gluteal Region-I</a></li>
+<li><a href="digital_lectures/medical/anatomy/gluteal_region_2.pdf" target="_blank">Gluteal Region-II</a></li>
+<li><a href="digital_lectures/medical/anatomy/back_of_thigh_class.pdf" target="_blank">Back of Thigh</a></li>
+<li><a href="digital_lectures/medical/anatomy/femur_and_patella.pdf" target="_blank">Femur and Patella</a></li>
+<li><a href="digital_lectures/medical/anatomy/Fibula final.pdf" target="_blank">Fibula</a></li>
+<li><a href="digital_lectures/medical/anatomy/lecture_on_popliteal_fossa.pdf" target="_blank">Popliteal Fossa by Dr. kaweri Dande</a></li>
+<li><a href="digital_lectures/medical/anatomy/tibia_final.pptx" target="_blank">Tibia(bony features,muscles and ligaments attachments and its ossification)</a></li> 
+<li><a href="digital_lectures/medical/anatomy/anterior_compartment_of_leg.pdf" target="_blank">Anterior Compartment of Leg</a></li>
+<li><a href="digital_lectures/medical/anatomy/anterior_compartment_of_leg_and_dorsum_of_foot.pptx" target="_blank">Anterior Compartment of Leg and Dorsum of Foot</a></li>
+<li><a href="digital_lectures/medical/anatomy/back_of_leg_I.pdf" target="_blank">Back of Leg-I</a></li>
+<li><a href="digital_lectures/medical/anatomy/back_of_leg_II.pdf" target="_blank">Back of Leg-II</a></li>
+<li><a href="digital_lectures/medical/anatomy/lat_comp_leg_2.pdf" target="_blank">Lateral Compartment of Leg by Dr Kaweri Dande</a></li>
+<li><a href="digital_lectures/medical/anatomy/Dr.Kaveri_Anatomy_lecture_on_popliteal_fossa.pdf" target="_blank">Popliteal Fossa</a></li>
+<li><a href="digital_lectures/medical/anatomy/dr.archana_rani_chromosomes.pdf" target="_blank">Chromosomes</a></li>
+<li><a href="digital_lectures/medical/anatomy/soft_part_demo_part2.pptx" target="_blank">Demonstration of lateral and posterior compartment of leg and dorsum of foot , by Dr Amber Rana</a></li>
+<li><a href="digital_lectures/medical/anatomy/joint_of_foot.pptx" target="_blank">Lecture on joints of foot by Dr. Amber Rana</a></li>
+<li><a href="digital_lectures/medical/anatomy/lecture_on_elbow_joint.pdf" target="_blank">Lecture on elbow conducted by dr Kaweri Dande</a></li>
+<li><a href="digital_lectures/medical/anatomy/prl_reg_root_of_neck.pptx "  target="_blank">Paravertebral Region& Root Of Neck</a></li>
+<li><a href="download/anotomy_pdf/CERVICAL-SYMPATHETIC-TRUNKS.pdf"target="_blank">Cervical Part of Sympathetic Trunks</a></li>
+
+<li><a href="digital_lectures/medical/anatomy/lymphatic_dra_of_head_neck.pptx"target="_blank">LYMPHATIC DRAINAGE OF HEAD & NECK</a></li>
+
+<li><a href="digital_lectures/medical/anatomy/nasal_cavity_1.pptx"target="_blank">Nasal Cavity I</a></li>
+<li><a href="digital_lectures/medical/anatomy/nasal_cavity_II.pptx"target="_blank">Nasal Cavity II</a></li> 
+
+</ol> 
+<!--<td align="center" class="text">
+
+<a style="color: white;text-align: center;" target="_blank" href="download/ventilator-training/SSS_Basic MV Covid-19 New1.pptx" XPLOSION class="btn btn-success btn-lg" style="padding-left: 200px;padding-right: 200px;;">SSS Basic <br/> MV Covid-19</a>
+<a style="color: white;text-align: center;" target="_blank" href="download/ventilator-training/STEP_BY_STEP_ABG_INTERPRETATION_SULEKHA_FINAL.pptx" class="btn btn-primary btn-lg">Step by Step ABG<br />Interpretation Sulekha</a>
+<a style="color: white;text-align: center;" target="_blank" href="download/ventilator-training/airway management in COVID-19.pptx" class="btn btn-success btn-lg">Airway Management<br /> in COVID-19</a>
+</tr>
+
+<tr><td><br /><br/><br/></td></tr>-->
+
+
+</table></td>
+<td width="1%" valign="top"></td>
+</tr>
+<tr>
+<td height="8" valign="top"></td>
+<td valign="top"></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<style>
+ .feedback-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  background-color: #4a90e2;
+  color: white!important;
+  text-decoration: none;
+  border-radius: 6px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  border: 2px solid #4a90e2;
+  transition: background-color 0.2s ease;
+}
+
+.feedback-button:hover {
+  background-color: #357ab8;
+}
+
+.feedback-button .check {
+  width: 18px;
+  height: 18px;
+  margin-left: 10px;
+  background-color: white;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feedback-button .check::after {
+  content: "\2713";
+  color: #4a90e2;
+  font-size: 14px;
+  line-height: 1;
+}
+
+</style>
+<footer id="footer" class="footer bg-black-111">
+  <div class="container pt-70 pb-40">
+    <div class="row border-bottom-black">
+      <div class="col-sm-12 col-md-4">
+        <div class="dark">
+          <img class="mt-10 mb-10" alt="" src="neo-assets/images/logo-kgmu-white.png">
+          <p>King George's Medical University, founded in 1905</p>
+          <ul class="list-inline mt-5">
+            <li class="m-0 pl-10 pr-10"> <i class="fa fa-map-marker text-theme-color-2 mr-5"></i> <a class="text-gray" href="#">Shah Mina Rd, Chowk, Lucknow, Uttar Pradesh 226003</a> </li>
+            <!--<li class="m-0 pl-10 pr-10"> <i class="fa fa-fax text-theme-color-2 mr-5"></i> <a class="text-gray" href="#"> +91 522 2257540</a> </li>-->
+            <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o text-theme-color-2 mr-5"></i> <a class="text-gray" href="mailto:info@kgmcindia.edu">info@kgmcindia.edu</a> </li>
+            <li class="m-0 pl-10 pr-10"> <i class="fa fa-globe text-theme-color-2 mr-5"></i> <a class="text-gray" href="index.php">www.kgmu.org</a> </li>
+            
+          </ul>
+        </div>
+        <div class="col-md-12" style="margin-top: 20px; padding: 0;">
+            <div class="row" >
+             <div class="col-md-4 col-sm-6 mb-4">
+               <a href="https://india.cochrane.org/" target="_blank">
+                 <img src="neo-assets/images/index-page/8.png" alt="Image 1" class="img-fluid-ranking logo-foot-bg">
+               </a>
+             </div>
+        
+             <div class="col-md-4 col-sm-6 mb-4">
+               <a href="#" target="_blank">
+                 <img src="neo-assets/images/index-page/9.png" alt="Image 2" class="img-fluid-ranking logo-foot-bg">
+               </a>
+             </div>
+             <div class="col-md-4 col-sm-6 mb-4">
+               <a href="feedback_new.php" target="_blank" class="feedback-button"> 
+                 Feedback <span class="check"></span>
+               </a>
+             </div>
+            </div>
+         </div>
+
+      </div>
+      <div class="col-sm-12 col-md-4"></div>
+      <div class="col-sm-12 col-md-4">
+        <div class="widget dark">
+          <h5 class="widget-title mb-10">Connect With Us</h5>
+          <ul class="styled-icons icon-dark mt-20">
+            <li class="wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".1s" data-wow-offset="10"><a href="https://www.facebook.com/kgmuindia" data-bg-color="#3B5998" target="_blank"><i class="fa fa-facebook" style="padding-top:10px;"></i></a></li>
+            <li class="wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".2s" data-wow-offset="10"><a href="https://twitter.com/kgmuindia" data-bg-color="#02B0E8" target="_blank"><i class="fa fa-twitter" style="padding-top:10px;"></i></a></li>
+            <li class="wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".5s" data-wow-offset="10"><a href="https://www.youtube.com/channel/UCYW38pCQtOXYSzVDHkpgWdw" data-bg-color="#C22E2A" target="_blank"><i class="fa fa-youtube" style="padding-top:10px;"></i></a></li>
+            <li class="wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".5s" data-wow-offset="10" title="Dean Quality and Planning"><a href="https://www.youtube.com/channel/UC6BUjuHyTFR7_ISB8b5GB8A" data-bg-color="#C22E2A" target="_blank"><i class="fa fa-instagram" style="padding-top:10px;"></i></a></li>
+          </ul>
+        </div>
+        <a href="https://www.youtube.com/channel/UCYW38pCQtOXYSzVDHkpgWdw" class="text" style="margin-top: 60px; color:white;">KGMU Events(You Tube Channel)</a><br /><br />
+        <a href="archive.php" class="text" style="margin-top: 10px; color:white;">ARCHIVES</a> <br /><br />
+        <a href="" class="text" style="margin-top: 0px; color:white;">Contact for Emergency Assistance Ambulance -</a> <br />
+        <p style="margin-left: 10pxpx; color:white;"> &nbsp;&nbsp;&nbsp;+91 94530 04209</p>
+          <a href="" class="text" style="margin-top: 0px; color:white;">Contact for Online Appointment for KGMU OPD -</a> <br />
+        <p style="margin-left: 10pxpx; color:white;"> &nbsp;&nbsp;&nbsp; 05222258880 , 05223539333</p>
+        <div><!-- counter section -->
+         </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom bg-black-222">
+    <div class="container pt-10 pb-0">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p class="font-14 text-black-777 m-0 mb-10">Copyright &copy;2019 KGMU. All Rights Reserved.
+          
+          
+        
+      
+Website last updated at: 09 Nov 2025 03:33 PM          
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<a class="scrollToTop" href="#"><i class="fa fa-arrow-up" aria-hidden="true" style="font-size:20px; margin-top: 12px;"></i></a>
+</div>
+<!-- end wrapper -->
+<!-- popup images  --->
+<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Image preview</h4>
+      </div>
+      <div class="modal-body">
+        <img src="" id="imagepreview" style="width: 400px; height: 264px;">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <!-- Info Modal -->
+<div class="info-modal" id="info-modal">
+    <div class="info-content">
+        <span class="close-info"><i class="fa fa-times" ></i></span>
+        <div class="developer-profile">
+            <div class="profile-image-container">
+                <img src="download/your-profile-image.jpg" alt="Dr. Ayush Yadav" class="profile-image">
+            </div>
+            <h2>Made by Dr. Ayush Yadav</h2>
+            <p class="credentials">MBBS, King George's Medical University (Batch of 2019)</p>
+        </div>
+        <div class="developer-bio">
+            <p>As a physician and developer, I've combined my medical knowledge with programming skills to create this KGMU Assistant. This project aims to enhance the university website's accessibility and provide seamless information access for patients, students, and faculty members.</p>
+        </div>
+        <div class="connect-section">
+            <h3>Connect with me</h3>
+            <div class="social-icons">
+                <a href="https://linkedin.com/in/ayush-yadav-kgmu"><i class="fa fa-linkedin"></i></a>
+                <a href="https://instagram.com/ayush.ism"><i class="fa fa-instagram"></i></a>
+                <a href="https://x.com/ProxyAyush" target="_blank"> <i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<style>
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.chat-header {
+    background-color:#0056b3;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    
+   .chat-container {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 360px;
+    height: 600px;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 12px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: normal;
+} 
+.header-content {
+    display: flex;
+    align-items: center;
+}
+    
+  .chat-container.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+}  
+  .action-btn {
+    background: transparent;
+    border: none;
+    color: white;
+     margin-left: 0px!important; 
+    cursor: pointer;
+    font-size: 20px;
+    
+}  
+   .info-content {
+    background-color: white;
+    margin: 7% auto;
+    padding: 25px;
+    border-radius:12px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 12px;
+    position: relative;
+} 
+.profile-image-container {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid ;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.close-info {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.developer-profile h2 {
+    color:#0056b3;
+    margin-bottom: 5px;
+}
+.connect-section h3 {
+    color: #0056b3;
+    margin-bottom: 15px;
+}
+.developer-bio {
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+.social-icons a {
+    font-size: 24px;
+    color: #0056b3;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.chat-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #0056b3;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 12px;
+    z-index: 999;
+    transition: 0.3s;
+}
+    </style>
+ 
+    
+    
+<!-- Chat Button -->
+    <div class="chat-button" id="chat-button">
+        <i class="fa fa-comments"></i>
+    </div>
+    <!-- Chat Container -->
+    <div class="chat-container" id="chat-container">
+        <div class="chat-header">
+            <div class="header-content">
+                <img src="./iconchatbot.png" alt="KGMU Logo" class="logo">
+                <div class="header-text">
+                    <h3 style="color: white;">KGMU Assistant</h3>
+                    <p class="university-name">King George's Medical University, Lucknow</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button id="info-button" class="action-btn" ><i class="fa fa-info"></i></button>
+                <button id="new-chat-btn" class="action-btn"><i class="fa fa-plus" ></i></button>
+                <button id="close-chat-btn" class="action-btn"><i class="fa fa-times" ></i></button>
+            </div>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="chat-message bot">
+                <div class="message-content">
+                    <p>Hello! I'm KGMU Assistant. How can I help you today? | ??????! ??? KGMU ????? ???? ??? ?? ???? ???? ??? ?? ???? ????</p>
+                </div>
+            </div>
+        </div>
+        <div class="chat-footer">
+            <textarea id="user-input" placeholder="Type your message here..." rows="1"></textarea>
+            <div id="timer-display"></div> <!-- Timer display -->
+            <button id="send-btn" disabled><i class="fa fa-paper-plane"></i></button>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/6.0.1/autosize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ProxyAyush/KGMU_AI_Chatbot@main/script6.js"></script>
+   <!-- <script src="js/script6.js"></script>-->
+<!-- Footer Scripts -->
+<!-- JS | Custom script for all pages -->
+<script src="neo-assets/js/custom.js"></script>
+
+<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  
+      (Load Extensions only on Local File Systems ! 
+       The following part can be removed on Server for On Demand Loading) -->
+
+<script>
+  $(function() {
+    $('.highslide').on('click', function(event) {
+      event.preventDefault()
+      var imgurl = $(this).prop('href')
+      $('#imagepreview').prop('src', imgurl);
+      $('#imagemodal').modal('show');
+    });
+    $('.highslide').on('click', function(event) {
+      event.preventDefault()
+      var imgurl = $(this).prop('src')
+      $('#imagepreview').prop('src', imgurl);
+      $('#imagemodal').modal('show');
+    });
+  });
+</script>
+<script>
+  let currentFontSize = 14;
+
+  function changeFontSize(delta) {
+    const allElements = document.querySelectorAll("*");
+
+    allElements.forEach((el) => {
+      const computedStyle = window.getComputedStyle(el);
+      const currentSize = parseFloat(computedStyle.fontSize);
+      const newSize = currentSize + delta;
+      el.style.fontSize = newSize + "px";
+    });
+  }
+
+  function toggleReader() {
+    alert("Screen reader toggled!");
+    // You can add actual screen reader feature handling here
+  }
+</script>
+ 
+
+</body>
+
+</html>
+
+
