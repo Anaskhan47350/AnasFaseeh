@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6927250853335610"
+     crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MBBS Presentations</title>
+
+  <!-- (Optional) AdSense – keep if you use it -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6927250853335610" crossorigin="anonymous"></script> -->
+
+  <style>
+    :root{
+      --brand:#995566;
+      --brand-2:#7a4450;
+      --card:#ffffff;
+      --text:#ffffff;
+      --ink:#5a2a37;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:var(--brand);
+      color:var(--text);
+      min-height:100vh;
+      display:flex;flex-direction:column;
+    }
+
+    header{
+      position:sticky; top:0; z-index:3;
+      background:var(--brand-2);
+      padding:16px 14px;
+      box-shadow:0 2px 6px rgba(0,0,0,.3);
+      display:grid; gap:10px;
+    }
+    .title-row{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+    }
+    h1{margin:0; font-size:1.35rem; letter-spacing:.3px}
+    #datetime{font-size:.9rem; opacity:.9}
+
+    .controls{
+      display:grid; grid-template-columns: 1fr 1fr; gap:10px;
+    }
+    .search, .filter{
+      background:#fff; color:var(--ink);
+      border:none; border-radius:10px;
+      padding:10px 12px; font-size:.95rem; width:100%;
+      outline:none;
+    }
+
+    main{ width:100%; max-width:1200px; margin:0 auto; padding:20px; flex:1; }
+
+    .section{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.2);
+      border-radius:14px; padding:16px; margin:14px 0 22px;
+      box-shadow:0 2px 10px rgba(0,0,0,.25);
+    }
+    .section-header{
+      display:flex; align-items:center; justify-content:space-between; gap:10px; cursor:pointer;
+      user-select:none;
+    }
+    .section-title{
+      margin:0; font-size:1.1rem; font-weight:700;
+    }
+    .toggle{
+      background:#fff; color:var(--ink); border:none; border-radius:10px;
+      padding:6px 10px; font-weight:700; cursor:pointer;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap:14px; margin-top:14px;
+    }
+
+    .card{
+      display:flex; align-items:center; justify-content:center; text-align:center;
+      background:var(--card); color:var(--brand);
+      text-decoration:none; font-weight:700; line-height:1.25;
+      padding:16px; border-radius:12px; min-height:88px;
+      box-shadow:2px 2px 8px rgba(0,0,0,.28);
+      transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease;
+      word-break:break-word;
+    }
+    .card small{display:block; font-weight:600; opacity:.85; margin-top:4px}
+    .card:hover{
+      transform: translateY(-4px);
+      background:#ffe6ec;
+      box-shadow:3px 6px 14px rgba(0,0,0,.35);
+    }
+
+    .muted{
+      font-size:.88rem; opacity:.9; margin:6px 0 0
+    }
+
+    .tags{
+      display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;
+    }
+    .tag{
+      background:#fff; color:var(--ink); border-radius:999px; padding:6px 10px; font-size:.82rem; font-weight:700;
+    }
+
+    footer{
+      text-align:center; padding:16px; background:var(--brand-2);
+      box-shadow:0 -2px 6px rgba(0,0,0,.3);
+      position:sticky; bottom:0; z-index:2;
+    }
+
+    .back{
+      position:fixed; right:18px; bottom:18px; z-index:4;
+      background:#fff; color:var(--ink); border:none; border-radius:10px;
+      padding:10px 14px; font-weight:800; cursor:pointer;
+      box-shadow:2px 2px 8px rgba(0,0,0,.3);
+    }
+    .back:hover{background:#ffdada}
+
+    /* hide big sections by default on mobile for speed (can be toggled open) */
+    .section.collapsed .grid{display:none}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="title-row">
+      <h1>MBBS Presentations</h1>
+      <div id="datetime"></div>
+    </div>
+    <div class="controls">
+      <input id="search" class="search" type="search" placeholder="Search topic… e.g., Thermodynamics, Haloalkanes, Oscillations"/>
+      <select id="quickFilter" class="filter" title="Quick Filter">
+        <option value="all">Show: All Subjects</option>
+        <option value="Anatomy">Anatomy</option>
+        <option value="Biochemistry">Biochemistry</option>
+        <option value="Physiology">Physiology</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== ANATOMY ===== -->
+    <div class="section collapsed" data-group="Anatomy">
+      <div class="section-header" onclick="toggleSection(this)">
+        <h2 class="section-title">Anatomy</h2>
+        <button class="toggle" type="button">Toggle</button>
+      </div>
+      <div class="grid">
+        <!-- XI Physics 1–17 -->
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/physics/keep301.pdf" data-title="XI Physics Chapter 1 – Introduction">Ch. 1 — Introduction</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/physics/keep302.pdf" data-title="XI Physics Chapter 2 – Units and Measurements">Ch. 2 — Units & Measurements</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/physics/keep303.pdf" data-title="XI Physics Chapter 3 – Motion in a Straight Line">Ch. 3 — Straight-Line Motion</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/physics/keep304.pdf" data-title="XI Physics Chapter 4 – Motion in a Plane">Ch. 4 — Motion in a Plane</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/physics/keep305.pdf" data-title="XI Physics Chapter 5 – Laws of Motion">Ch. 5 — Laws of Motion</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/physics/keep306.pdf" data-title="XI Physics Chapter 6 – Work, Energy and Power">Ch. 6 — Work, Energy & Power</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/physics/keep307.pdf" data-title="XI Physics Chapter 7 – System of Particles and Rotational Motion">Ch. 7 — Rotational Motion</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/physics/keep308.pdf" data-title="XI Physics Chapter 8 – Gravitation">Ch. 8 — Gravitation</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/physics/keep309.pdf" data-title="XI Physics Chapter 9 – Mechanical Properties of Solids">Ch. 9 — Solids: Mech. Props.</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/physics/keep310.pdf" data-title="XI Physics Chapter 10 – Mechanical Properties of Fluids">Ch. 10 — Fluids: Mech. Props.</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/physics/keep311.pdf" data-title="XI Physics Chapter 11 – Thermal Properties of Matter">Ch. 11 — Thermal Props of Matter</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/physics/keep312.pdf" data-title="XI Physics Chapter 12 – Thermodynamics">Ch. 12 — Thermodynamics</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/physics/keep313.pdf" data-title="XI Physics Chapter 13 – Kinetic Theory">Ch. 13 — Kinetic Theory</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/physics/keep314.pdf" data-title="XI Physics Chapter 14 – Oscillations">Ch. 14 — Oscillations</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/physics/keep315.pdf" data-title="XI Physics Chapter 15 – Waves">Ch. 15 — Waves</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/physics/keep316.pdf" data-title="XI Physics Chapter 16 – Answers">Ch. 16 — Answers</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/physics/keep317.pdf" data-title="XI Physics Chapter 17 – Design of Question Paper">Ch. 17 — Design of QP</a>
+      </div>
+    </div>
+
+    <div class="section collapsed" data-group="XI-Biology">
+      <div class="section-header" onclick="toggleSection(this)">
+        <h2 class="section-title">Class XI – Biology (Exemplar)</h2>
+        <button class="toggle" type="button">Toggle</button>
+      </div>
+      <div class="grid">
+        <!-- XI Biology 1–25 -->
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep401.pdf">Ch. 1 — The Living World</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep402.pdf">Ch. 2 — Biological Classification</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep403.pdf">Ch. 3 — Plant Kingdom</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep404.pdf">Ch. 4 — Animal Kingdom</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep405.pdf">Ch. 5 — Morphology of Flowering Plants</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep406.pdf">Ch. 6 — Anatomy of Flowering Plants</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep407.pdf">Ch. 7 — Structural Organisation in Animals</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep408.pdf">Ch. 8 — Cell: The Unit of Life</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep409.pdf">Ch. 9 — Biomolecules</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep410.pdf">Ch. 10 — Cell Cycle & Division</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep411.pdf">Ch. 11 — Transport in Plants</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep412.pdf">Ch. 12 — Mineral Nutrition</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep413.pdf">Ch. 13 — Photosynthesis</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep414.pdf">Ch. 14 — Respiration in Plants</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep415.pdf">Ch. 15 — Plant Growth & Development</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep416.pdf">Ch. 16 — Digestion & Absorption</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep417.pdf">Ch. 17 — Breathing & Exchange of Gases</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep418.pdf">Ch. 18 — Body Fluids & Circulation</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep419.pdf">Ch. 19 — Excretory Products & Elimination</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep420.pdf">Ch. 20 — Locomotion & Movement</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep421.pdf">Ch. 21 — Neural Control & Coordination</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep422.pdf">Ch. 22 — Chemical Coordination & Integration</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep423.pdf">Ch. 23 — Answers to MCQs</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep424.pdf">Ch. 24 — Model Answers (Descriptive)</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/biology/keep425.pdf">Ch. 25 — Model Question Paper</a>
+      </div>
+    </div>
+
+    <div class="section collapsed" data-group="XI-Chemistry">
+      <div class="section-header" onclick="toggleSection(this)">
+        <h2 class="section-title">Class XI – Chemistry (Exemplar)</h2>
+        <button class="toggle" type="button">Toggle</button>
+      </div>
+      <div class="grid">
+        <!-- XI Chemistry 1–16 -->
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/chemistry/keep501.pdf">Unit 1 — Basic Concepts of Chemistry</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/chemistry/keep502.pdf">Unit 2 — Structure of Atom</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/chemistry/keep503.pdf">Unit 3 — Classification & Periodicity</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/chemistry/keep504.pdf">Unit 4 — Chemical Bonding & Structure</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/chemistry/keep505.pdf">Unit 5 — States of Matter</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/chemistry/keep506.pdf">Unit 6 — Thermodynamics</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/chemistry/keep507.pdf">Unit 7 — Equilibrium</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/chemistry/keep508.pdf">Unit 8 — Redox Reactions</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/chemistry/keep509.pdf">Unit 9 — Hydrogen</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/chemistry/keep510.pdf">Unit 10 — s-Block Elements</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/chemistry/keep511.pdf">Unit 11 — p-Block Elements</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/chemistry/keep512.pdf">Unit 12 — Organic: Principles & Techniques</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/chemistry/keep513.pdf">Unit 13 — Hydrocarbons</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/chemistry/keep514.pdf">Unit 14 — Environmental Chemistry</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/chemistry/keep515.pdf">Design of Sample Question Paper</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXI/chemistry/keep516.pdf">Appendix — Elements & Molar Mass</a>
+      </div>
+    </div>
+
+    <!-- ===== CLASS XII ===== -->
+    <div class="section collapsed" data-group="XII-Physics">
+      <div class="section-header" onclick="toggleSection(this)">
+        <h2 class="section-title">Class XII – Physics (Exemplar)</h2>
+        <button class="toggle" type="button">Toggle</button>
+      </div>
+      <div class="grid">
+        <!-- XII Physics 1–17 -->
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/physics/leep101.pdf">Unit 1 — Electric Charges & Fields</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/physics/leep102.pdf">Unit 2 — Electrostatic Potential & Capacitance</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/physics/leep103.pdf">Unit 3 — Current Electricity</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/physics/leep104.pdf">Unit 4 — Moving Charges & Magnetism</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/physics/leep105.pdf">Unit 5 — Magnetism & Matter</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/physics/leep106.pdf">Unit 6 — Electromagnetic Induction</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/physics/leep107.pdf">Unit 7 — Alternating Current</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/physics/leep108.pdf">Unit 8 — Electromagnetic Waves</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/physics/leep109.pdf">Unit 9 — Ray Optics & Instruments</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/physics/leep110.pdf">Unit 10 — Wave Optics</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/physics/leep111.pdf">Unit 11 — Dual Nature of Radiation & Matter</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/physics/leep112.pdf">Unit 12 — Atoms</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/physics/leep113.pdf">Unit 13 — Nuclei</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/physics/leep114.pdf">Unit 14 — Semiconductor Electronics</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/physics/leep115.pdf">Unit 15 — Communication Systems</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/physics/leep116.pdf">Sample Question Paper — Set I</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/physics/leep117.pdf">Answers</a>
+      </div>
+    </div>
+
+    <div class="section collapsed" data-group="XII-Biology">
+      <div class="section-header" onclick="toggleSection(this)">
+        <h2 class="section-title">Class XII – Biology (Exemplar)</h2>
+        <button class="toggle" type="button">Toggle</button>
+      </div>
+      <div class="grid">
+        <!-- XII Biology 1–19 -->
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/biology/leep401.pdf">1 — Reproduction in Organisms</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/biology/leep402.pdf">2 — Sexual Reproduction in Flowering Plants</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/biology/leep403.pdf">3 — Human Reproduction</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/biology/leep404.pdf">4 — Reproductive Health</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/biology/leep405.pdf">5 — Principles of Inheritance & Variation</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/biology/leep406.pdf">6 — Molecular Basis of Inheritance</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/biology/leep407.pdf">7 — Evolution</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/biology/leep408.pdf">8 — Human Health & Diseases</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/biology/leep409.pdf">9 — Food Production Strategies</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/biology/leep410.pdf">10 — Microbes in Human Welfare</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/biology/leep411.pdf">11 — Biotechnology: Principles & Processes</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/biology/leep412.pdf">12 — Biotechnology & Its Applications</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/biology/leep413.pdf">13 — Organisms & Populations</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/biology/leep414.pdf">14 — Ecosystem</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/biology/leep415.pdf">15 — Biodiversity & Conservation</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/biology/leep416.pdf">16 — Environmental Issues</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/biology/leep417.pdf">17 — Answers to MCQs</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/biology/leep418.pdf">18 — Model Answers (Descriptive)</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/biology/leep419.pdf">19 — Model Question Paper</a>
+      </div>
+    </div>
+
+    <div class="section collapsed" data-group="XII-Chemistry">
+      <div class="section-header" onclick="toggleSection(this)">
+        <h2 class="section-title">Class XII – Chemistry (Exemplar)</h2>
+        <button class="toggle" type="button">Toggle</button>
+      </div>
+      <div class="grid">
+        <!-- XII Chemistry 1–18 -->
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/chemistry/leep501.pdf">1 — Solid State</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/chemistry/leep502.pdf">2 — Solutions</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/chemistry/leep503.pdf">3 — Electrochemistry</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/chemistry/leep504.pdf">4 — Chemical Kinetics</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/chemistry/leep505.pdf">5 — Surface Chemistry</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/chemistry/leep506.pdf">6 — Isolation of Elements</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/chemistry/leep507.pdf">7 — p-Block Elements</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/chemistry/leep508.pdf">8 — d & f Block Elements</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/chemistry/leep509.pdf">9 — Coordination Compounds</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/chemistry/leep510.pdf">10 — Haloalkanes & Haloarenes</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/chemistry/leep511.pdf">11 — Alcohols, Phenols & Ethers</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/chemistry/leep512.pdf">12 — Aldehydes, Ketones & Carboxylic Acids</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/chemistry/leep513.pdf">13 — Amines</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/chemistry/leep514.pdf">14 — Biomolecules</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/chemistry/leep515.pdf">15 — Polymers</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/chemistry/leep516.pdf">16 — Chemistry in Everyday Life</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/chemistry/leep517.pdf">17 — Sample Question Paper</a>
+        <a class="card" target="_blank" href="https://ncert.nic.in/pdf/publication/exemplarproblem/classXII/chemistry/leep518.pdf">18 — Model Question Paper II</a>
+      </div>
+    </div>
+
+    <div class="tags">
+      <span class="tag">Grid Cards</span>
+      <span class="tag">Mobile Friendly</span>
+      <span class="tag">Search</span>
+      <span class="tag">Toggle Sections</span>
+      <span class="tag">All Chapters</span>
+    </div>
+
+  </main>
+
+  <footer>
+    &copy; 2025 Anas Faseeh • All Rights Reserved
+  </footer>
+
+  <button class="back" onclick="history.back()">⬅ Back</button>
+
+  <script>
+    // Clock
+    function updateDateTime(){
+      const now = new Date();
+      document.getElementById('datetime').textContent = now.toLocaleString();
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+    // Section Toggle
+    function toggleSection(el){
+      const box = el.closest('.section');
+      box.classList.toggle('collapsed');
+    }
+
+    // Search + Quick Filter
+    const searchInput = document.getElementById('search');
+    const quickFilter = document.getElementById('quickFilter');
+
+    function normalize(str){
+      return (str || '').toLowerCase().replace(/\s+/g,' ').trim();
+    }
+
+    function applyFilters(){
+      const q = normalize(searchInput.value);
+      const group = quickFilter.value;
+
+      document.querySelectorAll('.section').forEach(sec=>{
+        const secGroup = sec.getAttribute('data-group');
+        const inGroup = group === 'all' || group === secGroup;
+
+        // search inside the section cards
+        let anyVisible = false;
+        sec.querySelectorAll('.card').forEach(card=>{
+          const text = normalize(card.textContent);
+          const match = text.includes(q);
+          const show = inGroup && (q ? match : true);
+          card.style.display = show ? '' : 'none';
+          if(show) anyVisible = true;
+        });
+
+        // If nothing matches in this section with search, keep section but could stay collapsed
+        sec.style.display = anyVisible ? '' : (q ? 'none' : ''); 
+      });
+    }
+
+    searchInput.addEventListener('input', applyFilters);
+    quickFilter.addEventListener('change', applyFilters);
+  </script>
+</body>
+</html>
+<script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_3CSWzcLuK3JxJkR7DjccMzCqnc1E" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
