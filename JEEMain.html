@@ -4,193 +4,171 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <title>JEE Main Previous Year Papers (2002 - 2025)</title>
 
-  <!-- Google AdSense -->
+  <!-- Google AdSense (preserved) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6927250853335610"
     crossorigin="anonymous"></script>
 
   <style>
     :root{
-      --bg: #995566;
-      --fg: #ffffff;
-      --fg-soft: #ffdada;
-      --card-bg: #ffffff;
-      --card-fg: #995566;
-      --radius: 12px;
-      --shadow: 2px 2px 8px rgba(0,0,0,0.3);
-      --shadow-sm: 2px 2px 6px rgba(0,0,0,0.3);
-      --max-w: 1100px;
+      --brand:#995566;
+      --brand-2:#7a4450;
+      --card:#ffffff;
+      --text:#ffffff;
+      --ink:#5a2a37;
+      --muted: rgba(255,255,255,0.9);
+      --max-w: 1200px;
     }
 
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
       font-family: Arial, Helvetica, sans-serif;
-      background-color: var(--bg);
-      color: var(--fg);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      text-align: center;
-      padding: 60px 20px 100px;
+      background:var(--brand);
+      color:var(--text);
+      min-height:100vh;
+      display:flex;flex-direction:column;align-items:center;
+      padding:28px 14px 80px;
     }
 
-    #datetime { font-size: 15px; margin-bottom: 12px; }
-    h1 { margin: 0 0 6px; font-size: 22px; color: #fff; }
-    h2 { margin: 6px 0 20px; font-size: 18px; color: #fff; }
-
-    #filter {
-      margin-bottom: 18px;
-      max-width: var(--max-w);
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      align-items: center;
+    /* Top bar */
+    .topbar{
+      width:100%; max-width:var(--max-w);
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+      margin-bottom:18px;
     }
 
-    #filter label { color: #fff; font-weight: 600; }
-    select {
-      padding: 7px 10px;
-      border-radius: 6px;
-      border: none;
-      font-size: 14px;
-      color: var(--card-fg);
-      background: var(--card-bg);
-      box-shadow: var(--shadow-sm);
+    .brand{
+      display:flex; gap:12px; align-items:center;
+      color:var(--card); text-decoration:none;
     }
-
-    .container { width: 100%; max-width: var(--max-w); }
-
-    .year-header {
-      background: var(--card-bg);
-      color: var(--card-fg);
-      padding: 12px 16px;
-      margin: 12px auto 6px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: 700;
-      text-align: left;
-      box-shadow: var(--shadow);
-      transition: background 0.18s, transform 0.12s;
-      max-width: var(--max-w);
-      width: 100%;
-      display: block;
+    .brand .logo{
+      background:var(--card); color:var(--brand); padding:8px 10px; border-radius:10px; font-weight:800;
+      box-shadow:2px 2px 8px rgba(0,0,0,0.25);
     }
+    .brand h1{margin:0; font-size:1.05rem; letter-spacing:.2px}
 
-    .year-header:hover { background: var(--fg-soft); transform: translateY(-2px); }
+    #datetime{ font-size:0.95rem; color:var(--muted) }
 
-    .year-header::after {
-      content: "▸";
-      float: right;
-      transform-origin: center;
-      transition: transform 0.2s;
+    /* container */
+    .container{ width:100%; max-width:var(--max-w); }
+
+    /* Jump to year */
+    .controls{
+      display:flex; gap:10px; align-items:center; margin-bottom:12px; flex-wrap:wrap;
     }
-
-    .year-header.active::after { content: "▾"; }
-
-    .year-content {
-      display: none;
-      margin-bottom: 18px;
-      width: 100%;
-      max-width: var(--max-w);
-      padding: 10px 6px 0 6px;
+    .controls label{ color:var(--card); font-weight:700; }
+    select, .search{
+      padding:8px 10px; border-radius:10px; border:none; font-size:0.95rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.12);
     }
+    select{ background:var(--card); color:var(--brand); }
 
-    .grid {
-      display: grid;
+    /* Year header (Option 3: white default, maroon hover/open) */
+    .year-header{
+      background:var(--card);
+      color:var(--brand);
+      padding:12px 16px;
+      margin:12px 0 6px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:800;
+      display:flex; align-items:center; justify-content:space-between;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+      transition: background .18s ease, color .18s ease, transform .12s ease;
+      user-select:none;
+      outline: none;
+    }
+    .year-header:hover{ background:var(--brand-2); color:var(--card); transform: translateY(-2px); }
+    .year-header:focus { box-shadow: 0 8px 28px rgba(0,0,0,0.28); }
+
+    .year-header::after{ content:"▸"; transform-origin:center; transition: transform .2s ease; }
+    .year-header.active{ background:var(--brand-2); color:var(--card); }
+    .year-header.active::after{ content:"▾"; }
+
+    .year-content{ display:none; margin-bottom:18px; padding:8px 4px 0; }
+
+    .grid{
+      display:grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 16px;
-      margin: 8px 0 18px;
+      gap:14px; margin-top:10px;
     }
 
-    .card {
-      background-color: var(--card-bg);
-      color: var(--card-fg);
-      padding: 16px;
-      border-radius: var(--radius);
-      text-decoration: none;
-      font-weight: 700;
-      box-shadow: var(--shadow);
-      transition: transform 0.18s, background-color 0.18s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      min-height: 60px;
+    .card{
+      display:flex; align-items:center; justify-content:center; text-align:center;
+      background:var(--card); color:var(--brand);
+      text-decoration:none; font-weight:700; padding:12px; border-radius:10px; min-height:64px;
+      box-shadow: 2px 6px 18px rgba(0,0,0,0.18);
+      transition: transform .18s ease, box-shadow .18s ease, background .16s ease, color .16s ease;
+      word-break:break-word;
+    }
+    .card:hover{ transform:translateY(-6px); background:var(--brand-2); color:var(--card); box-shadow: 6px 18px 40px rgba(0,0,0,0.35); }
+
+    .muted{ font-size:.92rem; color:rgba(255,255,255,0.95); margin:6px 0 0 }
+
+    .back-button{
+      position:fixed; right:18px; bottom:18px; z-index:4;
+      background:var(--card); color:var(--brand); border:none; border-radius:10px;
+      padding:10px 14px; font-weight:800; cursor:pointer; text-decoration:none;
+      box-shadow:2px 6px 18px rgba(0,0,0,0.22);
+    }
+    .back-button:hover{ background:#ffdada }
+
+    /* responsive adjustments */
+    @media (max-width:720px){
+      .grid{ grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+      .year-header{ font-size:.98rem; padding:10px 12px; }
+      .card{ padding:10px; font-size:.95rem; min-height:72px; }
     }
 
-    .card:hover, .card:focus { background-color: var(--fg-soft); transform: translateY(-6px); }
-
-    .back-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: var(--card-bg);
-      color: var(--card-fg);
-      padding: 10px 14px;
-      border-radius: 8px;
-      font-weight: 700;
-      text-decoration: none;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .back-button:hover { background: var(--fg-soft); }
-
-    /* small screens spacing */
-    @media (max-width:520px){
-      body { padding: 40px 12px 90px; }
-      .year-header { padding: 10px 12px; }
-      .card { padding: 12px; font-size: 14px; }
-    }
   </style>
 </head>
 <body>
-
-  <div id="datetime"></div>
-  <h1>JEE Main Previous Year Papers</h1>
-  <h2>(Question Papers only · 2002 → 2025)</h2>
-
-  <!-- Filter -->
-  <div id="filter" class="container">
-    <label for="yearSelect">Jump to Year:</label>
-    <select id="yearSelect" onchange="selectYear(this.value)">
-      <option value="">-- Select Year --</option>
-      <option value="2025">2025</option>
-      <option value="2024">2024</option>
-      <option value="2023">2023</option>
-      <option value="2022">2022</option>
-      <option value="2021">2021</option>
-      <option value="2020">2020</option>
-      <option value="2019">2019</option>
-      <option value="2018">2018</option>
-      <option value="2017">2017</option>
-      <option value="2016">2016</option>
-      <option value="2015">2015</option>
-      <option value="2014">2014</option>
-      <option value="2013">2013</option>
-      <option value="2012">2012</option>
-      <option value="2011">2011</option>
-      <option value="2010">2010</option>
-      <option value="2009">2009</option>
-      <option value="2008">2008</option>
-      <option value="2007">2007</option>
-      <option value="2006">2006</option>
-      <option value="2005">2005</option>
-      <option value="2004">2004</option>
-      <option value="2003">2003</option>
-      <option value="2002">2002</option>
-    </select>
+  <div class="topbar container">
+    <a class="brand" href="index.html">
+      <span class="logo">🏠</span>
+      <h1>JEE Main Previous Year Papers</h1>
+    </a>
+    <div id="datetime">Loading time…</div>
   </div>
 
   <div class="container">
+    <div class="controls">
+      <label for="yearSelect">Jump to Year:</label>
+      <select id="yearSelect" onchange="selectYear(this.value)">
+        <option value="">-- Select Year --</option>
+        <option value="2025">2025</option>
+        <option value="2024">2024</option>
+        <option value="2024apr">2024 (Apr)</option>
+        <option value="2023">2023</option>
+        <option value="2023apr">2023 (Apr)</option>
+        <option value="2022">2022</option>
+        <option value="2022jul">2022 (Jul)</option>
+        <option value="2021">2021 (Feb)</option>
+        <option value="2021mar">2021 (Mar)</option>
+        <option value="2021jul">2021 (Jul)</option>
+        <option value="2021aug">2021 (Aug)</option>
+        <option value="2020">2020 (Jan)</option>
+        <option value="2020sep">2020 (Sep)</option>
+        <option value="2019">2019 (Jan)</option>
+        <option value="2019apr">2019 (Apr)</option>
+        <option value="2018">2018</option>
+        <option value="2017">2017</option>
+        <option value="2016">2016</option>
+        <option value="2015">2015</option>
+        <option value="2014">2014</option>
+        <option value="2013">2013</option>
+        <option value="2012">2012</option>
+        <option value="2002to2011">2002 - 2011</option>
+      </select>
+    </div>
 
+    <!-- === Year sections (content preserved exactly) === -->
     <!-- 2025 -->
-    <h3 id="header2025" class="year-header" onclick="toggle('2025')">JEE Main 2025 (January)</h3>
-    <div id="year2025" class="year-content">
+    <button id="header2025" class="year-header" onclick="toggle('2025')" aria-expanded="false">JEE Main 2025 (January)</button>
+    <div id="year2025" class="year-content" role="region" aria-labelledby="header2025">
       <div class="grid">
         <a href="https://links.mathongo.com/hFUS" class="card" target="_blank" rel="noopener noreferrer">22 Jan – Shift 1</a>
         <a href="https://links.mathongo.com/rFDq" class="card" target="_blank" rel="noopener noreferrer">22 Jan – Shift 2</a>
@@ -206,8 +184,8 @@
     </div>
 
     <!-- 2024 January -->
-    <h3 id="header2024" class="year-header" onclick="toggle('2024')">JEE Main 2024 (January)</h3>
-    <div id="year2024" class="year-content">
+    <button id="header2024" class="year-header" onclick="toggle('2024')" aria-expanded="false">JEE Main 2024 (January)</button>
+    <div id="year2024" class="year-content" role="region" aria-labelledby="header2024">
       <div class="grid">
         <a href="https://links.mathongo.com/Qe0X" class="card" target="_blank" rel="noopener noreferrer">27 Jan – Shift 1</a>
         <a href="https://links.mathongo.com/2rtB" class="card" target="_blank" rel="noopener noreferrer">27 Jan – Shift 2</a>
@@ -223,8 +201,8 @@
     </div>
 
     <!-- 2024 April -->
-    <h3 id="header2024apr" class="year-header" onclick="toggle('2024apr')">JEE Main 2024 (April)</h3>
-    <div id="year2024apr" class="year-content">
+    <button id="header2024apr" class="year-header" onclick="toggle('2024apr')" aria-expanded="false">JEE Main 2024 (April)</button>
+    <div id="year2024apr" class="year-content" role="region" aria-labelledby="header2024apr">
       <div class="grid">
         <a href="https://links.mathongo.com/1eFi" class="card" target="_blank" rel="noopener noreferrer">04 Apr – Shift 1</a>
         <a href="https://links.mathongo.com/ke3T" class="card" target="_blank" rel="noopener noreferrer">04 Apr – Shift 2</a>
@@ -240,8 +218,8 @@
     </div>
 
     <!-- 2023 January -->
-    <h3 id="header2023" class="year-header" onclick="toggle('2023')">JEE Main 2023 (January)</h3>
-    <div id="year2023" class="year-content">
+    <button id="header2023" class="year-header" onclick="toggle('2023')" aria-expanded="false">JEE Main 2023 (January)</button>
+    <div id="year2023" class="year-content" role="region" aria-labelledby="header2023">
       <div class="grid">
         <a href="https://links.mathongo.com/FeSn" class="card" target="_blank" rel="noopener noreferrer">24 Jan – Shift 1</a>
         <a href="https://links.mathongo.com/0eGa" class="card" target="_blank" rel="noopener noreferrer">24 Jan – Shift 2</a>
@@ -259,8 +237,8 @@
     </div>
 
     <!-- 2023 April -->
-    <h3 id="header2023apr" class="year-header" onclick="toggle('2023apr')">JEE Main 2023 (April)</h3>
-    <div id="year2023apr" class="year-content">
+    <button id="header2023apr" class="year-header" onclick="toggle('2023apr')" aria-expanded="false">JEE Main 2023 (April)</button>
+    <div id="year2023apr" class="year-content" role="region" aria-labelledby="header2023apr">
       <div class="grid">
         <a href="https://links.mathongo.com/CemG" class="card" target="_blank" rel="noopener noreferrer">06 Apr – Shift 1</a>
         <a href="https://links.mathongo.com/VeIY" class="card" target="_blank" rel="noopener noreferrer">06 Apr – Shift 2</a>
@@ -278,8 +256,8 @@
     </div>
 
     <!-- 2022 June -->
-    <h3 id="header2022" class="year-header" onclick="toggle('2022')">JEE Main 2022 (June)</h3>
-    <div id="year2022" class="year-content">
+    <button id="header2022" class="year-header" onclick="toggle('2022')" aria-expanded="false">JEE Main 2022 (June)</button>
+    <div id="year2022" class="year-content" role="region" aria-labelledby="header2022">
       <div class="grid">
         <a href="https://links.mathongo.com/6ews" class="card" target="_blank" rel="noopener noreferrer">24 Jun – Shift 1</a>
         <a href="https://links.mathongo.com/FeeC" class="card" target="_blank" rel="noopener noreferrer">24 Jun – Shift 2</a>
@@ -297,8 +275,8 @@
     </div>
 
     <!-- 2022 July -->
-    <h3 id="header2022jul" class="year-header" onclick="toggle('2022jul')">JEE Main 2022 (July)</h3>
-    <div id="year2022jul" class="year-content">
+    <button id="header2022jul" class="year-header" onclick="toggle('2022jul')" aria-expanded="false">JEE Main 2022 (July)</button>
+    <div id="year2022jul" class="year-content" role="region" aria-labelledby="header2022jul">
       <div class="grid">
         <a href="https://links.mathongo.com/keij" class="card" target="_blank" rel="noopener noreferrer">25 Jul – Shift 1</a>
         <a href="https://links.mathongo.com/Rw5W" class="card" target="_blank" rel="noopener noreferrer">25 Jul – Shift 2</a>
@@ -314,8 +292,8 @@
     </div>
 
     <!-- 2021 Feb -->
-    <h3 id="header2021" class="year-header" onclick="toggle('2021')">JEE Main 2021 (February)</h3>
-    <div id="year2021" class="year-content">
+    <button id="header2021" class="year-header" onclick="toggle('2021')" aria-expanded="false">JEE Main 2021 (February)</button>
+    <div id="year2021" class="year-content" role="region" aria-labelledby="header2021">
       <div class="grid">
         <a href="https://links.mathongo.com/PwHn" class="card" target="_blank" rel="noopener noreferrer">24 Feb – Shift 1</a>
         <a href="https://links.mathongo.com/HwVA" class="card" target="_blank" rel="noopener noreferrer">24 Feb – Shift 2</a>
@@ -327,8 +305,8 @@
     </div>
 
     <!-- 2021 Mar -->
-    <h3 id="header2021mar" class="year-header" onclick="toggle('2021mar')">JEE Main 2021 (March)</h3>
-    <div id="year2021mar" class="year-content">
+    <button id="header2021mar" class="year-header" onclick="toggle('2021mar')" aria-expanded="false">JEE Main 2021 (March)</button>
+    <div id="year2021mar" class="year-content" role="region" aria-labelledby="header2021mar">
       <div class="grid">
         <a href="https://links.mathongo.com/DwPt" class="card" target="_blank" rel="noopener noreferrer">16 Mar – Shift 1</a>
         <a href="https://links.mathongo.com/WwDK" class="card" target="_blank" rel="noopener noreferrer">16 Mar – Shift 2</a>
@@ -340,8 +318,8 @@
     </div>
 
     <!-- 2021 July -->
-    <h3 id="header2021jul" class="year-header" onclick="toggle('2021jul')">JEE Main 2021 (July)</h3>
-    <div id="year2021jul" class="year-content">
+    <button id="header2021jul" class="year-header" onclick="toggle('2021jul')" aria-expanded="false">JEE Main 2021 (July)</button>
+    <div id="year2021jul" class="year-content" role="region" aria-labelledby="header2021jul">
       <div class="grid">
         <a href="https://links.mathongo.com/jwK2" class="card" target="_blank" rel="noopener noreferrer">20 Jul – Shift 1</a>
         <a href="https://links.mathongo.com/ZwZI" class="card" target="_blank" rel="noopener noreferrer">20 Jul – Shift 2</a>
@@ -352,8 +330,8 @@
     </div>
 
     <!-- 2021 Aug -->
-    <h3 id="header2021aug" class="year-header" onclick="toggle('2021aug')">JEE Main 2021 (August)</h3>
-    <div id="year2021aug" class="year-content">
+    <button id="header2021aug" class="year-header" onclick="toggle('2021aug')" aria-expanded="false">JEE Main 2021 (August)</button>
+    <div id="year2021aug" class="year-content" role="region" aria-labelledby="header2021aug">
       <div class="grid">
         <a href="https://links.mathongo.com/Lw8t" class="card" target="_blank" rel="noopener noreferrer">26 Aug – Shift 1</a>
         <a href="https://links.mathongo.com/iw9h" class="card" target="_blank" rel="noopener noreferrer">26 Aug – Shift 2</a>
@@ -368,8 +346,8 @@
     </div>
 
     <!-- 2020 Jan -->
-    <h3 id="header2020" class="year-header" onclick="toggle('2020')">JEE Main 2020 (January)</h3>
-    <div id="year2020" class="year-content">
+    <button id="header2020" class="year-header" onclick="toggle('2020')" aria-expanded="false">JEE Main 2020 (January)</button>
+    <div id="year2020" class="year-content" role="region" aria-labelledby="header2020">
       <div class="grid">
         <a href="https://links.mathongo.com/GwE5" class="card" target="_blank" rel="noopener noreferrer">07 Jan – Shift 1</a>
         <a href="https://links.mathongo.com/4wmk" class="card" target="_blank" rel="noopener noreferrer">07 Jan – Shift 2</a>
@@ -381,8 +359,8 @@
     </div>
 
     <!-- 2020 Sep -->
-    <h3 id="header2020sep" class="year-header" onclick="toggle('2020sep')">JEE Main 2020 (September)</h3>
-    <div id="year2020sep" class="year-content">
+    <button id="header2020sep" class="year-header" onclick="toggle('2020sep')" aria-expanded="false">JEE Main 2020 (September)</button>
+    <div id="year2020sep" class="year-content" role="region" aria-labelledby="header2020sep">
       <div class="grid">
         <a href="https://links.mathongo.com/Vwjv" class="card" target="_blank" rel="noopener noreferrer">02 Sep – Shift 1</a>
         <a href="https://links.mathongo.com/Dwhp" class="card" target="_blank" rel="noopener noreferrer">02 Sep – Shift 2</a>
@@ -398,8 +376,8 @@
     </div>
 
     <!-- 2019 Jan -->
-    <h3 id="header2019" class="year-header" onclick="toggle('2019')">JEE Main 2019 (January)</h3>
-    <div id="year2019" class="year-content">
+    <button id="header2019" class="year-header" onclick="toggle('2019')" aria-expanded="false">JEE Main 2019 (January)</button>
+    <div id="year2019" class="year-content" role="region" aria-labelledby="header2019">
       <div class="grid">
         <a href="https://links.mathongo.com/nwal" class="card" target="_blank" rel="noopener noreferrer">09 Jan – Shift 1</a>
         <a href="https://links.mathongo.com/fwfI" class="card" target="_blank" rel="noopener noreferrer">09 Jan – Shift 2</a>
@@ -413,8 +391,8 @@
     </div>
 
     <!-- 2019 Apr -->
-    <h3 id="header2019apr" class="year-header" onclick="toggle('2019apr')">JEE Main 2019 (April)</h3>
-    <div id="year2019apr" class="year-content">
+    <button id="header2019apr" class="year-header" onclick="toggle('2019apr')" aria-expanded="false">JEE Main 2019 (April)</button>
+    <div id="year2019apr" class="year-content" role="region" aria-labelledby="header2019apr">
       <div class="grid">
         <a href="https://links.mathongo.com/Qwta" class="card" target="_blank" rel="noopener noreferrer">08 Apr – Shift 1</a>
         <a href="https://links.mathongo.com/Mwpj" class="card" target="_blank" rel="noopener noreferrer">08 Apr – Shift 2</a>
@@ -428,8 +406,8 @@
     </div>
 
     <!-- 2018 -->
-    <h3 id="header2018" class="year-header" onclick="toggle('2018')">JEE Main 2018</h3>
-    <div id="year2018" class="year-content">
+    <button id="header2018" class="year-header" onclick="toggle('2018')" aria-expanded="false">JEE Main 2018</button>
+    <div id="year2018" class="year-content" role="region" aria-labelledby="header2018">
       <div class="grid">
         <a href="https://links.mathongo.com/QME" class="card" target="_blank" rel="noopener noreferrer">08 Apr</a>
         <a href="https://links.mathongo.com/Z4E" class="card" target="_blank" rel="noopener noreferrer">15 Apr – Shift 1 (Online)</a>
@@ -440,8 +418,8 @@
     </div>
 
     <!-- 2017 -->
-    <h3 id="header2017" class="year-header" onclick="toggle('2017')">JEE Main 2017</h3>
-    <div id="year2017" class="year-content">
+    <button id="header2017" class="year-header" onclick="toggle('2017')" aria-expanded="false">JEE Main 2017</button>
+    <div id="year2017" class="year-content" role="region" aria-labelledby="header2017">
       <div class="grid">
         <a href="https://links.mathongo.com/Fwwk" class="card" target="_blank" rel="noopener noreferrer">02 Apr</a>
         <a href="https://links.mathongo.com/z2Y" class="card" target="_blank" rel="noopener noreferrer">08 Apr (Online)</a>
@@ -450,8 +428,8 @@
     </div>
 
     <!-- 2016 -->
-    <h3 id="header2016" class="year-header" onclick="toggle('2016')">JEE Main 2016</h3>
-    <div id="year2016" class="year-content">
+    <button id="header2016" class="year-header" onclick="toggle('2016')" aria-expanded="false">JEE Main 2016</button>
+    <div id="year2016" class="year-content" role="region" aria-labelledby="header2016">
       <div class="grid">
         <a href="https://links.mathongo.com/YBo" class="card" target="_blank" rel="noopener noreferrer">03 Apr</a>
         <a href="https://links.mathongo.com/hNa" class="card" target="_blank" rel="noopener noreferrer">09 Apr (Online)</a>
@@ -460,8 +438,8 @@
     </div>
 
     <!-- 2015 -->
-    <h3 id="header2015" class="year-header" onclick="toggle('2015')">JEE Main 2015</h3>
-    <div id="year2015" class="year-content">
+    <button id="header2015" class="year-header" onclick="toggle('2015')" aria-expanded="false">JEE Main 2015</button>
+    <div id="year2015" class="year-content" role="region" aria-labelledby="header2015">
       <div class="grid">
         <a href="https://links.mathongo.com/60R" class="card" target="_blank" rel="noopener noreferrer">04 Apr</a>
         <a href="https://links.mathongo.com/k8T" class="card" target="_blank" rel="noopener noreferrer">10 Apr (Online)</a>
@@ -470,8 +448,8 @@
     </div>
 
     <!-- 2014 -->
-    <h3 id="header2014" class="year-header" onclick="toggle('2014')">JEE Main 2014</h3>
-    <div id="year2014" class="year-content">
+    <button id="header2014" class="year-header" onclick="toggle('2014')" aria-expanded="false">JEE Main 2014</button>
+    <div id="year2014" class="year-content" role="region" aria-labelledby="header2014">
       <div class="grid">
         <a href="https://links.mathongo.com/2Gu" class="card" target="_blank" rel="noopener noreferrer">06 Apr</a>
         <a href="https://links.mathongo.com/d6I" class="card" target="_blank" rel="noopener noreferrer">09 Apr (Online)</a>
@@ -482,8 +460,8 @@
     </div>
 
     <!-- 2013 -->
-    <h3 id="header2013" class="year-header" onclick="toggle('2013')">JEE Main 2013</h3>
-    <div id="year2013" class="year-content">
+    <button id="header2013" class="year-header" onclick="toggle('2013')" aria-expanded="false">JEE Main 2013</button>
+    <div id="year2013" class="year-content" role="region" aria-labelledby="header2013">
       <div class="grid">
         <a href="https://links.mathongo.com/tCq" class="card" target="_blank" rel="noopener noreferrer">07 Apr</a>
         <a href="https://links.mathongo.com/cSN" class="card" target="_blank" rel="noopener noreferrer">09 Apr (Online)</a>
@@ -494,8 +472,8 @@
     </div>
 
     <!-- 2012 -->
-    <h3 id="header2012" class="year-header" onclick="toggle('2012')">JEE Main 2012</h3>
-    <div id="year2012" class="year-content">
+    <button id="header2012" class="year-header" onclick="toggle('2012')" aria-expanded="false">JEE Main 2012</button>
+    <div id="year2012" class="year-content" role="region" aria-labelledby="header2012">
       <div class="grid">
         <a href="https://links.mathongo.com/zKw" class="card" target="_blank" rel="noopener noreferrer">07 May (Online)</a>
         <a href="https://links.mathongo.com/aXB" class="card" target="_blank" rel="noopener noreferrer">12 May (Online)</a>
@@ -506,8 +484,8 @@
     </div>
 
     <!-- 2011 - 2002 -->
-    <h3 id="header2002to2011" class="year-header" onclick="toggle('2002to2011')">JEE Main 2011 – 2002</h3>
-    <div id="year2002to2011" class="year-content">
+    <button id="header2002to2011" class="year-header" onclick="toggle('2002to2011')" aria-expanded="false">JEE Main 2011 – 2002</button>
+    <div id="year2002to2011" class="year-content" role="region" aria-labelledby="header2002to2011">
       <div class="grid">
         <a href="https://links.mathongo.com/ZVj" class="card" target="_blank" rel="noopener noreferrer">2011 – Previous Year Paper</a>
         <a href="https://links.mathongo.com/wJ4" class="card" target="_blank" rel="noopener noreferrer">2010 – Previous Year Paper</a>
@@ -522,213 +500,82 @@
       </div>
     </div>
 
-  </div> <!-- container end -->
+  </div> <!-- container -->
 
   <a href="notes.html" class="back-button">⬅ Back</a>
 
-  <!-- feedback script (preserved as you requested) -->
-  <script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_BnkVdQ4D7BrSQJR52jotvHeSkT7J" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
+  <!-- preserved Vercel feedback script -->
+  <script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_Gn12haghMgRzLdyqHzt7uTn3XBJA" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
 
   <script>
-    // Date/time updater
-    function updateDateTime() {
+    // Live datetime
+    function updateDateTime(){
       const now = new Date();
-      document.getElementById("datetime").textContent = "Current Date & Time: " + now.toLocaleString();
+      document.getElementById('datetime').textContent = now.toLocaleString();
     }
     updateDateTime();
     setInterval(updateDateTime, 1000);
 
-    // Toggle a single year (collapsible)
-    function toggle(yearKey) {
-      // mapping: content id uses yearKey (some keys include suffixes like 2024apr)
-      const contentId = 'year' + yearKey;
-      const headerId = (yearKey === '2002to2011') ? 'header2002to2011' : ('header' + yearKey);
+    // Toggle handling — keeps current-collapse behavior (one open at a time)
+    function toggle(key){
+      const contentId = 'year' + key;
+      const headerId  = (key === '2002to2011') ? 'header2002to2011' : ('header' + key);
       const contentEl = document.getElementById(contentId);
-      const headerEl = document.getElementById(headerId);
-
-      if (!contentEl || !headerEl) return;
+      const headerEl  = document.getElementById(headerId);
+      if(!contentEl || !headerEl) return;
 
       const isOpen = contentEl.style.display === 'block';
 
       // close all
-      document.querySelectorAll('.year-content').forEach(c => c.style.display = 'none');
-      document.querySelectorAll('.year-header').forEach(h => h.classList.remove('active'));
+      document.querySelectorAll('.year-content').forEach(c => {
+        c.style.display = 'none';
+      });
+      document.querySelectorAll('.year-header').forEach(h => {
+        h.classList.remove('active');
+        h.setAttribute('aria-expanded','false');
+      });
 
-      if (!isOpen) {
+      if(!isOpen){
         contentEl.style.display = 'block';
         headerEl.classList.add('active');
-        // small timeout to allow layout then focus/scroll
-        setTimeout(() => {
-          headerEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 80);
+        headerEl.setAttribute('aria-expanded','true');
+        // scroll into view a little after open to make UX smooth
+        setTimeout(()=> headerEl.scrollIntoView({behavior:'smooth', block:'start'}), 60);
       } else {
-        // closed — scroll to header (still visible)
-        headerEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // close - scroll header into view
+        headerEl.scrollIntoView({behavior:'smooth', block:'start'});
       }
     }
 
-    // Called by dropdown select
-    function selectYear(value) {
-      if (!value) return;
-      // value is like "2025" or "2024apr" or "2002to2011" depending mapping.
-      // We need to match the keys used in ids above.
-      // Map user simple years to the actual id keys used above:
-      const map = {
-        "2025":"2025",
-        "2024":"2024",
-        "2023":"2023",
-        "2022":"2022",
-        "2021":"2021",
-        "2020":"2020",
-        "2019":"2019",
-        "2018":"2018",
-        "2017":"2017",
-        "2016":"2016",
-        "2015":"2015",
-        "2014":"2014",
-        "2013":"2013",
-        "2012":"2012",
-        "2011":"2002to2011",
-        "2010":"2002to2011",
-        "2009":"2002to2011",
-        "2008":"2002to2011",
-        "2007":"2002to2011",
-        "2006":"2002to2011",
-        "2005":"2002to2011",
-        "2004":"2002to2011",
-        "2003":"2002to2011",
-        "2002":"2002to2011"
-      };
-
-      // special-case: 2024 has two blocks (2024 and 2024apr). direct mapping to January by default.
-      if (value === "2024") {
-        // choose the January block as default
-        toggle(map[value]);
-        return;
-      }
-
-      // special-case: 2023 -> January by default
-      if (value === "2023") { toggle(map[value]); return; }
-
-      // 2021/2020 etc: toggle their main key
-      const key = map[value] || value;
-      toggle(key);
+    // Map select -> toggle
+    function selectYear(value){
+      if(!value) return;
+      // toggle mapped id keys (matches the id suffixes used above)
+      toggle(value);
     }
 
-    // Allow Toggle by pressing Enter when header is focused for accessibility
-    document.addEventListener('keydown', function(e){
+    // Accessibility: allow Enter/Space to toggle when header focused
+    document.addEventListener('keydown', (e) => {
       if((e.key === 'Enter' || e.key === ' ') && document.activeElement && document.activeElement.classList.contains('year-header')){
         e.preventDefault();
-        // derive key from id: headerXXXX -> XXXX
         const hid = document.activeElement.id;
-        if (hid && hid.startsWith('header')) {
+        if(hid && hid.startsWith('header')){
           const key = hid.replace('header','');
           toggle(key);
         }
       }
     });
+
+    // Optional: open the latest year by default (uncomment if desired)
+    // window.addEventListener('load', ()=> toggle('2025'));
   </script>
 
-    <!-- Floating Social Media Links -->
-<div class="social-links">
-  <a href="https://instagram.com/anas.khan_alig" target="_blank" class="social instagram">
-    <i class="fab fa-instagram"></i>
-  </a>
-  <a href="https://youtube.com/@anas.khan_alig" target="_blank" class="social youtube">
-    <i class="fab fa-youtube"></i>
-  </a>
-  <a href="mailto:anaskhankhan47350@gmail.com" class="social email">
-    <i class="fas fa-envelope"></i>
-  </a>
-</div>
-
-<style>
-/* Floating Social Links */
-.social-links {
-  position: fixed;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  z-index: 1000;
-}
-
-.social {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 22px;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
-
-.social.instagram { background: #E1306C; }
-.social.youtube { background: #FF0000; }
-.social.email { background: #0072C6; }
-
-.social:hover {
-  transform: scale(1.15);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
-  opacity: 0.95;
-}
-</style>
-      <!-- Floating Social Media Links -->
-<div class="social-links">
-  <a href="https://instagram.com/anas.khan_alig" target="_blank" class="social instagram">
-    <i class="fab fa-instagram"></i>
-  </a>
-  <a href="https://youtube.com/@anas.khan_alig" target="_blank" class="social youtube">
-    <i class="fab fa-youtube"></i>
-  </a>
-  <a href="mailto:anaskhankhan47350@gmail.com" class="social email">
-    <i class="fas fa-envelope"></i>
-  </a>
-</div>
-
-<style>
-/* Floating Social Links */
-.social-links {
-  position: fixed;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  z-index: 1000;
-}
-
-.social {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 22px;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
-
-.social.instagram { background: #E1306C; }
-.social.youtube { background: #FF0000; }
-.social.email { background: #0072C6; }
-
-.social:hover {
-  transform: scale(1.15);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
-  opacity: 0.95;
-}
-</style>
+  <!-- Floating Social Media Links (preserved) -->
+  <div class="social-links" style="position:fixed; top:50%; right:16px; transform:translateY(-50%); display:flex; flex-direction:column; gap:12px; z-index:9999;">
+    <a href="https://instagram.com/anas.khan_alig" target="_blank" class="social" style="width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#E1306C;color:#fff;text-decoration:none;"><i class="fab fa-instagram"></i></a>
+    <a href="https://youtube.com/@anas.khan_alig" target="_blank" class="social" style="width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#FF0000;color:#fff;text-decoration:none;"><i class="fab fa-youtube"></i></a>
+    <a href="mailto:anaskhankhan47350@gmail.com" class="social" style="width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#0072C6;color:#fff;text-decoration:none;"><i class="fas fa-envelope"></i></a>
+  </div>
 
 </body>
 </html>
