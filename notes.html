@@ -90,37 +90,7 @@
 </head>
 <body>
 
-  <header>
-    <h1>📚 Notes Section</h1>
-    <div id="datetime"></div>
-  </header>
-
-  <h2>Select a Subject</h2>
-
-  <div class="grid">
-    <a href="Biologynotes.html" class="card">🧬 Biology</a>
-    <a href="ChemistryNotes.html" class="card">⚗️ Chemistry</a>
-    <a href="physicsnotes.html" class="card">📐 Physics</a>
-    <a href="previousyearpaper.html" class="card">📄 NEET Previous Year Papers</a>
-    <a href="JEEMain.html" class="card">📝 JEE Mains Papers</a>
-    <a href="Exemplar.html" class="card">NCERT Exemplars</a>
-    <a href="MBBS.html" class="card">MBBS content</a>
-  </div>
-
-  <a href="index.html" class="back-button">⬅ Back</a>
-
-  <script>
-    // Live date & time
-    function updateDateTime() {
-      const now = new Date();
-      document.getElementById("datetime").textContent = 
-        "📅 " + now.toLocaleDateString() + " ⏰ " + now.toLocaleTimeString();
-    }
-    updateDateTime();
-    setInterval(updateDateTime, 1000);
-  </script>
-
-  <!-- Top Navigation Bar -->
+    <!-- Top Navigation Bar -->
 <nav class="top-nav">
   <a href="index.html" class="logo">🏠 Home</a>
   
@@ -178,6 +148,36 @@
 }
 </style>
 
+  <header>
+    <h1>📚 Notes Section</h1>
+    <div id="datetime"></div>
+  </header>
+
+  <h2>Select a Subject</h2>
+
+  <div class="grid">
+    <a href="Biologynotes.html" class="card">🧬 Biology</a>
+    <a href="ChemistryNotes.html" class="card">⚗️ Chemistry</a>
+    <a href="physicsnotes.html" class="card">📐 Physics</a>
+    <a href="previousyearpaper.html" class="card">📄 NEET Previous Year Papers</a>
+    <a href="JEEMain.html" class="card">📝 JEE Mains Papers</a>
+    <a href="Exemplar.html" class="card">NCERT Exemplars</a>
+    <a href="MBBS.html" class="card">MBBS content</a>
+  </div>
+
+  <a href="index.html" class="back-button">⬅ Back</a>
+
+  <script>
+    // Live date & time
+    function updateDateTime() {
+      const now = new Date();
+      document.getElementById("datetime").textContent = 
+        "📅 " + now.toLocaleDateString() + " ⏰ " + now.toLocaleTimeString();
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+  </script>
+
 
         <!-- Floating Social Media Links -->
 <div class="social-links">
@@ -232,6 +232,7 @@
 
 </body>
 </html>
+
 
 
 
