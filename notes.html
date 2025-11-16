@@ -1,241 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6927250853335610"
-     crossorigin="anonymous"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notes — Glassmorphism</title>
+
+  <!-- Ads (kept as in your original) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6927250853335610" crossorigin="anonymous"></script>
+
+  <!-- Font Awesome for social icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <title>Notes</title>
 
+  <!-- Heavy Glassmorphism + Modern Styles -->
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #2d2d2d;
-      color: #f5f5f5;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
+    :root{
+      --bg-1: #081028;            /* deep dark background */
+      --bg-2: #0f1626;
+      --glass: rgba(255,255,255,0.05);
+      --glass-2: rgba(255,255,255,0.06);
+      --neon: rgba(96,255,255,0.08);
+      --accent: #7EE7FF;
+      --accent-2: #FF8BE9;
+      --muted: rgba(255,255,255,0.7);
+      --card-radius: 16px;
+      --glass-border: rgba(255,255,255,0.12);
+      --glass-strong: rgba(255,255,255,0.09);
+      --glass-shadow: 0 8px 40px rgba(2,6,23,0.6);
+      --glass-glow: 0 8px 40px rgba(126,231,255,0.06);
     }
 
-    header {
-      text-align: center;
-      margin-bottom: 20px;
+    /* page background — animated gradient for depth */
+    html,body { height:100%; }
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(126,231,255,0.06), transparent 6%),
+                  radial-gradient(900px 450px at 90% 90%, rgba(255,139,233,0.035), transparent 6%),
+                  linear-gradient(180deg, var(--bg-1), var(--bg-2));
+      color: white;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:18px;
+      padding:28px;
     }
 
-    #datetime {
-      font-size: 14px;
-      margin: 10px 0;
-      color: #bbb;
+    /* Sticky translucent navbar */
+    .top-nav{
+      position: sticky;
+      top: 12px;
+      width: min(1200px, calc(100% - 56px));
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 18px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(12px) saturate(140%);
+      box-shadow: var(--glass-shadow);
+      z-index: 1200;
+      gap:12px;
+      transition: transform .18s ease;
     }
 
-    h2 {
-      margin: 15px 0;
-      font-size: 22px;
-      color: #fff;
-      text-align: center;
+    .top-nav .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      color:var(--accent);
+      font-weight:800;
+      font-size:18px;
+      letter-spacing:0.4px;
+      text-shadow: 0 6px 24px rgba(126,231,255,0.04);
     }
 
-    /* Grid layout */
-    .grid {
-      display: grid;
+    .top-nav .logo .house{
+      width:36px;height:36px;border-radius:10px;
+      display:inline-flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg, rgba(126,231,255,0.06), rgba(255,139,233,0.04));
+      border:1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.5), 0 0 20px rgba(126,231,255,0.035);
+    }
+
+    .top-nav .nav-links{ display:flex; gap:12px; align-items:center; }
+    .top-nav .nav-links a{
+      color: var(--muted);
+      text-decoration:none;
+      padding:8px 12px;
+      border-radius:10px;
+      font-weight:600;
+      font-size:14px;
+      transition: all .18s ease;
+      border:1px solid transparent;
+      backdrop-filter: blur(8px);
+    }
+    .top-nav .nav-links a:hover{
+      color:white;
+      border-color: rgba(255,255,255,0.06);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.45), 0 0 28px rgba(126,231,255,0.03);
+    }
+
+    main.page{
+      width: min(1200px, calc(100% - 56px));
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+      align-items:stretch;
+    }
+
+    header.hero{
+      padding:22px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid var(--glass-border);
+      backdrop-filter: blur(18px) saturate(130%);
+      box-shadow: var(--glass-shadow);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      align-items:flex-start;
+    }
+
+    header.hero h1{
+      margin:0;
+      font-size:24px;
+      color: white;
+      letter-spacing:0.2px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    #datetime{
+      color: var(--muted);
+      font-size:13px;
+      padding:6px 10px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    h2.section-title{
+      margin:0;
+      font-size:18px;
+      color: var(--accent);
+      padding:10px 4px;
+      letter-spacing:0.3px;
+    }
+
+    /* Grid - glass cards heavy effect */
+    .grid{
+      display:grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      width: 100%;
-      max-width: 900px;
-      margin-top: 20px;
+      gap:18px;
+      width:100%;
     }
 
-    .card {
-      background: #3a3a3a;
-      border-radius: 15px;
-      padding: 25px;
-      text-align: center;
-      font-size: 18px;
-      font-weight: bold;
-      color: #fff;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      transition: 0.3s ease-in-out;
+    .card{
+      display:block;
+      text-decoration:none;
+      color: white;
+      padding:20px;
+      border-radius: var(--card-radius);
+      background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(18px) saturate(150%);
+      box-shadow: 0 10px 36px rgba(3,10,26,0.7), 0 0 40px rgba(126,231,255,0.03) inset;
+      transition: transform .25s cubic-bezier(.2,.9,.25,1), box-shadow .25s ease, background .25s ease;
+      font-weight:700;
+      font-size:16px;
+      text-align:center;
+      min-height:88px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
     }
 
-    .card:hover {
-      background: linear-gradient(135deg, #ff7b7b, #ff4d4d);
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+    /* Decorative diagonal neon stripe */
+    .card::before{
+      content: '';
+      position: absolute;
+      left: -40%;
+      top: -120%;
+      width: 220%;
+      height: 260%;
+      transform: rotate(25deg);
+      background: linear-gradient(90deg, rgba(126,231,255,0.02) 0%, rgba(126,231,255,0.03) 30%, rgba(255,139,233,0.02) 70%, rgba(255,139,233,0.01) 100%);
+      filter: blur(14px);
+      opacity: 0.8;
+      transition: all .45s ease;
+      pointer-events:none;
     }
 
+    .card:hover{
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 24px 80px rgba(3,10,26,0.85), 0 0 36px rgba(126,231,255,0.06);
+      background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    }
+    .card:hover::before{
+      left: -10%;
+      top: -40%;
+      filter: blur(18px) saturate(160%);
+      opacity: 1;
+    }
+
+    .muted-small{ color: var(--muted); font-size:13px; margin-top:8px; display:block; text-align:center; }
+
+    /* Floating back button */
     .back-button {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #fff;
-      color: #2d2d2d;
-      padding: 10px 15px;
-      border-radius: 10px;
-      font-weight: bold;
-      text-decoration: none;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      transition: 0.3s;
+      bottom: 22px;
+      right: 22px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      color: white;
+      padding: 10px 14px;
+      border-radius: 12px;
+      text-decoration:none;
+      border:1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      font-weight:800;
+      z-index:1300;
+      transition: transform .18s ease;
     }
+    .back-button:hover{ transform: translateY(-4px); }
 
-    .back-button:hover {
-      background-color: #ffdddd;
-      color: #000;
+    /* Social links (vertical) - stronger neon glow */
+    .social-links {
+      position: fixed;
+      top: 50%;
+      right: 16px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      z-index: 1300;
+    }
+    .social {
+      width:50px;height:50px;border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      color:white;font-size:20px;text-decoration:none;
+      border:1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 30px rgba(2,6,23,0.7);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .social.instagram{ background: linear-gradient(135deg,#E1306C,#F77737); box-shadow: 0 10px 30px rgba(225,48,108,0.18); }
+    .social.youtube{ background: linear-gradient(135deg,#FF0000,#FF6A6A); box-shadow: 0 10px 30px rgba(255,0,0,0.14);}
+    .social.email{ background: linear-gradient(135deg,#0072C6,#00C2FF); box-shadow: 0 10px 30px rgba(0,114,198,0.12); }
+    .social:hover{ transform: translateY(-6px) scale(1.06); box-shadow: 0 18px 48px rgba(0,0,0,0.6); }
+
+    /* Responsive tweaks */
+    @media (max-width: 920px){
+      body{ padding:18px; }
+      .top-nav{ width: calc(100% - 36px); padding:10px; }
+      main.page{ width: calc(100% - 36px); }
+    }
+    @media (max-width: 520px){
+      .card{ padding:16px; font-size:15px; min-height:76px; }
+      .top-nav .nav-links{ display:none; }
+      .social-links{ right:8px; }
     }
   </style>
 </head>
 <body>
 
-    <!-- Top Navigation Bar -->
-<nav class="top-nav">
-  <a href="index.html" class="logo">🏠 Home</a>
-  
-  <div class="nav-links">
-    
-  </div>
-</nav>
+  <!-- NAVBAR -->
+  <nav class="top-nav" role="navigation" aria-label="Top Navigation">
+    <a href="index.html" class="logo" aria-label="Home link">
+      <span class="house" aria-hidden="true">🏠</span>
+      <span>MBBS Presentations</span>
+    </a>
 
-<style>
-/* Navbar Container */
-.top-nav {
-  width: 100%;
-  background: #0078FF;
-  padding: 12px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-}
+    <div class="nav-links" aria-hidden="true">
+      <!-- placeholder for future items — kept empty per your original -->
+    </div>
+  </nav>
 
-/* Home Button / Logo */
-.top-nav .logo {
-  color: white;
-  font-size: 20px;
-  font-weight: 700;
-  text-decoration: none;
-}
+  <!-- MAIN PAGE -->
+  <main class="page" role="main" aria-labelledby="main-title">
 
-/* Right Side Links */
-.top-nav .nav-links a {
-  color: white;
-  margin-left: 18px;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 500;
-  transition: 0.3s ease;
-}
+    <header class="hero" id="main-title">
+      <h1>📚 Notes Section</h1>
+      <div id="datetime" aria-live="polite">Loading time...</div>
+      <p class="muted-small">Select a subject below — links open in a new tab.</p>
+    </header>
 
-/* Hover effect */
-.top-nav a:hover {
-  opacity: 0.85;
-}
+    <section>
+      <h2 class="section-title">Select a Subject</h2>
 
-/* Mobile Responsive */
-@media(max-width: 600px) {
-  .nav-links a {
-    font-size: 14px;
-    margin-left: 12px;
-  }
-}
-</style>
+      <!-- GRID: Links kept exactly as they were in your provided page -->
+      <div class="grid" role="list">
+        <a href="Biologynotes.html" class="card" role="listitem" target="_self" rel="noopener">🧬 Biology</a>
+        <a href="ChemistryNotes.html" class="card" role="listitem" target="_self" rel="noopener">⚗️ Chemistry</a>
+        <a href="physicsnotes.html" class="card" role="listitem" target="_self" rel="noopener">📐 Physics</a>
+        <a href="previousyearpaper.html" class="card" role="listitem" target="_self" rel="noopener">📄 NEET Previous Year Papers</a>
+        <a href="JEEMain.html" class="card" role="listitem" target="_self" rel="noopener">📝 JEE Mains Papers</a>
+        <a href="Exemplar.html" class="card" role="listitem" target="_self" rel="noopener">NCERT Exemplars</a>
+        <a href="MBBS.html" class="card" role="listitem" target="_self" rel="noopener">MBBS content</a>
+      </div>
+    </section>
 
-  <header>
-    <h1>📚 Notes Section</h1>
-    <div id="datetime"></div>
-  </header>
+  </main>
 
-  <h2>Select a Subject</h2>
+  <!-- BACK BUTTON (keeps previous behavior) -->
+  <a href="index.html" class="back-button" aria-label="Back to Home">⬅ Back</a>
 
-  <div class="grid">
-    <a href="Biologynotes.html" class="card">🧬 Biology</a>
-    <a href="ChemistryNotes.html" class="card">⚗️ Chemistry</a>
-    <a href="physicsnotes.html" class="card">📐 Physics</a>
-    <a href="previousyearpaper.html" class="card">📄 NEET Previous Year Papers</a>
-    <a href="JEEMain.html" class="card">📝 JEE Mains Papers</a>
-    <a href="Exemplar.html" class="card">NCERT Exemplars</a>
-    <a href="MBBS.html" class="card">MBBS content</a>
+  <!-- Floating Social Media Links (kept) -->
+  <div class="social-links" aria-hidden="false">
+    <a href="https://instagram.com/anas.khan_alig" target="_blank" class="social instagram" aria-label="Instagram">
+      <i class="fab fa-instagram" aria-hidden="true"></i>
+    </a>
+    <a href="https://youtube.com/@anas.khan_alig" target="_blank" class="social youtube" aria-label="YouTube">
+      <i class="fab fa-youtube" aria-hidden="true"></i>
+    </a>
+    <a href="mailto:anaskhankhan47350@gmail.com" class="social email" aria-label="Email">
+      <i class="fas fa-envelope" aria-hidden="true"></i>
+    </a>
   </div>
 
-  <a href="index.html" class="back-button">⬅ Back</a>
-
+  <!-- Live Date/Time script -->
   <script>
-    // Live date & time
-    function updateDateTime() {
+    function updateDateTime(){
       const now = new Date();
-      document.getElementById("datetime").textContent = 
-        "📅 " + now.toLocaleDateString() + " ⏰ " + now.toLocaleTimeString();
+      // Format using locale with options for clarity
+      const date = now.toLocaleDateString(undefined, { year:'numeric', month:'short', day:'numeric' });
+      const time = now.toLocaleTimeString(undefined, { hour:'2-digit', minute:'2-digit', second:'2-digit' });
+      document.getElementById('datetime').textContent = `📅 ${date} ⏰ ${time}`;
     }
     updateDateTime();
     setInterval(updateDateTime, 1000);
   </script>
 
-
-        <!-- Floating Social Media Links -->
-<div class="social-links">
-  <a href="https://instagram.com/anas.khan_alig" target="_blank" class="social instagram">
-    <i class="fab fa-instagram"></i>
-  </a>
-  <a href="https://youtube.com/@anas.khan_alig" target="_blank" class="social youtube">
-    <i class="fab fa-youtube"></i>
-  </a>
-  <a href="mailto:anaskhankhan47350@gmail.com" class="social email">
-    <i class="fas fa-envelope"></i>
-  </a>
-</div>
-
-<style>
-/* Floating Social Links */
-.social-links {
-  position: fixed;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  z-index: 1000;
-}
-
-.social {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 22px;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
-
-.social.instagram { background: #E1306C; }
-.social.youtube { background: #FF0000; }
-.social.email { background: #0072C6; }
-
-.social:hover {
-  transform: scale(1.15);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
-  opacity: 0.95;
-}
-</style>
-
+  <!-- Preserve your Vercel feedback script (kept) -->
+  <script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_9cjnzyRGGffdFJXWH9wDmCsJBEv4" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
