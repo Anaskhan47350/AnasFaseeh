@@ -120,6 +120,65 @@
     setInterval(updateDateTime, 1000);
   </script>
 
+  <!-- Top Navigation Bar -->
+<nav class="top-nav">
+  <a href="index.html" class="logo">🏠 Home</a>
+  
+  <div class="nav-links">
+    <a href="about.html">About</a>
+    <a href="notes.html">Notes</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<style>
+/* Navbar Container */
+.top-nav {
+  width: 100%;
+  background: #0078FF;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+/* Home Button / Logo */
+.top-nav .logo {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Right Side Links */
+.top-nav .nav-links a {
+  color: white;
+  margin-left: 18px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+/* Hover effect */
+.top-nav a:hover {
+  opacity: 0.85;
+}
+
+/* Mobile Responsive */
+@media(max-width: 600px) {
+  .nav-links a {
+    font-size: 14px;
+    margin-left: 12px;
+  }
+}
+</style>
+
+
         <!-- Floating Social Media Links -->
 <div class="social-links">
   <a href="https://instagram.com/anas.khan_alig" target="_blank" class="social instagram">
@@ -173,6 +232,7 @@
 
 </body>
 </html>
+
 
 
 
