@@ -3,171 +3,243 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <title>Chemistry Notes</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google Ads -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6927250853335610"
-     crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
+
   <style>
+    /* Background – Gradient + Neon Orbs */
     body {
-      background-color: #995566;
-      font-family: Arial, sans-serif;
-      color: #ffffff;
-      text-align: center;
-      padding: 60px 20px 100px;
       margin: 0;
+      padding: 30px 18px;
+      font-family: Inter, Arial, sans-serif;
+      color: #fff;
+      background: radial-gradient(circle at 20% 20%, rgba(255,138,216,0.17), transparent 40%),
+                  radial-gradient(circle at 80% 80%, rgba(102,228,255,0.15), transparent 45%),
+                  #0b0f1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
+    /* Glass Navbar */
+    .top-nav {
+      width: 100%;
+      max-width: 1200px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+      padding: 12px 18px;
+      border-radius: 16px;
+      position: sticky;
+      top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+    }
+
+    .top-nav a {
+      color: #7eeaff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .top-nav .home-icon {
+      background: rgba(255,255,255,0.08);
+      padding: 8px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    /* Date & Time */
     #datetime {
-      position: fixed;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
+      margin: 20px 0;
       font-size: 16px;
+      color: #c9e7ff;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
     }
 
     h2 {
-      margin-bottom: 30px;
-      font-size: 28px;
+      margin-bottom: 18px;
+      font-size: 26px;
+      letter-spacing: 1px;
+      color: #a8e7ff;
+      text-shadow: 0 0 18px rgba(126,231,255,0.3);
     }
 
+    /* Grid for cards */
     .grid-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+      max-width: 1100px;
+      width: 100%;
+      margin-top: 20px;
     }
 
+    /* Glass Cards */
     .card {
-      background: #ffffff;
-      color: #995566;
-      padding: 20px;
-      border-radius: 12px;
-      font-weight: bold;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(14px);
+      padding: 22px;
+      min-height: 110px;
+      font-size: 17px;
+      color: #fff;
+      border-radius: 18px;
       text-decoration: none;
-      box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-      transition: transform 0.2s ease, background 0.2s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       text-align: center;
+      font-weight: 600;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      transition: .28s ease-in-out;
     }
 
     .card:hover {
-      background: #ffdada;
-      transform: translateY(-5px);
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 14px 44px rgba(0,0,0,0.7), 0 0 25px rgba(126,231,255,0.3);
+      border-color: rgba(126,231,255,0.3);
+      color: #7eeaff;
     }
 
+    /* Back Button */
     .back-button {
       position: fixed;
       bottom: 20px;
-      right: 20px;
-      background-color: #ffffff;
-      color: #995566;
-      padding: 10px 15px;
-      border-radius: 5px;
+      left: 20px;
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.1);
+      color: #a8e7ff;
       text-decoration: none;
-      font-weight: bold;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(12px);
+      font-weight: 700;
+      transition: .3s;
     }
 
     .back-button:hover {
-      background-color: #ffdada;
+      transform: translateY(-4px);
+      color: white;
+      background: rgba(126,231,255,0.2);
+    }
+
+    /* Social Media Floating Icons */
+    .social-links {
+      position: fixed;
+      top: 50%;
+      right: 16px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 1200;
+    }
+
+    .social {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size: 22px;
+      color:white;
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 26px rgba(0,0,0,0.6);
+      transition: .25s;
+      text-decoration: none;
+    }
+
+    .instagram { background: linear-gradient(135deg,#E1306C,#F77737); }
+    .youtube { background: linear-gradient(135deg,#FF0000,#FF6A6A); }
+    .email { background: linear-gradient(135deg,#0072C6,#00C3FF); }
+
+    .social:hover {
+      transform: translateY(-6px) scale(1.06);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.7);
     }
   </style>
 </head>
 <body>
 
-  <div id="datetime"></div>
-
-  <h2>Chemistry Notes</h2>
-
-  <div class="grid-container">
-    <a href="AlcoholsPhenols&EthersBy_Tiwari_Sir.html" class="card">Alcohols, Phenols & Ethers (Tiwari Sir)</a>
-    <a href="AldehydesKetones&CarboxylicAcidsBy_Tiwari_Sir.html" class="card">Aldehydes, Ketones & Carboxylic Acids (Tiwari Sir)</a>
-    <a href="Amines&PurificationOfOrganicCompoundsBy_Tiwari_Sir.html" class="card">Amines & Purification of Organic Compounds (Tiwari Sir)</a>
-    <a href="ChemicalBondingBy_Rajeev_Sir.html" class="card">Chemical Bonding (Rajeev Sir)</a>
-    <a href="ChemicalKineticsBy_Pathak_Sir.html" class="card">Chemical Kinetics (Pathak Sir)</a>
-    <a href="CoordinationCompoundBy_RAJEEV_SIR.html" class="card">Coordination Compounds (Rajeev Sir)</a>
-    <a href="GOCBy_OP_Sir.html" class="card">General Organic Chemistry (OP Sir)</a>
-    <a href="HaloalkaneHaloarenesBy_Tiwari_Sir.html" class="card">Haloalkane & Haloarenes (Tiwari Sir)</a>
-    <a href="HydrocarbonsBy_Tiwari_Sir.html" class="card">Hydrocarbons (Tiwari Sir)</a>
-    <a href="InorganicReactionsBy_Sandeep_Dan_Sir.html" class="card">Inorganic Reactions (Sandeep Dan Sir)</a>
-    <a href="IsomerismBy_OP_Sir.html" class="card">Isomerism (OP Sir)</a>
-    <a href="MoleConcept11th.html" class="card">Mole Concept(11th)(Pathak Sir)</a>
-    <a href="MoleConceptTarget.html" class="card">Mole Concept(Target)(Pathak Sir</a>
-    <a href="PeriodicPropertiesBy_Rajeev_Sir.html" class="card">Periodic Properties (Rajeev Sir)</a>
-    <a href="SaltAnalysisBy_RAJEEV_SIR.html" class="card">Salt Analysis (Rajeev Sir)</a>
-    <a href="SolutionBy_OP_Sir.html" class="card">Solution (OP Sir)</a>
-    <a href="SomeBasicsConceptOfChemistryBy_OP_Sir.html" class="card">Some Basics Concept Of Chemistry (OP Sir)</a>
-  </div>
-
-  <a href="notes.html" class="back-button">⬅ Back</a>
-
-  <script>
-    function updateDateTime() {
-      const now = new Date();
-      document.getElementById("datetime").textContent = 
-        "Current Date & Time: " + now.toLocaleString();
-    }
-
-    updateDateTime();
-    setInterval(updateDateTime, 1000);
-  </script>
-
-        <!-- Floating Social Media Links -->
-<div class="social-links">
-  <a href="https://instagram.com/anas.khan_alig" target="_blank" class="social instagram">
-    <i class="fab fa-instagram"></i>
+<!-- NAVBAR -->
+<nav class="top-nav">
+  <a href="index.html">
+    <span class="home-icon">🏠</span>
+    Home
   </a>
-  <a href="https://youtube.com/@anas.khan_alig" target="_blank" class="social youtube">
-    <i class="fab fa-youtube"></i>
-  </a>
-  <a href="mailto:anaskhankhan47350@gmail.com" class="social email">
-    <i class="fas fa-envelope"></i>
-  </a>
+</nav>
+
+<!-- Time -->
+<div id="datetime"></div>
+
+<h2>Chemistry Notes</h2>
+
+<div class="grid-container">
+  <a href="AlcoholsPhenols&EthersBy_Tiwari_Sir.html" class="card">Alcohols, Phenols & Ethers (Tiwari Sir)</a>
+  <a href="AldehydesKetones&CarboxylicAcidsBy_Tiwari_Sir.html" class="card">Aldehydes, Ketones & Carboxylic Acids (Tiwari Sir)</a>
+  <a href="Amines&PurificationOfOrganicCompoundsBy_Tiwari_Sir.html" class="card">Amines & Purification of Organic Compounds (Tiwari Sir)</a>
+  <a href="ChemicalBondingBy_Rajeev_Sir.html" class="card">Chemical Bonding (Rajeev Sir)</a>
+  <a href="ChemicalKineticsBy_Pathak_Sir.html" class="card">Chemical Kinetics (Pathak Sir)</a>
+  <a href="CoordinationCompoundBy_RAJEEV_SIR.html" class="card">Coordination Compounds (Rajeev Sir)</a>
+  <a href="GOCBy_OP_Sir.html" class="card">General Organic Chemistry (OP Sir)</a>
+  <a href="HaloalkaneHaloarenesBy_Tiwari_Sir.html" class="card">Haloalkane & Haloarenes (Tiwari Sir)</a>
+  <a href="HydrocarbonsBy_Tiwari_Sir.html" class="card">Hydrocarbons (Tiwari Sir)</a>
+  <a href="InorganicReactionsBy_Sandeep_Dan_Sir.html" class="card">Inorganic Reactions (Sandeep Dan Sir)</a>
+  <a href="IsomerismBy_OP_Sir.html" class="card">Isomerism (OP Sir)</a>
+  <a href="MoleConcept11th.html" class="card">Mole Concept (11th) – Pathak Sir</a>
+  <a href="MoleConceptTarget.html" class="card">Mole Concept (Target) – Pathak Sir</a>
+  <a href="PeriodicPropertiesBy_Rajeev_Sir.html" class="card">Periodic Properties (Rajeev Sir)</a>
+  <a href="SaltAnalysisBy_RAJEEV_SIR.html" class="card">Salt Analysis (Rajeev Sir)</a>
+  <a href="SolutionBy_OP_Sir.html" class="card">Solution (OP Sir)</a>
+  <a href="SomeBasicsConceptOfChemistryBy_OP_Sir.html" class="card">Some Basics Concept Of Chemistry (OP Sir)</a>
 </div>
 
-<style>
-/* Floating Social Links */
-.social-links {
-  position: fixed;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  z-index: 1000;
-}
+<!-- Back -->
+<a href="notes.html" class="back-button">⬅ Back</a>
 
-.social {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 22px;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
+<!-- Floating Social -->
+<div class="social-links">
+  <a href="https://instagram.com/anas.khan_alig" target="_blank" class="social instagram"><i class="fab fa-instagram"></i></a>
+  <a href="https://youtube.com/@anas.khan_alig" target="_blank" class="social youtube"><i class="fab fa-youtube"></i></a>
+  <a href="mailto:anaskhankhan47350@gmail.com" class="social email"><i class="fas fa-envelope"></i></a>
+</div>
 
-.social.instagram { background: #E1306C; }
-.social.youtube { background: #FF0000; }
-.social.email { background: #0072C6; }
+<!-- Time Script -->
+<script>
+  function updateDateTime() {
+    const now = new Date();
+    document.getElementById("datetime").textContent =
+      "📅 " + now.toLocaleDateString() + " | ⏰ " + now.toLocaleTimeString();
+  }
+  updateDateTime();
+  setInterval(updateDateTime, 1000);
+</script>
 
-.social:hover {
-  transform: scale(1.15);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
-  opacity: 0.95;
-}
-</style>
+<!-- Vercel Script -->
+<script async data-explicit-opt-in="true" data-cookie-opt-in="true"
+  data-deployment-id="dpl_FPNjkpFC3AkSwjZRKEzuySFbfbY5"
+  src="https://vercel.live/_next-live/feedback/feedback.js"></script>
 
 </body>
 </html>
-
-
-
