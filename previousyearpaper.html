@@ -3,173 +3,240 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEET Previous Year Papers</title>
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <title>PYP - NEET Previous Year Papers</title>
 
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6927250853335610"
     crossorigin="anonymous"></script>
 
   <style>
+    /* Background – Neon Orb Theme */
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #995566;
+      padding: 30px 18px 100px;
+      font-family: Inter, Arial, sans-serif;
+      background: radial-gradient(circle at 20% 20%, rgba(255,138,216,0.17), transparent 40%),
+                  radial-gradient(circle at 80% 80%, rgba(102,228,255,0.16), transparent 45%),
+                  #0b0f1a;
       color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
       text-align: center;
-      padding: 60px 20px 80px;
+      min-height: 100vh;
     }
 
+    /* Glass Navbar */
+    .top-nav {
+      width: 100%;
+      max-width: 1200px;
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+      padding: 12px 18px;
+      border-radius: 16px;
+      position: sticky;
+      top: 12px;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-nav a {
+      color: #9df3ff;
+      font-size: 20px;
+      font-weight: 700;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .home-icon {
+      background: rgba(255,255,255,0.1);
+      padding: 8px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    /* Date & Time */
     #datetime {
+      margin: 25px auto;
+      padding: 12px 16px;
       font-size: 16px;
-      margin-bottom: 20px;
+      color: #ccefff;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 14px;
+      backdrop-filter: blur(12px);
+      display: inline-block;
     }
 
     h2 {
-      margin-bottom: 30px;
+      margin-top: 20px;
+      font-size: 30px;
+      font-weight: 700;
+      color: #b6f0ff;
+      text-shadow: 0 0 20px rgba(182,240,255,0.4);
     }
 
+    /* Grid */
     .grid {
+      max-width: 1100px;
+      margin: 30px auto 0;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
-      max-width: 1000px;
-      margin: auto;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
     }
 
+    /* Glass Cards */
     .card {
-      background-color: #ffffff;
-      color: #995566;
-      padding: 20px;
-      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.14);
+      padding: 25px 18px;
+      border-radius: 18px;
+      min-height: 120px;
       text-decoration: none;
-      font-weight: bold;
-      box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-      transition: transform 0.2s, background-color 0.2s;
+      color: #e9faff;
+      font-size: 17px;
+      font-weight: 600;
+      text-align: center;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.55);
+      transition: .3s ease-in-out;
     }
 
     .card:hover {
-      background-color: #ffdada;
-      transform: translateY(-5px);
+      transform: translateY(-8px) scale(1.03);
+      border-color: rgba(126,231,255,0.4);
+      color: #8beaff;
+      box-shadow: 0 14px 44px rgba(0,0,0,0.7), 0 0 22px rgba(126,231,255,0.35);
     }
 
+    /* Back */
     .back-button {
       position: fixed;
       bottom: 20px;
-      right: 20px;
-      background-color: #ffffff;
-      color: #995566;
-      padding: 10px 15px;
-      border-radius: 6px;
-      font-weight: bold;
+      left: 20px;
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.1);
+      font-weight: 700;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #a8e7ff;
+      backdrop-filter: blur(12px);
       text-decoration: none;
-      box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+      transition: .3s;
     }
 
     .back-button:hover {
-      background-color: #ffdada;
+      transform: translateY(-4px);
+      background: rgba(126,231,255,0.25);
+      color: white;
+    }
+
+    /* Floating Social Icons */
+    .social-links {
+      position: fixed;
+      top: 50%;
+      right: 16px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 1200;
+    }
+
+    .social {
+      width: 50px;
+      height: 50px;
+      font-size: 22px;
+      color:white;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      text-decoration:none;
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 26px rgba(0,0,0,0.6);
+      transition:.25s;
+    }
+
+    .instagram { background: linear-gradient(135deg,#E1306C,#F77737); }
+    .youtube { background: linear-gradient(135deg,#FF0000,#FF6A6A); }
+    .email { background: linear-gradient(135deg,#0072C6,#00C3FF); }
+
+    .social:hover {
+      transform: translateY(-6px) scale(1.07);
+      box-shadow: 0 14px 42px rgba(0,0,0,0.75);
     }
   </style>
 </head>
 <body>
 
-  <div id="datetime"></div>
-
-  <h2>NEET Previous Year Papers</h2>
-
-  <div class="grid">
-    <a href="NEET 2015.html" class="card">NEET 2015 Question Paper</a>
-    <a href="NEET 2015 Answer key.html" class="card">NEET 2015 Answer Key</a>
-    <a href="NEET 2016.html" class="card">NEET 2016 Question Paper</a>
-    <a href="NEET 2016 Answer key.html" class="card">NEET 2016 Answer Key</a>
-    <a href="NEET 2017.html" class="card">NEET 2017 Question Paper</a>
-    <a href="NEET 2018.html" class="card">NEET 2018 Question Paper</a>
-    <a href="NEET 2018 Answer key.html" class="card">NEET 2018 Answer Key</a>
-    <a href="NEET 2019.html" class="card">NEET 2019 Question Paper</a>
-    <a href="NEET 2019 Answer key.html" class="card">NEET 2019 Answer Key</a>
-    <a href="NEET 2020.html" class="card">NEET 2020 Question Paper</a>
-    <a href="NEET 2020 answer key.html" class="card">NEET 2020 Answer Key</a>
-    <a href="NEET 2021.html" class="card">NEET 2021 Question Paper</a>
-    <a href="NEET 2021 Answer Key.html" class="card">NEET 2021 Answer Key</a>
-    <a href="NEET 2022.html" class="card">NEET 2022 Question Paper</a>
-    <a href="NEET 2022 Answer key.html" class="card">NEET 2022 Answer Key</a>
-    <a href="NEET 2023.html" class="card">NEET 2023 Question Paper</a>
-    <a href="NEET 2023 Answer Key.html" class="card">NEET 2023 Answer Key</a>
-    <a href="NEET 2024.html" class="card">NEET 2024 Question Paper</a>
-    <a href="NEET 2024 Answer Key.html" class="card">NEET 2024 Answer Key</a>
-  </div>
-
-  <a href="notes.html" class="back-button">⬅ Back</a>
-
-  <script>
-    function updateDateTime() {
-      const now = new Date();
-      document.getElementById("datetime").textContent = "Current Date & Time: " + now.toLocaleString();
-    }
-
-    updateDateTime();
-    setInterval(updateDateTime, 1000);
-  </script>
-
-        <!-- Floating Social Media Links -->
-<div class="social-links">
-  <a href="https://instagram.com/anas.khan_alig" target="_blank" class="social instagram">
-    <i class="fab fa-instagram"></i>
+<!-- Navbar -->
+<nav class="top-nav">
+  <a href="index.html">
+    <span class="home-icon">🏠</span> Home
   </a>
-  <a href="https://youtube.com/@anas.khan_alig" target="_blank" class="social youtube">
-    <i class="fab fa-youtube"></i>
-  </a>
-  <a href="mailto:anaskhankhan47350@gmail.com" class="social email">
-    <i class="fas fa-envelope"></i>
-  </a>
+</nav>
+
+<div id="datetime"></div>
+
+<h2>NEET Previous Year Papers</h2>
+
+<div class="grid">
+  <a href="NEET 2015.html" class="card">NEET 2015 Question Paper</a>
+  <a href="NEET 2015 Answer key.html" class="card">NEET 2015 Answer Key</a>
+  <a href="NEET 2016.html" class="card">NEET 2016 Question Paper</a>
+  <a href="NEET 2016 Answer key.html" class="card">NEET 2016 Answer Key</a>
+  <a href="NEET 2017.html" class="card">NEET 2017 Question Paper</a>
+  <a href="NEET 2018.html" class="card">NEET 2018 Question Paper</a>
+  <a href="NEET 2018 Answer key.html" class="card">NEET 2018 Answer Key</a>
+  <a href="NEET 2019.html" class="card">NEET 2019 Question Paper</a>
+  <a href="NEET 2019 Answer key.html" class="card">NEET 2019 Answer Key</a>
+  <a href="NEET 2020.html" class="card">NEET 2020 Question Paper</a>
+  <a href="NEET 2020 answer key.html" class="card">NEET 2020 Answer Key</a>
+  <a href="NEET 2021.html" class="card">NEET 2021 Question Paper</a>
+  <a href="NEET 2021 Answer Key.html" class="card">NEET 2021 Answer Key</a>
+  <a href="NEET 2022.html" class="card">NEET 2022 Question Paper</a>
+  <a href="NEET 2022 Answer key.html" class="card">NEET 2022 Answer Key</a>
+  <a href="NEET 2023.html" class="card">NEET 2023 Question Paper</a>
+  <a href="NEET 2023 Answer Key.html" class="card">NEET 2023 Answer Key</a>
+  <a href="NEET 2024.html" class="card">NEET 2024 Question Paper</a>
+  <a href="NEET 2024 Answer Key.html" class="card">NEET 2024 Answer Key</a>
 </div>
 
-<style>
-/* Floating Social Links */
-.social-links {
-  position: fixed;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  z-index: 1000;
-}
+<a href="notes.html" class="back-button">⬅ Back</a>
 
-.social {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 22px;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
+<!-- Floating Social -->
+<div class="social-links">
+  <a href="https://instagram.com/anas.khan_alig" target="_blank" class="social instagram"><i class="fab fa-instagram"></i></a>
+  <a href="https://youtube.com/@anas.khan_alig" target="_blank" class="social youtube"><i class="fab fa-youtube"></i></a>
+  <a href="mailto:anaskhankhan47350@gmail.com" class="social email"><i class="fas fa-envelope"></i></a>
+</div>
 
-.social.instagram { background: #E1306C; }
-.social.youtube { background: #FF0000; }
-.social.email { background: #0072C6; }
+<!-- Live Clock Script -->
+<script>
+  function updateDateTime() {
+    const now = new Date();
+    document.getElementById("datetime").textContent =
+      "📅 " + now.toLocaleDateString() + " | ⏰ " + now.toLocaleTimeString();
+  }
+  updateDateTime();
+  setInterval(updateDateTime, 1000);
+</script>
 
-.social:hover {
-  transform: scale(1.15);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
-  opacity: 0.95;
-}
-</style>
+<!-- Vercel -->
+<script async data-explicit-opt-in="true" data-cookie-opt-in="true"
+  data-deployment-id="dpl_dXmCQ8qxG4FL5dvFvzbfEQmXYmnb"
+  src="https://vercel.live/_next-live/feedback/feedback.js"></script>
 
 </body>
 </html>
-
