@@ -230,20 +230,62 @@
     .social.email { background: #0072C6; }
     .social:hover { transform: scale(1.12); box-shadow: 0 14px 36px rgba(0,0,0,0.42); }
     
-    .home-btn{
-  background: #fff;
-  color: var(--ink);
-  padding: 8px 14px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 800;
-  width: fit-content;
-  box-shadow: 0 2px 6px rgba(0,0,0,.25);
-  margin-top: 6px;
-}
-.home-btn:hover{
-  background: #ffe1ea;
-}
+ /* Sticky translucent navbar */
+    .top-nav{
+      position: sticky;
+      top: 12px;
+      width: min(1200px, calc(100% - 56px));
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 18px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(12px) saturate(140%);
+      box-shadow: var(--glass-shadow);
+      z-index: 1200;
+      gap:12px;
+      transition: transform .18s ease;
+    }
+
+    .top-nav .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      color:var(--accent);
+      font-weight:800;
+      font-size:18px;
+      letter-spacing:0.4px;
+      text-shadow: 0 6px 24px rgba(126,231,255,0.04);
+    }
+
+    .top-nav .logo .house{
+      width:36px;height:36px;border-radius:10px;
+      display:inline-flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg, rgba(126,231,255,0.06), rgba(255,139,233,0.04));
+      border:1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.5), 0 0 20px rgba(126,231,255,0.035);
+    }
+
+    .top-nav .nav-links{ display:flex; gap:12px; align-items:center; }
+    .top-nav .nav-links a{
+      color: var(--muted);
+      text-decoration:none;
+      padding:8px 12px;
+      border-radius:10px;
+      font-weight:600;
+      font-size:14px;
+      transition: all .18s ease;
+      border:1px solid transparent;
+      backdrop-filter: blur(8px);
+    }
+    .top-nav .nav-links a:hover{
+      color:white;
+      border-color: rgba(255,255,255,0.06);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.45), 0 0 28px rgba(126,231,255,0.03);
 
 
   </style>
