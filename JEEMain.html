@@ -231,22 +231,39 @@
     .social:hover { transform: scale(1.12); box-shadow: 0 14px 36px rgba(0,0,0,0.42); }
     
  /* Sticky translucent navbar */
-    .top-nav{
+    /* Glass Navbar */
+    .top-nav {
+      width: 100%;
+      max-width: 1200px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+      padding: 12px 18px;
+      border-radius: 16px;
       position: sticky;
       top: 12px;
-      width: min(1200px, calc(100% - 56px));
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:12px 18px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.06);
-      backdrop-filter: blur(12px) saturate(140%);
-      box-shadow: var(--glass-shadow);
-      z-index: 1200;
-      gap:12px;
-      transition: transform .18s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+    }
+
+    .top-nav a {
+      color: #7eeaff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .top-nav .home-icon {
+      background: rgba(255,255,255,0.08);
+      padding: 8px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
     }
 
     .home-btn{
