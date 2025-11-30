@@ -40,14 +40,39 @@
       display:grid; gap:10px;
     }
 
+    /* Glass Navbar */
+    .top-nav {
+      width: 100%;
+      max-width: 1200px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+      padding: 12px 18px;
+      border-radius: 16px;
+      position: sticky;
+      top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+    }
+
     .top-nav a {
-      color: #9df3ff;
-      font-size: 20px;
-      font-weight: 700;
+      color: #7eeaff;
       text-decoration: none;
+      font-weight: 700;
+      font-size: 20px;
       display: flex;
       align-items: center;
       gap: 10px;
+    }
+
+    .top-nav .home-icon {
+      background: rgba(255,255,255,0.08);
+      padding: 8px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
     }
 
     .home-icon {
