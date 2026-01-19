@@ -1,0 +1,369 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6927250853335610"
+     crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <title>MBBS Examination Papers</title>
+
+  <!-- (Optional) AdSense – keep if you use it -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6927250853335610" crossorigin="anonymous"></script> -->
+
+  <style>
+    :root{
+      --brand:#995566;
+      --brand-2:#7a4450;
+      --card:#ffffff;
+      --text:#ffffff;
+      --ink:#5a2a37;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:var(--brand);
+      color:var(--text);
+      min-height:100vh;
+      display:flex;flex-direction:column;
+    }
+
+    header{
+      position:sticky; top:0; z-index:3;
+      background:var(--brand-2);
+      padding:16px 14px;
+      box-shadow:0 2px 6px rgba(0,0,0,.3);
+      display:grid; gap:10px;
+    }
+
+    .top-nav a {
+      color: #9df3ff;
+      font-size: 20px;
+      font-weight: 700;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .home-icon {
+      background: rgba(255,255,255,0.1);
+      padding: 8px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .title-row{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+    }
+    h1{margin:0; font-size:1.35rem; letter-spacing:.3px}
+    #datetime{font-size:.9rem; opacity:.9}
+
+    .controls{
+      display:grid; grid-template-columns: 1fr 1fr; gap:10px;
+    }
+    .search, .filter{
+      background:#fff; color:var(--ink);
+      border:none; border-radius:10px;
+      padding:10px 12px; font-size:.95rem; width:100%;
+      outline:none;
+    }
+
+    main{ width:100%; max-width:1200px; margin:0 auto; padding:20px; flex:1; }
+
+    .section{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.2);
+      border-radius:14px; padding:16px; margin:14px 0 22px;
+      box-shadow:0 2px 10px rgba(0,0,0,.25);
+    }
+    .section-header{
+      display:flex; align-items:center; justify-content:space-between; gap:10px; cursor:pointer;
+      user-select:none;
+    }
+    .section-title{
+      margin:0; font-size:1.1rem; font-weight:700;
+    }
+    .toggle{
+      background:#fff; color:var(--ink); border:none; border-radius:10px;
+      padding:6px 10px; font-weight:700; cursor:pointer;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap:14px; margin-top:14px;
+    }
+
+    .card{
+      display:flex; align-items:center; justify-content:center; text-align:center;
+      background:var(--card); color:var(--brand);
+      text-decoration:none; font-weight:700; line-height:1.25;
+      padding:16px; border-radius:12px; min-height:88px;
+      box-shadow:2px 2px 8px rgba(0,0,0,.28);
+      transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease;
+      word-break:break-word;
+    }
+    .card small{display:block; font-weight:600; opacity:.85; margin-top:4px}
+    .card:hover{
+      transform: translateY(-4px);
+      background:#ffe6ec;
+      box-shadow:3px 6px 14px rgba(0,0,0,.35);
+    }
+
+    .muted{
+      font-size:.88rem; opacity:.9; margin:6px 0 0
+    }
+
+    .tags{
+      display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;
+    }
+    .tag{
+      background:#fff; color:var(--ink); border-radius:999px; padding:6px 10px; font-size:.82rem; font-weight:700;
+    }
+
+    footer{
+      text-align:center; padding:16px; background:var(--brand-2);
+      box-shadow:0 -2px 6px rgba(0,0,0,.3);
+      position:sticky; bottom:0; z-index:2;
+    }
+
+    
+
+    /* hide big sections by default on mobile for speed (can be toggled open) */
+    .section.collapsed .grid{display:none}
+
+    .back-button {
+      position: fixed;
+      bottom: 50px;
+      right: 20px;
+      background-color: #ffffff;
+      color: #995566;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .back-button:hover {
+      background-color: #ffdada;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+<nav class="top-nav">
+  <a href="index.html">
+    <span class="home-icon">🏠</span> Home
+  </a>
+</nav>
+
+  <header>
+    <div class="title-row">
+      <h1>MBBS Examination Question Papers</h1>
+      <div id="datetime"></div>
+    </div>
+    <div class="controls">
+      <input id="search" class="search" type="search" placeholder="Search topic… e.g., (This feature is currently unavailable) "/>
+     <select id="quickFilter" class="filter" title="Quick Filter">
+  <option value="all">Show: All Subjects</option>
+ 
+</select>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== 1st Proff - Anatomy ===== -->
+<div class="section collapsed" data-group="Anatomy">
+  <div class="section-header" onclick="toggleSection(this)">
+    <h2 class="section-title">Anatomy</h2>
+    <button class="toggle" type="button">Open/Close</button>
+  </div>
+
+  <div class="grid">
+    
+
+
+
+    
+  </div>
+</div>
+
+    <!-- ===== 1st Proff - Biochemistry ===== -->
+<div class="section collapsed" data-group="Biochemistry">
+  <div class="section-header" onclick="toggleSection(this)">
+    <h2 class="section-title">Biochemistry</h2>
+    <button class="toggle" type="button">Open/Close</button>
+  </div>
+     
+  <div class="grid">
+   
+    
+
+
+    
+  </div>
+</div>
+
+    <!-- ===== 1st Proff - Physiology ===== -->
+<div class="section collapsed" data-group="Haematology Lab">
+  <div class="section-header" onclick="toggleSection(this)">
+    <h2 class="section-title">Haematology Lab(Comming Soon)</h2>
+    <button class="toggle" type="button">Open/Close</button>
+  </div>
+
+  <div class="grid">
+
+    
+  </div>
+</div>
+
+    <!-- ===== Miscellaneous ===== -->
+<div class="section collapsed" data-group="Miscellaneous">
+  <div class="section-header" onclick="toggleSection(this)">
+    <h2 class="section-title">Miscellaneous</h2>
+    <button class="toggle" type="button">Open/Close</button>
+  </div>
+
+  <div class="grid">
+
+    
+  </div>
+</div>
+
+
+
+    
+
+
+
+
+
+   
+
+    <div class="tags">
+      <span class="tag">Grid Cards</span>
+      <span class="tag">Mobile Friendly</span>
+      <span class="tag">Search</span>
+      <span class="tag">Toggle Sections</span>
+      <span class="tag">All Chapters</span>
+    </div>
+
+  </main>
+
+  <footer>
+    &copy; 2025 Anas Faseeh • All Rights Reserved
+  </footer>
+
+  <a href="notes.html" class="back-button">⬅ Back</a>
+
+  <script>
+    // Clock
+    function updateDateTime(){
+      const now = new Date();
+      document.getElementById('datetime').textContent = now.toLocaleString();
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+    // Section Toggle
+    function toggleSection(el){
+      const box = el.closest('.section');
+      box.classList.toggle('collapsed');
+    }
+
+    // Search + Quick Filter
+    const searchInput = document.getElementById('search');
+    const quickFilter = document.getElementById('quickFilter');
+
+    function normalize(str){
+      return (str || '').toLowerCase().replace(/\s+/g,' ').trim();
+    }
+
+    function applyFilters(){
+      const q = normalize(searchInput.value);
+      const group = quickFilter.value;
+
+      document.querySelectorAll('.section').forEach(sec=>{
+        const secGroup = sec.getAttribute('data-group');
+        const inGroup = group === 'all' || group === secGroup;
+
+        // search inside the section cards
+        let anyVisible = false;
+        sec.querySelectorAll('.card').forEach(card=>{
+          const text = normalize(card.textContent);
+          const match = text.includes(q);
+          const show = inGroup && (q ? match : true);
+          card.style.display = show ? '' : 'none';
+          if(show) anyVisible = true;
+        });
+
+        // If nothing matches in this section with search, keep section but could stay collapsed
+        sec.style.display = anyVisible ? '' : (q ? 'none' : ''); 
+      });
+    }
+
+    searchInput.addEventListener('input', applyFilters);
+    quickFilter.addEventListener('change', applyFilters);
+  </script>
+      <!-- Floating Social Media Links -->
+<div class="social-links">
+  <a href="https://instagram.com/anas.khan_alig" target="_blank" class="social instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://youtube.com/@anas.khan_alig" target="_blank" class="social youtube">
+    <i class="fab fa-youtube"></i>
+  </a>
+  <a href="mailto:anaskhankhan47350@gmail.com" class="social email">
+    <i class="fas fa-envelope"></i>
+  </a>
+</div>
+
+<style>
+/* Floating Social Links */
+.social-links {
+  position: fixed;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1000;
+}
+
+.social {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 22px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social.instagram { background: #E1306C; }
+.social.youtube { background: #FF0000; }
+.social.email { background: #0072C6; }
+
+.social:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+  opacity: 0.95;
+}
+</style>
+</body>
+</html>
+<script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_3CSWzcLuK3JxJkR7DjccMzCqnc1E" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
+<script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_5z7HDNxVkx6fagT3d38JgX1uEJot" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
